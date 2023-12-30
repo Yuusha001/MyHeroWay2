@@ -14509,7 +14509,7 @@ MonoBehaviour:
   filterMode: 0
   mainChannel: {fileID: 2800000, guid: 72ab24a4ec328f94bbca164418888c7e, type: 3}
   subChannels: []
-  animationMinSpeed: 5
+  animationMinSpeed: 6
   animationMaxSpeed: 6
   animationStartTime: 0
   colliderType: 0
