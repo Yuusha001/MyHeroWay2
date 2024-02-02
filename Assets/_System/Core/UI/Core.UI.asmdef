@@ -1,0 +1,16 @@
+{
+    "name": "Core.UI",
+    "rootNamespace": "",
+    "references": [
+        "GUID:b72fd223d7bd131469e7c69c0c73dca7"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
