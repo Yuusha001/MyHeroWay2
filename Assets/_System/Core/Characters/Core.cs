@@ -16,14 +16,14 @@ namespace MyHeroWay
             combat.Initialize(this);
             pause = false;
         }
-        public void UpdateLogicCore()
+        public void UpdateLogic()
         {
             if (pause) return;
             movement.UpdateLogic();
             combat.UpdateLogic();
         }
 
-        public void UpdatePhysicCore()
+        public void UpdatePhysic()
         {
             if (pause) return;
             movement.UpdatePhysic();

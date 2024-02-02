@@ -1,4 +1,4 @@
-namespace Utils
+namespace Utils.String
 {
     public class StringManager 
     {
@@ -7,5 +7,8 @@ namespace Utils
         public static readonly string RowPrefab = "Row";
         public static readonly string TilePrefab = "Tile";
         public static readonly string DestroyPrefab = "Flash_star_ellow_green";
+        public static readonly string isWalking = "isWalking";
+        public static readonly string moveX = "moveX";
+        public static readonly string moveY = "moveY";
     }
 }

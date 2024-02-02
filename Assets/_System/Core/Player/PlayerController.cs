@@ -6,24 +6,28 @@ namespace MyHeroWay
 {
     public class PlayerController : Controller
     {
+        public PlayerAnimator playerAnimator;
         public void Initialize(PlayerControlManager playerControlManager)
         {
             core.Initialize(this);
+            playerAnimator.Initialize(this);
         }
         
         public void UpdateScript()
         {
-            core.UpdateLogicCore();
+            core.UpdateLogic();
+            playerAnimator.UpdateLogic();
         }
 
         public void FixedUpdateScript()
         {
-            core.UpdatePhysicCore();
+            core.UpdatePhysic();
+            playerAnimator.UpdatePhysic();
         }
 
         public void SetMovementDirection(Vector2 vector2)
         {
-            core.movement.direction = vector2;
+            GetMovement().direction = vector2;
         }
     }
 }

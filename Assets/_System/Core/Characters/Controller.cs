@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,11 +6,46 @@ namespace MyHeroWay
 {
     public abstract class Controller : MonoBehaviour
     {
+        [ReadOnly]
         public Core core;
+        [ReadOnly]
         public CharacterStats originalStats;
+        [ReadOnly]
         public CharacterStats runtimeStats;
-        public bool isInteracting;
-        public bool isActive;
+        [ReadOnly]
+        [SerializeField]
+        private bool isInteracting;
+        [ReadOnly]
+        [SerializeField]
+        private bool isWalking;
+        [ReadOnly]
+        [SerializeField]
+        private bool isRunning;
+        [ReadOnly]
+        [SerializeField]
+        private bool isActive;
+
+        public bool IsWalking()
+        {
+            isWalking = !GetMovement().direction.Equals(Vector2.zero);
+            return isWalking;
+        }
+
+        public bool IsInteracting()
+        {
+            return isInteracting;
+        }
+
+        public bool IsActive()
+        {
+            return isActive;
+        }
+
+        public Movement GetMovement()
+        {
+            return core.movement;
+        }
+
         public virtual void Die(bool deactiveCharacter)
         {
             isActive = false;
