@@ -21,6 +21,7 @@ namespace MyHeroWay
             this.controller = _controller;
             this.characterAnimator = _characterAnimator;
             primaryWeapon.Initialize(controller);
+            primaryWeapon.OnEquip();
         }
     }
 }

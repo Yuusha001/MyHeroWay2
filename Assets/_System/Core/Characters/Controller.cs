@@ -27,21 +27,13 @@ namespace MyHeroWay
         [ReadOnly]
         public AnimatorHandle animatorHandle;
 
-        
+        public bool IsInteracting { get => isInteracting; set => isInteracting = value; }
+        public bool IsActive { get => isActive; set => isActive = value; }
+
         public bool IsWalking()
         {
             isWalking = !GetMovement().direction.Equals(Vector2.zero);
             return isWalking;
-        }
-
-        public bool IsInteracting()
-        {
-            return isInteracting;
-        }
-
-        public bool IsActive()
-        {
-            return isActive;
         }
 
         public Movement GetMovement()
@@ -51,7 +43,7 @@ namespace MyHeroWay
 
         public virtual void Die(bool deactiveCharacter)
         {
-            isActive = false;
+            IsActive = false;
             if (deactiveCharacter)
             {
                 //animatorHandle.DeactiveCharacter();
@@ -68,7 +60,7 @@ namespace MyHeroWay
         }
         public virtual void Pause()
         {
-            isActive = false;
+            IsActive = false;
             /*if (animatorHandle != null)
             {
                 animatorHandle.PauseAnimator();
@@ -79,7 +71,7 @@ namespace MyHeroWay
         {
             if (runtimeStats.health > 0)
             {
-                isActive = true;
+                IsActive = true;
             }
             //animatorHandle.ResumeAnimator();
             core.Resume();

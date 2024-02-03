@@ -17,7 +17,7 @@ namespace MyHeroWay
 
         public override void UpdateLogic()
         {
-            
+            controller.IsInteracting = GetBool(StringManager.isInteracting);
         }
 
         public override void UpdatePhysic()

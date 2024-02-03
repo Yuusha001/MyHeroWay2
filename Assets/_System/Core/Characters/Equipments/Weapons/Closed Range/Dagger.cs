@@ -1,15 +1,21 @@
 using UnityEngine;
+using Utils.String;
 
 namespace MyHeroWay
 {
     public class Dagger : Weapon
     {
-        public bool isTrigger;
-        public bool isActiveCombo;
         public bool canDoCombo;
-        public LayerMask layerContact;
+        [SerializeField]
+        private int currentIndexMoveSet;
         public Vector2 sizeCollider;
         public Vector2 offsetCollider;
+
+        public override void Initialize(Controller controller)
+        {
+            base.Initialize(controller);
+        }
+
         public override void SetEquipmentData(EquipmentData data)
         {
             base.SetEquipmentData(data);
@@ -21,13 +27,14 @@ namespace MyHeroWay
         }
         protected override void OnEvent(string obj)
         {
-            if (!isTrigger) return;
             if (obj.Equals("PlayFX"))
             {
 
             }
             if (obj.Equals("TriggerDamage"))
             {
+                Debug.Log("TriggerDamage");
+
                 var colls = new Collider2D[5];
                 var hitDirection = controller.core.movement.facingDirection;
                 Vector3 pos = handleFacingPosition(hitDirection);
@@ -38,7 +45,7 @@ namespace MyHeroWay
                 damageInfo.hitDirection = hitDirection;
 
                 bool isCrit = false;
-                int damage = (int)controller.runtimeStats.physicalDamage;
+                //int damage = (int)controller.runtimeStats.physicalDamage;
                /* damageInfo.stunTime = moveSets[currentIndexMoveSet].stunTime;
                 damageInfo.impactSound = moveSets[currentIndexMoveSet].impactSound;*/
                 damageInfo.idSender = controller.GetInstanceID();
@@ -51,7 +58,7 @@ namespace MyHeroWay
                     IDamage target = colls[i].GetComponent<IDamage>();
                     if (target != null)
                     {
-                        damageInfo.damage = damage;
+                        damageInfo.damage = 10;
                         target.TakeDamage(damageInfo);
                     }
                 }
@@ -60,7 +67,6 @@ namespace MyHeroWay
             if (obj.Equals("ActiveCombo"))
             {
                 canDoCombo = true;
-                // isActiveCombo = true;
             }
             if (obj.Equals("DeactiveCombo"))
             {
@@ -94,8 +100,8 @@ namespace MyHeroWay
         private bool PredictHit()
         {
             var colls = new Collider2D[5];
-            /*int hitDirection = controller.core.movement.facingDirection;
-            Vector3 pos = controller.position + new Vector3(offsetCollider.x * hitDirection, offsetCollider.y);
+            var hitDirection = controller.GetMovement().facingDirection;
+            Vector3 pos = handleFacingPosition(hitDirection);
             Physics2D.OverlapBoxNonAlloc(pos, sizeCollider, 0, colls, layerContact);
             for (int i = 0; i < colls.Length; i++)
             {
@@ -105,34 +111,38 @@ namespace MyHeroWay
                 {
                     return true;
                 }
-            }*/
+            }
             return false;
         }
         public override void TriggerWeapon()
         {
-            /* if (canDoCombo)
-             {
-                 currentIndexMoveSet++;
-                 if (currentIndexMoveSet >= moveSets.Length)
-                 {
+            if (canDoCombo)
+            {
+                currentIndexMoveSet++;
+                if (currentIndexMoveSet >= weaponMoveSets.moveSets.Length)
+                {
 
-                     currentIndexMoveSet = 0;
-                 }
-                 isActiveCombo = PredictHit();
-                 var currentMoveSet = moveSets[currentIndexMoveSet];
-                 controller.animatorHandle.PlayAnimation(currentMoveSet.animationName, 0.1f, 1, true, true);
-                 canDoCombo = false;
-             }
-             else
-             {
-                 if (!controller.isInteracting && !canDoCombo)
-                 {
-                     isActiveCombo = PredictHit();
-                     currentIndexMoveSet = 0;
-                     var currentMoveSet = moveSets[currentIndexMoveSet];
-                     controller.animatorHandle.PlayAnimation(currentMoveSet.animationName, 0.1f, 1, true, true);
-                 }
-             }*/
+                    currentIndexMoveSet = 0;
+                }
+                isActiveCombo = PredictHit();
+                var currentMoveSet = weaponMoveSets.moveSets[currentIndexMoveSet];
+                controller.IsInteracting = true;
+                controller.animatorHandle.SetBool(StringManager.isInteracting, controller.IsInteracting);
+                controller.animatorHandle.SetBool(currentMoveSet.animationName,true);
+                canDoCombo = false;
+            }
+            else
+            {
+                if (!controller.IsInteracting && !canDoCombo)
+                {
+                    isActiveCombo = PredictHit();
+                    currentIndexMoveSet = 0;
+                    var currentMoveSet = weaponMoveSets.moveSets[currentIndexMoveSet];
+                    controller.IsInteracting = true;
+                    controller.animatorHandle.SetBool(StringManager.isInteracting, controller.IsInteracting);
+                    controller.animatorHandle.SetBool(currentMoveSet.animationName,true);
+                }
+            }
         }
 
         public Vector3 handleFacingPosition(EFacingDirection facingDirection)

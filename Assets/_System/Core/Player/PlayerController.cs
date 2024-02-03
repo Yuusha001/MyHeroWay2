@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Windows;
 
 namespace MyHeroWay
 {
@@ -15,6 +14,13 @@ namespace MyHeroWay
             animatorHandle = playerAnimator;
             playerAnimator.Initialize(this);
             characterEquipment.Initialize(this, playerAnimator);
+            playerControlManager.playerInput.Combat.PrimaryWeapon.started += _ => HandlePrimaryAttack();
+            playerAnimator.SetLastDirection(Vector2.down);
+        }
+
+        public void HandlePrimaryAttack()
+        {
+            characterEquipment.primaryWeapon.TriggerWeapon();
         }
         
         public void UpdateScript()

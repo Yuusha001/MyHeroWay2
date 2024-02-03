@@ -42,8 +42,7 @@ namespace MyHeroWay
 
         public void InputHandler()
         {
-            playerController.SetMovementDirection(playerInput.Movement.Move.ReadValue<Vector2>());
-            
+            playerController.SetMovementDirection(playerInput.Movement.Move.ReadValue<Vector2>()); 
         }
 
         public void ResetCharacter()

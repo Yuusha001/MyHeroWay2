@@ -6,6 +6,9 @@ namespace MyHeroWay
     public abstract class Weapon : Equipment
     {
         public float attackRange;
+        public bool isActiveCombo;
+        public LayerMask layerContact;
+        public WeaponMoveSets weaponMoveSets;
         [SerializeField]
         protected Controller controller;
         public override void Initialize(Controller controller)

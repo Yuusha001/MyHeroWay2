@@ -92,7 +92,7 @@ namespace MyHeroWay
 
         private void HandleMovement()
         {
-            if (core.controller.IsInteracting() || !core.controller.IsActive()) return;
+            if (core.controller.IsInteracting || !core.controller.IsActive) return;
             //transform.position += direction * movementSpeed * Time.deltaTime;
             rb.MovePosition(rb.position + direction * (movementSpeed * Time.fixedDeltaTime));
         }

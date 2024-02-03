@@ -1,4 +1,5 @@
 using UnityEngine;
+using Utils.String;
 
 namespace MyHeroWay
 {
@@ -46,15 +47,26 @@ namespace MyHeroWay
             return animator.GetBool(Animator.StringToHash(parameter));
         }
 
+        public void SetTrigger(string parameter)
+        {
+            controller.IsInteracting = true;
+            SetBool(StringManager.isInteracting, controller.IsInteracting);
+            animator.SetTrigger(Animator.StringToHash(parameter));
+        }
+
         public void PlayAnimation(string parameter, float normalizedTransitionDuration, int layer, bool isInteracting)
         {
             animator.CrossFade(Animator.StringToHash(parameter), normalizedTransitionDuration, layer);
-            SetBool("IsInteracting", isInteracting);
+            SetBool(StringManager.isInteracting, isInteracting);
         }
        
         public void PlayAnimation(string parameter, float normalizedTransitionDuration, int layer)
         {
             animator.CrossFade(Animator.StringToHash(parameter), normalizedTransitionDuration, layer);
+        }
+        public void SendEvent(string eventName)
+        {
+            OnEventAnimation?.Invoke(eventName);
         }
     }
 
