@@ -24,7 +24,10 @@ namespace MyHeroWay
         [ReadOnly]
         [SerializeField]
         private bool isActive;
+        [ReadOnly]
+        public AnimatorHandle animatorHandle;
 
+        
         public bool IsWalking()
         {
             isWalking = !GetMovement().direction.Equals(Vector2.zero);

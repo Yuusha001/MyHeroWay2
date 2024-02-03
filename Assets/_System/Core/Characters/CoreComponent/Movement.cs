@@ -12,14 +12,13 @@ namespace MyHeroWay
         public Vector2 workSpace;
         public Vector2 direction;
         [EnumFlags]
-        public FacingDirection facingDirection;
+        public EFacingDirection facingDirection;
        
         public override void Initialize(Core core)
         {
             base.Initialize(core);
-            facingDirection = FacingDirection.NONE;
+            facingDirection = EFacingDirection.DOWN;
             rb = core.controller.GetComponent<Rigidbody2D>();
-
         }
 
         public void UpdateLogic()
@@ -66,6 +65,31 @@ namespace MyHeroWay
             rb.velocity = workSpace;
             currentVelecity = workSpace;
         }
+
+        public void SetDirection(Vector2 vector2)
+        {
+            direction = vector2;
+            if (direction != Vector2.zero)
+            {
+                if (vector2.x == 1)
+                {
+                    facingDirection = EFacingDirection.RIGHT;
+                }
+                if (vector2.x == -1)
+                {
+                    facingDirection = EFacingDirection.LEFT;
+                }
+                if (vector2.y == 1)
+                {
+                    facingDirection = EFacingDirection.UP;
+                }
+                if (vector2.y == -1)
+                {
+                    facingDirection = EFacingDirection.DOWN;
+                }
+            }
+        }
+
         private void HandleMovement()
         {
             if (core.controller.IsInteracting() || !core.controller.IsActive()) return;

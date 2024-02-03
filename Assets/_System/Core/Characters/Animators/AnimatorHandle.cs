@@ -6,6 +6,7 @@ namespace MyHeroWay
     {
         public Animator animator { get; protected set; }
         protected Controller controller;
+        public event System.Action<string> OnEventAnimation;
         public virtual void Initialize(Controller controller)
         {
             animator = GetComponent<Animator>();

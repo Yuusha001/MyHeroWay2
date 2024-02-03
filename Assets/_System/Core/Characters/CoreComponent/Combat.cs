@@ -9,7 +9,7 @@ namespace MyHeroWay
         public bool isInvincible;
         private float stunTimer;
         private Collider2D selfCollider;
-        public DamageSenderType damageSenderType;
+        public EDamageSenderType damageSenderType;
         public Controller controller => core.controller;
         public CharacterStats originalStats => core.controller.originalStats;
         public CharacterStats runtimeStats => core.controller.runtimeStats;
@@ -124,15 +124,15 @@ namespace MyHeroWay
             string content = "";
             switch (damageInfo.damageType)
             {
-                case DamageType.PHYSICAL:
+                case EDamageType.PHYSICAL:
                     content = "<color=orange>-" + damageInfo.damage.ToString() + "</color>";
                     break;
-                case DamageType.MAGICAL:
+                case EDamageType.MAGICAL:
                     break;
-                case DamageType.CRITICAL:
+                case EDamageType.CRITICAL:
                     content = "<color=#FF2600><size=1100>-" + damageInfo.damage.ToString() + "</size></color>";
                     break;
-                case DamageType.TRUEDAMAGE:
+                case EDamageType.TRUEDAMAGE:
                     content = "<color=white>-" + damageInfo.damage.ToString() + "</color>";
                     break;
                 default:

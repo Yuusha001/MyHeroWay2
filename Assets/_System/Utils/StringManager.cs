@@ -10,5 +10,7 @@ namespace Utils.String
         public static readonly string isWalking = "isWalking";
         public static readonly string moveX = "moveX";
         public static readonly string moveY = "moveY";
+        public static readonly string lastMoveX = "lastMoveX";
+        public static readonly string lastMoveY = "lastMoveY";
     }
 }
