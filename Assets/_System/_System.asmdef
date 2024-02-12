@@ -1,0 +1,22 @@
+{
+    "name": "_System",
+    "rootNamespace": "",
+    "references": [
+        "GUID:7902dc15d4d966a49808951e0c0894b4",
+        "GUID:3718ea0c5a9a3414787210a04844964f",
+        "GUID:776d03a35f1b52c4a9aed9f56d7b4229",
+        "GUID:5c8abe08105b29d4196b67b955b4e17d",
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:7b1811f7700db24478bc3a39943178d4"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

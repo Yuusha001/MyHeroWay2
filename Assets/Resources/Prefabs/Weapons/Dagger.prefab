@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6303868157444757285
 SpriteRenderer:
@@ -129,6 +129,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 473e40e6299960f45b9a10dae42ff67c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equipmentStats:
+    level: 0
+    health: 0
+    mana: 0
+    strength: 0
+    magicPower: 0
+    speed: 0
+    vitality: 0
+    magicalDefense: 0
+    critRate: 0
+    critDamage: 0
+    evasion: 0
+    coolDown: 0
   equipmentType: 0
   data:
     idInventory: 0
@@ -138,13 +151,13 @@ MonoBehaviour:
     gemChoice: 0
     isGemChosen: 0
   attackRange: 2
+  isActiveCombo: 0
+  weaponMoveSets: {fileID: 11400000, guid: ad8bfb243fba0f642868bd87e296bc15, type: 2}
+  weaponStats: {fileID: 11400000, guid: 26ae0e3bb7376a74f849284f3ac13316, type: 2}
+  controller: {fileID: 0}
   layerContact:
     serializedVersion: 2
     m_Bits: 8192
-  weaponMoveSets: {fileID: 11400000, guid: ad8bfb243fba0f642868bd87e296bc15, type: 2}
-  controller: {fileID: 0}
-  isTrigger: 0
-  isActiveCombo: 0
   canDoCombo: 1
   currentIndexMoveSet: 0
   sizeCollider: {x: 1.5, y: 1.5}

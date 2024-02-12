@@ -497,6 +497,17 @@ MonoBehaviour:
       m_SpriteOverride: {fileID: 908962461, guid: 635a334ba8d677c44829fc04918799c1, type: 3}
     m_FromMain: 0
     m_EntryOverrideCount: 1
+  - m_Name: idle_up
+    m_Hash: 632329083
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: dagger_1
+      m_Hash: 366041192
+      m_Sprite: {fileID: -1052166140, guid: 15eb0f89c52ac63429b0ae9e601af499, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1052166140, guid: 15eb0f89c52ac63429b0ae9e601af499, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 1
   m_PrimaryLibraryGUID: 
-  m_ModificationHash: 638425228954312627
+  m_ModificationHash: 638429314528513461
   m_Version: 1

@@ -5,6 +5,7 @@ namespace MyHeroWay
 {
     public class Dagger : Weapon
     {
+        public LayerMask layerContact;
         public bool canDoCombo;
         [SerializeField]
         private int currentIndexMoveSet;
@@ -19,7 +20,7 @@ namespace MyHeroWay
         public override void SetEquipmentData(EquipmentData data)
         {
             base.SetEquipmentData(data);
-            equipmentStats.physicalDamage = 0;
+            equipmentStats.strength = 0;
         }
         public override void SetUpPassive(CharacterStats originalStats)
         {
@@ -31,44 +32,50 @@ namespace MyHeroWay
             {
 
             }
-            if (obj.Equals("TriggerDamage"))
+            if (obj.Equals(StrManager.TriggerDamageEvent))
             {
-                Debug.Log("TriggerDamage");
-
                 var colls = new Collider2D[5];
                 var hitDirection = controller.core.movement.facingDirection;
                 Vector3 pos = handleFacingPosition(hitDirection);
                 Physics2D.OverlapBoxNonAlloc(pos, sizeCollider, 0, colls, layerContact);
-                DamageInfo damageInfo = new DamageInfo();
-                //damageInfo.listEffect = new List<StatusEffectData>();
-                damageInfo.damageSenderType = controller.core.combat.damageSenderType;
-                damageInfo.hitDirection = hitDirection;
+                DamageInfo damageInfo = new DamageInfo(controller.core);
+                damageInfo.SetupCombo(weaponMoveSets.moveSets[currentIndexMoveSet]);
+                if (controller is PlayerController)
+                {
+                    var characterEquipment = PlayerControlManager.Instance.playerController.characterEquipment;
+                    var primary = characterEquipment.primaryWeapon;
+                    var secondary = characterEquipment.secondaryWeapon;
+                    if (secondary != null)
+                    {
+                        damageInfo.SetupWeaponData(primary.weaponStats, secondary.weaponStats);
+                    }
+                    else
+                    {
+                        damageInfo.SetupWeaponData(primary.weaponStats);
 
-                bool isCrit = false;
-                //int damage = (int)controller.runtimeStats.physicalDamage;
-               /* damageInfo.stunTime = moveSets[currentIndexMoveSet].stunTime;
-                damageInfo.impactSound = moveSets[currentIndexMoveSet].impactSound;*/
-                damageInfo.idSender = controller.GetInstanceID();
-                damageInfo.owner = controller;
+                    }
+                }
+                else
+                {
+                    damageInfo.SetupWeaponData(this.weaponStats);
+                }
 
-                damageInfo.damageType = isCrit ? EDamageType.CRITICAL : EDamageType.PHYSICAL;
                 for (int i = 0; i < colls.Length; i++)
                 {
                     if (colls[i] == null) continue;
                     IDamage target = colls[i].GetComponent<IDamage>();
                     if (target != null)
                     {
-                        damageInfo.damage = 10;
                         target.TakeDamage(damageInfo);
                     }
                 }
                 canDoCombo = false;
             }
-            if (obj.Equals("ActiveCombo"))
+            if (obj.Equals(StrManager.ActiveComboEvent))
             {
                 canDoCombo = true;
             }
-            if (obj.Equals("DeactiveCombo"))
+            if (obj.Equals(StrManager.DeactiveComboEvent))
             {
                 canDoCombo = false;
                 isActiveCombo = false;
@@ -127,8 +134,8 @@ namespace MyHeroWay
                 isActiveCombo = PredictHit();
                 var currentMoveSet = weaponMoveSets.moveSets[currentIndexMoveSet];
                 controller.IsInteracting = true;
-                controller.animatorHandle.SetBool(StringManager.isInteracting, controller.IsInteracting);
-                controller.animatorHandle.SetBool(currentMoveSet.animationName,true);
+                controller.animatorHandle.SetBool(StrManager.isInteracting, controller.IsInteracting);
+                controller.animatorHandle.SetBool(currentMoveSet.animationName, true);
                 canDoCombo = false;
             }
             else
@@ -139,8 +146,8 @@ namespace MyHeroWay
                     currentIndexMoveSet = 0;
                     var currentMoveSet = weaponMoveSets.moveSets[currentIndexMoveSet];
                     controller.IsInteracting = true;
-                    controller.animatorHandle.SetBool(StringManager.isInteracting, controller.IsInteracting);
-                    controller.animatorHandle.SetBool(currentMoveSet.animationName,true);
+                    controller.animatorHandle.SetBool(StrManager.isInteracting, controller.IsInteracting);
+                    controller.animatorHandle.SetBool(currentMoveSet.animationName, true);
                 }
             }
         }

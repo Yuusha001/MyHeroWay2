@@ -7,8 +7,8 @@ namespace MyHeroWay
     {
         public float attackRange;
         public bool isActiveCombo;
-        public LayerMask layerContact;
         public WeaponMoveSets weaponMoveSets;
+        public WeaponStats weaponStats;
         [SerializeField]
         protected Controller controller;
         public override void Initialize(Controller controller)
