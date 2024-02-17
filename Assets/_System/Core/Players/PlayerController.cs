@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using Utils;
 
 namespace MyHeroWay
@@ -18,7 +17,6 @@ namespace MyHeroWay
             playerInput = playerControlManager.playerInput;
             playerInput.Combat.PrimaryWeapon.started += _ => HandlePrimaryAttack();
             playerInput.Movement.Dash.started += _ => HandleDash();
-            
             playerInput.Movement.Move.performed += callback => SetLastDirection(callback.ReadValue<Vector2>());
             playerAnimator.SetLastDirection(Vector2.down);
         }
@@ -27,7 +25,12 @@ namespace MyHeroWay
         {
             characterEquipment.primaryWeapon.TriggerWeapon();
         }
-        
+
+        public void HandleSecondaryAttack()
+        {
+            characterEquipment.secondaryWeapon.TriggerWeapon();
+        }
+
         public void HandleDash()
         {
             GetMovement().movementSpeed *= 4;
@@ -42,6 +45,7 @@ namespace MyHeroWay
             SetMovementDirection(playerInput.Movement.Move.ReadValue<Vector2>());
             core.UpdateLogic();
             playerAnimator.UpdateLogic();
+            characterEquipment.UpdateLogic();
         }
 
         public void FixedUpdateScript()
@@ -65,5 +69,7 @@ namespace MyHeroWay
             }
             
         }
+
+        
     }
 }

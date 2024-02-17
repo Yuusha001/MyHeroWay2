@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using MyHeroWay;
 using NaughtyAttributes;
 using System;
@@ -48,3 +50,5 @@ public class ExcelDataParser : MonoBehaviour
         return new Vector2Int(min, max);
     }
 }
+
+#endif

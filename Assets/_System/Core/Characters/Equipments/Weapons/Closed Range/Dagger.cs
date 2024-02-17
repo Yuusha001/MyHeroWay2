@@ -20,7 +20,6 @@ namespace MyHeroWay
         public override void SetEquipmentData(EquipmentData data)
         {
             base.SetEquipmentData(data);
-            equipmentStats.strength = 0;
         }
         public override void SetUpPassive(CharacterStats originalStats)
         {

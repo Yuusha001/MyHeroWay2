@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace MyHeroWay
@@ -11,6 +12,7 @@ namespace MyHeroWay
         public EElementType ElementType;
         public EEffectStatus EffectStatus;
         public int Evasion;
+        [BoxGroup("Sword, Axe, Hammer, Spear, Pole, Staff = 10")] 
         public int KnockBackChance;
     }
 }

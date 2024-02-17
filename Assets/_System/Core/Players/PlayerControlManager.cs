@@ -44,19 +44,11 @@ namespace MyHeroWay
             isDead = false;
             playerController.ResetController();
         }
-        public void SetPosition(Vector3 position)
-        {
-            position.z = -5;
-            transform.position = position;
-        }
         public void Initialize()
         {
             selfCollider = GetComponent<Collider2D>();
             playerController.Initialize(this);
         }
-
-        
-
         public void PlayerDie()
         {
             if (isDead) return;

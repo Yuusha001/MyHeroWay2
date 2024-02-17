@@ -23,5 +23,10 @@ namespace MyHeroWay
             primaryWeapon.Initialize(controller);
             primaryWeapon.OnEquip();
         }
+
+        public void UpdateLogic()
+        {
+            primaryWeapon.OnUpdate();
+        }
     }
 }

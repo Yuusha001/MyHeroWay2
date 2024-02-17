@@ -131,6 +131,7 @@ namespace MyHeroWay.Damage
 
         #region Knock Back
         //Knock Back Chance (%) = Weapon's Knock Back (KB) + RANDOM(0 ~ A's Lv) - RANDOM(0 ~D's Lv) 
+        // Sword, Axe, Hammer, Spear, Pole, Staff = 10
         public static bool isKnockBack(WeaponStats weaponStats, CharacterStats attacker, CharacterStats reciver)
         {
             int rate = weaponStats.KnockBackChance + Random.Range(0, attacker.level) - Random.Range(0,reciver.level);

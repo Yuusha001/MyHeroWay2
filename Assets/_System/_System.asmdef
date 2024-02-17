@@ -1,6 +1,6 @@
 {
     "name": "_System",
-    "rootNamespace": "",
+    "rootNamespace": "MyHeroWay",
     "references": [
         "GUID:7902dc15d4d966a49808951e0c0894b4",
         "GUID:3718ea0c5a9a3414787210a04844964f",
