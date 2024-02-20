@@ -32,7 +32,7 @@ namespace MyHeroWay
         [Foldout("Animator")]
         [ReadOnly]
         public AnimatorHandle animatorHandle;
-
+        
         public bool IsInteracting { get => isInteracting; set => isInteracting = value; }
         public bool IsActive { get => isActive; set => isActive = value; }
 

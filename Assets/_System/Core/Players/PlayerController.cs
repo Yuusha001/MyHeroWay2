@@ -1,3 +1,5 @@
+using MyHeroWay.Stats;
+using NaughtyAttributes;
 using UnityEngine;
 using Utils;
 
@@ -5,10 +7,12 @@ namespace MyHeroWay
 {
     public class PlayerController : Controller
     {
+        [Foldout("Animator")]
         public CharacterAnimator playerAnimator;
         public CharacterEquipment characterEquipment;
         public PlayerControls playerInput;
-
+        public int currentLevel;
+        public CharacterStatsModifier playerStatsModifier;
         public void Initialize(PlayerControlManager playerControlManager)
         {
             core.Initialize(this);
@@ -22,6 +26,7 @@ namespace MyHeroWay
             playerInput.Movement.Move.performed += callback => SetLastDirection(callback.ReadValue<Vector2>());
             playerInput.Skills.Keyboard.performed += callback => HandleSkills((int)callback.ReadValue<float>());
             playerAnimator.SetLastDirection(Vector2.down);
+            CaculateStats();
         }
 
         public void HandlePrimaryAttack()
@@ -79,6 +84,13 @@ namespace MyHeroWay
                 playerAnimator.SetLastDirection(vector2);
             }
             
+        }
+
+        [Button("Caculate Stats")]
+        private void CaculateStats()
+        {
+            originalStats = StatsCaculation.GetFinalCharacterStats(currentLevel,playerStatsModifier);
+            runtimeStats = originalStats;
         }
     }
 }

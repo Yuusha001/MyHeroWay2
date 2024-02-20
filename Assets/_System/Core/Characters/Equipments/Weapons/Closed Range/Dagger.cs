@@ -15,6 +15,7 @@ namespace MyHeroWay
         public override void Initialize(Controller controller)
         {
             base.Initialize(controller);
+            weaponType = EWeaponType.Dagger;
         }
 
         public override void SetEquipmentData(EquipmentData data)
@@ -46,17 +47,16 @@ namespace MyHeroWay
                     var secondary = characterEquipment.secondaryWeapon;
                     if (secondary != null)
                     {
-                        damageInfo.SetupWeaponData(primary.weaponStats, secondary.weaponStats);
+                        damageInfo.SetupWeaponData(weaponType,isPrimaryWeapon, primary.weaponStats, secondary.weaponStats);
                     }
                     else
                     {
-                        damageInfo.SetupWeaponData(primary.weaponStats);
-
+                        damageInfo.SetupWeaponData(weaponType, isPrimaryWeapon, primary.weaponStats);
                     }
                 }
                 else
                 {
-                    damageInfo.SetupWeaponData(this.weaponStats);
+                    damageInfo.SetupWeaponData(weaponType, isPrimaryWeapon, this.weaponStats);
                 }
 
                 for (int i = 0; i < colls.Length; i++)

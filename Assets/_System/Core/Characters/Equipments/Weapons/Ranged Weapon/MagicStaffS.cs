@@ -20,6 +20,7 @@ public class MagicStaffS : Weapon
     public override void Initialize(Controller controller)
     {
         base.Initialize(controller);
+        this.weaponType = EWeaponType.Staves;
         numSpellCast = MaxSpell;
         reloadTimer = 0;
     }
@@ -64,17 +65,17 @@ public class MagicStaffS : Weapon
                 var secondary = characterEquipment.secondaryWeapon;
                 if (secondary != null)
                 {
-                    damageInfo.SetupWeaponData(primary.weaponStats, secondary.weaponStats);
+                    damageInfo.SetupWeaponData(weaponType, isPrimaryWeapon,primary.weaponStats, secondary.weaponStats);
                 }
                 else
                 {
-                    damageInfo.SetupWeaponData(primary.weaponStats);
+                    damageInfo.SetupWeaponData(weaponType, isPrimaryWeapon, primary.weaponStats);
 
                 }
             }
             else
             {
-                damageInfo.SetupWeaponData(this.weaponStats);
+                damageInfo.SetupWeaponData(weaponType, isPrimaryWeapon, this.weaponStats);
             }
 
             Projectile p = FactoryObject.Spawn<Projectile>(StrManager.ProjectilePool, StrManager.ArrowGreenProjectile);
@@ -85,13 +86,7 @@ public class MagicStaffS : Weapon
                 numSpellCast = 0;
                 reloadTimer = ReloadTime;
             }
-            p.Initialize(damageInfo, (idamages) =>
-            {
-                for (int i = 0; i < idamages.Count; i++)
-                {
-                    idamages[i].TakeDamage(damageInfo);
-                }
-            });
+            p.Initialize(damageInfo);
             isActiveCombo = false;
         }
         if (obj.Equals(StrManager.ActiveComboEvent))

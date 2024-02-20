@@ -8,11 +8,13 @@ namespace MyHeroWay
     {
         public int idSender { private set; get; }
         public Combat owner { private set; get; }
+        public bool fromPrimary { private set; get; }
         public bool canKnockBack { private set; get; }
         public float stunTime { private set; get; }
         public Vector2 force { private set; get; }
         public EFacingDirection hitDirection { private set; get; }
         public EDamageSenderType damageSenderType { private set; get; }
+        public EWeaponType weaponType { private set; get; }
         public WeaponStats primaryWeaponStats { private set; get; }
         public WeaponStats secondaryWeaponStats { private set; get; }
         public SpellStats spellStats { private set; get; }
@@ -34,8 +36,10 @@ namespace MyHeroWay
             this.force = moveSet.force;
         }
 
-        public void SetupWeaponData(WeaponStats primary, WeaponStats secondary = null)
+        public void SetupWeaponData(EWeaponType weaponType, bool isPrimary ,WeaponStats primary, WeaponStats secondary = null)
         {
+            this.fromPrimary = isPrimary;
+            this.weaponType = weaponType;
             this.primaryWeaponStats = primary;
             this.secondaryWeaponStats = secondary;
         }

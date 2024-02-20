@@ -8,9 +8,9 @@ namespace MyHeroWay
 {
     public class Arrow : Projectile
     {
-        public override void Initialize(DamageInfo damageInfo, Action<List<IDamage>> OnContact = null)
+        public override void Initialize(DamageInfo damageInfo)
         {
-            base.Initialize(damageInfo, OnContact);
+            base.Initialize(damageInfo);
             GetComponent<TrailRenderer>().enabled = true;
         }
 

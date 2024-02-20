@@ -5,7 +5,7 @@ namespace MyHeroWay.Damage
     public class DamageCaculation
     {
         #region Magical Damage formula:
-        public static DamageResult GetMagical_DMG(SpellStats spell, CharacterStats attacker, CharacterStats reciver)
+        static DamageResult GetMagical_DMG(SpellStats spell, CharacterStats attacker, CharacterStats reciver)
         {
             //DMG = [POW x RANDOM(1~1.125) - MDEF] x [2 + MAG x (Lv+MAG)/256)]  
             bool canKnockBack = isKnockBack(spell, attacker, reciver);
@@ -26,7 +26,7 @@ namespace MyHeroWay.Damage
 
 
         #region Strength formula: swords, greatswords, spears, and crossbows.
-        public static DamageResult GetDMG_TypeA(WeaponStats weapon, CharacterStats attacker, CharacterStats reciver)
+        static DamageResult GetDMG_TypeA(WeaponStats weapon, CharacterStats attacker, CharacterStats reciver)
         {
             // DMG = [ATK x RANDOM(1~1.125) - DEF] x[1 + STR x(Lv + STR) / 256]
             bool canKnockBack = isKnockBack(weapon, attacker, reciver);
@@ -40,7 +40,7 @@ namespace MyHeroWay.Damage
         #endregion
 
         #region Magick Power formula: katana and staves.
-        public static DamageResult GetDMG_TypeB(WeaponStats weapon, CharacterStats attacker, CharacterStats reciver)
+        static DamageResult GetDMG_TypeB(WeaponStats weapon, CharacterStats attacker, CharacterStats reciver)
         {
             //DMG = [ATK x RANDOM(1~1.125) - DEF] x [1 + STR x (Lv+MAG)/256]
             bool canKnockBack = isKnockBack(weapon, attacker, reciver);
@@ -55,7 +55,7 @@ namespace MyHeroWay.Damage
         #endregion
 
         #region Vitality formula: axes, hammers
-        public static DamageResult GetDMG_TypeC(WeaponStats weapon, CharacterStats attacker, CharacterStats reciver)
+        static DamageResult GetDMG_TypeC(WeaponStats weapon, CharacterStats attacker, CharacterStats reciver)
         {
             //DMG = [ATK x RANDOM(0~1.111) - DEF] x [1 + STR x (Lv+VIT)/128]
             bool canKnockBack = isKnockBack(weapon, attacker, reciver);
@@ -69,7 +69,7 @@ namespace MyHeroWay.Damage
         #endregion
 
         #region Magic Defense formula: Poles 
-        public static DamageResult GetDMG_TypeE(WeaponStats weapon, CharacterStats attacker, CharacterStats reciver)
+        static DamageResult GetDMG_TypeE(WeaponStats weapon, CharacterStats attacker, CharacterStats reciver)
         {
             //DMG = [ATK x RANDOM(1~1.125) - MDEF] x [1 + STR x (Lv+STR)/256]
             bool canKnockBack = isKnockBack(weapon, attacker, reciver);
@@ -83,7 +83,7 @@ namespace MyHeroWay.Damage
         #endregion
 
         #region Speed formula: daggers, ninja swords, and bows
-        public static DamageResult GetDMG_TypeD(WeaponStats weapon, CharacterStats attacker, CharacterStats reciver)
+        static DamageResult GetDMG_TypeD(WeaponStats weapon, CharacterStats attacker, CharacterStats reciver)
         {
             //DMG = [ATK x RANDOM(1~1.125)]- DEF] x [1 + STR x (Lv+SPD)/218]
             bool canKnockBack = isKnockBack(weapon, attacker, reciver);
@@ -97,7 +97,7 @@ namespace MyHeroWay.Damage
         #endregion
 
         #region Mace formula: mace
-        public static DamageResult GetDMG_TypeF(WeaponStats weapon, CharacterStats attacker, CharacterStats reciver)
+        static DamageResult GetDMG_TypeF(WeaponStats weapon, CharacterStats attacker, CharacterStats reciver)
         {
             //DMG = [ATK x RANDOM(1~1.125) - DEF] x [1 + MAG x (Lv+MAG)/256]    
             bool canKnockBack = isKnockBack(weapon, attacker, reciver);
@@ -112,7 +112,7 @@ namespace MyHeroWay.Damage
 
         #region Evasion
         //Shield Block = 5% all element, weapon block physical atk
-        public static bool isHit(WeaponStats shieldEva, WeaponStats weaponEva, CharacterStats characterEva, bool isMagicalAttack = false)
+        static bool isHit(WeaponStats shieldEva, WeaponStats weaponEva, CharacterStats characterEva, bool isMagicalAttack = false)
         {
             int random = Random.Range(0, 100);
             int shieldBlockChance = shieldEva.Evasion * 5;
@@ -132,13 +132,13 @@ namespace MyHeroWay.Damage
         #region Knock Back
         //Knock Back Chance (%) = Weapon's Knock Back (KB) + RANDOM(0 ~ A's Lv) - RANDOM(0 ~D's Lv) 
         // Sword, Axe, Hammer, Spear, Pole, Staff = 10
-        public static bool isKnockBack(WeaponStats weaponStats, CharacterStats attacker, CharacterStats reciver)
+        static bool isKnockBack(WeaponStats weaponStats, CharacterStats attacker, CharacterStats reciver)
         {
             int rate = weaponStats.KnockBackChance + Random.Range(0, attacker.level) - Random.Range(0,reciver.level);
             return Random.Range(0,100) >= 100 - rate;
         }
 
-        public static bool isKnockBack(SpellStats spellStats, CharacterStats attacker, CharacterStats reciver)
+        static bool isKnockBack(SpellStats spellStats, CharacterStats attacker, CharacterStats reciver)
         {
             int rate = spellStats.KnockBackChance + Random.Range(0, attacker.level) - Random.Range(0, reciver.level);
             return Random.Range(0, 100) >= 100 - rate;
@@ -152,11 +152,56 @@ namespace MyHeroWay.Damage
         #endregion
 
         #region Crit Hit Rate
-        public static bool isCrittical(CharacterStats attacker)
+        static bool isCrittical(CharacterStats attacker)
         {
             float rate = (attacker.critRate - 354) / (858 * 5);
             return Random.Range(0, 100) >= 95 - rate;
         }
         #endregion
+
+        public static DamageResult GetDamageResult(DamageInfo damageInfo, CharacterStats reciver)
+        {
+            WeaponStats weapon = damageInfo.fromPrimary ? damageInfo.primaryWeaponStats : damageInfo.secondaryWeaponStats;
+            CharacterStats attacker = damageInfo.owner.runtimeStats;
+            switch (damageInfo.weaponType)
+            {
+                //type A
+                case EWeaponType.Sword:
+                    return GetDMG_TypeA(weapon, attacker, reciver);
+                case EWeaponType.GreatSword:
+                    return GetDMG_TypeA(weapon, attacker, reciver);
+                case EWeaponType.Spear:
+                    return GetDMG_TypeA(weapon, attacker, reciver);
+                case EWeaponType.CrossBow:
+                    return GetDMG_TypeA(weapon, attacker, reciver);
+
+                //Type B
+                case EWeaponType.Katana:
+                    return GetDMG_TypeB(weapon, attacker, reciver);
+                case EWeaponType.Staves:
+                    return GetDMG_TypeB(weapon, attacker, reciver);
+                
+                //Type C
+                case EWeaponType.Axe:
+                    return GetDMG_TypeC(weapon, attacker, reciver);
+                case EWeaponType.Hammer:
+                    return GetDMG_TypeC(weapon, attacker, reciver);
+                
+
+                //Type D
+                case EWeaponType.Bow:
+                    return GetDMG_TypeD(weapon, attacker, reciver);
+                case EWeaponType.Dagger:
+                    return GetDMG_TypeD(weapon, attacker, reciver);
+                //Type F
+                case EWeaponType.Mace:
+                    return GetDMG_TypeF(weapon, attacker, reciver);
+                
+                //Type E
+                case EWeaponType.Pole:
+                    return GetDMG_TypeE(weapon, attacker, reciver);
+            }
+            return new DamageResult();
+        }
     }
 }

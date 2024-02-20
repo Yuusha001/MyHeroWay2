@@ -4,8 +4,6 @@ namespace MyHeroWay
     {
         public CharacterStats originalStats { get; }
         public CharacterStats runtimeStats { get;  }
-
-        public event System.Action OnCrit;
         public void ReduceHP(int amount);
         public void ReduceMP(int amount);
         public void GainMP(int amount);

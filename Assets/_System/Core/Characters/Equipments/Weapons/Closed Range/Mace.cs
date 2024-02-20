@@ -16,6 +16,7 @@ public class Mace : Weapon
     public override void Initialize(Controller controller)
     {
         base.Initialize(controller);
+        this.weaponType = EWeaponType.Mace;
     }
 
     public override void SetEquipmentData(EquipmentData data)
@@ -47,17 +48,17 @@ public class Mace : Weapon
                 var secondary = characterEquipment.secondaryWeapon;
                 if (secondary != null)
                 {
-                    damageInfo.SetupWeaponData(primary.weaponStats, secondary.weaponStats);
+                    damageInfo.SetupWeaponData(weaponType,isPrimaryWeapon,primary.weaponStats, secondary.weaponStats);
                 }
                 else
                 {
-                    damageInfo.SetupWeaponData(primary.weaponStats);
+                    damageInfo.SetupWeaponData(weaponType, isPrimaryWeapon, primary.weaponStats);
 
                 }
             }
             else
             {
-                damageInfo.SetupWeaponData(this.weaponStats);
+                damageInfo.SetupWeaponData(weaponType, isPrimaryWeapon, this.weaponStats);
             }
 
             for (int i = 0; i < colls.Length; i++)

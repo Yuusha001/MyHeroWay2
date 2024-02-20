@@ -23,11 +23,13 @@ namespace MyHeroWay
             if (primaryWeapon != null)
             {
                 primaryWeapon.Initialize(controller);
+                primaryWeapon.isPrimaryWeapon = true;
             }
             if (secondaryWeapon != null)
             {
                 secondaryWeapon.Initialize(controller);
                 secondaryWeapon.gameObject.SetActive(false);
+                primaryWeapon.isPrimaryWeapon = false;
             }
         }
 

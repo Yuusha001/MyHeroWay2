@@ -16,12 +16,14 @@ namespace MyHeroWay
         public Controller controller => core.controller;
         public CharacterStats originalStats => core.controller.originalStats;
         public CharacterStats runtimeStats => core.controller.runtimeStats;
+        public System.Action OnStatsChange;
 
-        public event System.Action OnCrit;
         public int GetColliderInstanceID
         {
             get { return selfCollider.GetInstanceID(); }
         }
+
+       
 
         public bool IsSelfCollider(Collider2D other)
         {
@@ -36,31 +38,25 @@ namespace MyHeroWay
 
         public float NormalizeHealth()
         {
+            if(runtimeStats.health == 0) return 0;
             return (float)runtimeStats.health / (float)originalStats.health;
         }
         public float NormalizeMana()
         {
+            if (runtimeStats.mana == 0) return 0;
             return (float)runtimeStats.mana / (float)originalStats.mana;
-        }
-
-        public bool IsCrit()
-        {
-            bool isCrit = Random.Range(0, 100) < runtimeStats.critRate;
-            if (isCrit)
-            {
-                OnCrit?.Invoke();
-            }
-            return isCrit;
         }
 
         public void ReduceHP(int amount)
         {
+            Debug.Log("reduce " +  amount);
             if (amount <= 0) return;
             runtimeStats.health -= amount;
             if (runtimeStats.health <= 0)
             {
                 runtimeStats.health = 0;
             }
+            OnStatsChange?.Invoke();
         }
 
         public void GainHP(int amount)
@@ -71,8 +67,11 @@ namespace MyHeroWay
             {
                 runtimeStats.health = originalStats.health;
             }
+            OnStatsChange?.Invoke();
             string content = "<color=green>+" + amount + "</color>";
             //UltimateTextDamageManager.Instance.Add(content, effectDisplayHolder.position);
+           
+
         }
 
         public void ReduceMP(int amount)
@@ -83,6 +82,7 @@ namespace MyHeroWay
             {
                 runtimeStats.mana = 0;
             }
+            OnStatsChange?.Invoke();
             string content = "<color=blue>-" + amount + "</color>";
             //UltimateTextDamageManager.Instance.Add(content, effectDisplayHolder.position);
         }
@@ -95,6 +95,7 @@ namespace MyHeroWay
             {
                 runtimeStats.mana = originalStats.mana;
             }
+            OnStatsChange?.Invoke();
             string content = "<color=blue>+" + amount + "</color>";
             //UltimateTextDamageManager.Instance.Add(content, effectDisplayHolder.position);
         }
@@ -109,14 +110,16 @@ namespace MyHeroWay
             {
                 return;
             }
-            //var damageResult = DamageCaculation.GetDMG_TypeA();
-            /*isStunning = damageResult.canKnockBack;
+            controller.animatorHandle.SetBool(StrManager.getHit,true);
+            var damageResult = DamageCaculation.GetDamageResult(damageInfo, this.runtimeStats);
+            ReduceHP((int)damageResult.damage);
+            isStunning = damageResult.canKnockBack;
             stunTimer = damageInfo.stunTime;
             if (damageResult.canKnockBack)
             {
                 core.movement.SetVelocity(damageInfo.force);
-            }*/
-            if(callBack != null)
+            }
+            if (callBack != null)
             {
                 callBack?.Invoke();
             }

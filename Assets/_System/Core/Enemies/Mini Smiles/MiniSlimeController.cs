@@ -11,26 +11,15 @@ namespace MyHeroWay
         {
             Initialize();
         }
-        public override void Initialize()
+
+        private void Update()
         {
-            base.Initialize();
+            UpdateLogic();
         }
 
-        public override void UpdateLogic()
+        private void FixedUpdate()
         {
-            base.UpdateLogic();
+            UpdatePhysic();
         }
-
-        public override void UpdatePhysic()
-        {
-            base.UpdatePhysic();
-        }
-
-        public override void Die(bool deactiveCharacter)
-        {
-            base.Die(deactiveCharacter);
-        }
-
-        
     }
 }

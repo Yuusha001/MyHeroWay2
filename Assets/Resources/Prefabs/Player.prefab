@@ -1379,6 +1379,8 @@ MonoBehaviour:
   animatorHandle: {fileID: 0}
   playerAnimator: {fileID: 505759115182174767}
   characterEquipment: {fileID: 7499900420704618934}
+  currentLevel: 0
+  playerStatsModifier: {fileID: 0}
 --- !u!114 &505759115182174767
 MonoBehaviour:
   m_ObjectHideFlags: 0

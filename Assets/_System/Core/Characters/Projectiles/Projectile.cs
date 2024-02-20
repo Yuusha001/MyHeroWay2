@@ -21,8 +21,8 @@ public abstract class Projectile : MonoBehaviour
     public LayerMask layerContact;
     private float lifeTimer;
     public Vector3 hitTransform;
-    private event Action<List<IDamage>> OnContact;
-    public virtual void Initialize(DamageInfo damageInfo, Action<List<IDamage>> OnContact = null)
+    protected event Action<List<IDamage>> OnContact;
+    public virtual void Initialize(DamageInfo damageInfo)
     {
         this.damageInfo = damageInfo;
         GetComponent<Collider2D>().enabled = true;
@@ -39,6 +39,13 @@ public abstract class Projectile : MonoBehaviour
         isPooled = false;
         lifeTimer = 0;
         currentTime = timeTarget;
+        OnContact += (idamages) =>
+        {
+            for (int i = 0; i < idamages.Count; i++)
+            {
+                idamages[i].TakeDamage(damageInfo);
+            }
+        };
     }
     public virtual void UpdateLogic()
     {
@@ -95,9 +102,9 @@ public abstract class Projectile : MonoBehaviour
             else if (lifeTimer <= 0.1f)
             {
                 impact.gameObject.SetActive(true);
-                if(impact.TryGetComponent<Animation>(out Animation animation))
+                if(impact.TryGetComponent(out ParticleSystem vfx))
                 {
-                    animation.Play(StrManager.ArrowImpactVFX);
+                    vfx.Play();
                 }
             }
         }
