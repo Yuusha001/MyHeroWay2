@@ -1,5 +1,4 @@
 using NaughtyAttributes;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace MyHeroWay
@@ -8,22 +7,29 @@ namespace MyHeroWay
     {
         [ReadOnly]
         public Core core;
+        [Foldout("Stats")]
         [ReadOnly]
         public CharacterStats originalStats;
+        [Foldout("Stats")]
         [ReadOnly]
         public CharacterStats runtimeStats;
+        [Foldout("Animator")]
         [ReadOnly]
         [SerializeField]
-        private bool isInteracting;
+        protected bool isInteracting;
+        [Foldout("Animator")]
         [ReadOnly]
         [SerializeField]
-        private bool isWalking;
+        protected bool isWalking;
+        [Foldout("Animator")]
         [ReadOnly]
         [SerializeField]
-        private bool isRunning;
+        protected bool isDashing;
+        [Foldout("Animator")]
         [ReadOnly]
         [SerializeField]
-        private bool isActive;
+        protected bool isActive;
+        [Foldout("Animator")]
         [ReadOnly]
         public AnimatorHandle animatorHandle;
 
@@ -39,6 +45,11 @@ namespace MyHeroWay
         public Movement GetMovement()
         {
             return core.movement;
+        }
+
+        public Combat GetCombat()
+        {
+            return core.combat;
         }
 
         public EDamageSenderType GetDamageSenderType()
@@ -80,6 +91,12 @@ namespace MyHeroWay
             }
             animatorHandle.ResumeAnimator();
             core.Resume();
+        }
+        [Button("GetReference")]
+        private void GetReference()
+        {
+            animatorHandle = GetComponentInChildren<AnimatorHandle>();
+            core = GetComponentInChildren<Core>();
         }
     }
 }

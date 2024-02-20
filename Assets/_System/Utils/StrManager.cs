@@ -22,6 +22,11 @@ namespace Utils.String
 
         #region Layers
         public static readonly string IDamageLayer = "IDamage";
+        public static readonly string ObstacleLayer = "Obstacle";
+        #endregion
+
+        #region Tag
+        public static readonly string LookAbleTag = "Lookable";
         #endregion
     }
 }

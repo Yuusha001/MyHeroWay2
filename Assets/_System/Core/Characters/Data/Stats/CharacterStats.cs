@@ -14,7 +14,6 @@ namespace MyHeroWay
         public float critRate;
         public float critDamage;
         public float evasion;
-        public float coolDown;
 
         public static CharacterStats operator +(CharacterStats a, CharacterStats b)
         {
@@ -24,7 +23,6 @@ namespace MyHeroWay
             newStats.vitality = a.vitality + b.vitality;
             newStats.critRate = a.critRate + b.critRate;
             newStats.critDamage = a.critDamage + b.critDamage;
-            newStats.coolDown = a.coolDown + b.coolDown;
             newStats.evasion = a.evasion + b.evasion;
             newStats.speed = a.speed + b.speed;
             newStats.strength= a.strength+ b.strength;
@@ -44,7 +42,6 @@ namespace MyHeroWay
             this.magicalDefense = reference.magicalDefense;
             this.critRate = reference.critRate;
             this.critDamage = reference.critDamage;
-            this.coolDown = reference.coolDown;
             this.evasion = reference.evasion;
             this.speed = reference.speed;
         }
@@ -58,7 +55,6 @@ namespace MyHeroWay
             this.strength = 0;
             this.magicPower = 0;
             this.magicalDefense = 0;
-            this.coolDown = 0;
             this.evasion = 0;
             this.speed = 0;
             this.critRate = 0;

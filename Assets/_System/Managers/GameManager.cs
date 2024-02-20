@@ -6,8 +6,12 @@ namespace MyHeroWay
 {
     public class GameManager : Singleton<GameManager>
     {
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-        private static void Initialize() => Application.targetFrameRate = 61;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            Application.targetFrameRate = 60;
+        }
 
         private void Start()
         {

@@ -39,18 +39,16 @@ namespace MyHeroWay
         [BoxGroup("Level Bar")]
         public Button questBtn;*/
         #endregion
+
+        public SkillsControllerUI skillsControllerUI;
+
         public override void Initialize(UIManager uiManager)
         {
             base.Initialize(uiManager);
-            primaryBtn.onClick.AddListener(PrimaryAttackHandler);
-            secondaryBtn.onClick.AddListener(SecondaryAttackHandler);
-            dashBtn.onClick.AddListener(DashHandler);
-            hpBtn.onClick.AddListener(UseHPHandler);
-            mpBtn.onClick.AddListener(UseMPHandler);
-
             settingBtn.onClick.AddListener(SettingHandler);
             itemBtn.onClick.AddListener(ItemBagHandler);
             questBtn.onClick.AddListener(QuestHandler);
+            skillsControllerUI.Initialize(uiManager);
         }
 
         private void QuestHandler()
@@ -80,17 +78,17 @@ namespace MyHeroWay
 
         private void DashHandler()
         {
-            PlayerControlManager.Instance.playerController.HandleDash();
+            
         }
 
         private void SecondaryAttackHandler()
         {
-            PlayerControlManager.Instance.playerController.HandleSecondaryAttack();
+            
         }
 
         private void PrimaryAttackHandler()
         {
-            PlayerControlManager.Instance.playerController.HandlePrimaryAttack();
+            
         }
     }
 }

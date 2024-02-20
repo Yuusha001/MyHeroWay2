@@ -5950,7 +5950,7 @@ MonoBehaviour:
   animationMinSpeed: 1
   animationMaxSpeed: 1
   animationStartTime: 0
-  colliderType: 0
+  colliderType: 2
   connectableTiles: []
   compiledChannels:
   - {fileID: -5514383292360790550}

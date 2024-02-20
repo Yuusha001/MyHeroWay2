@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace Utils
 {
@@ -23,7 +24,15 @@ namespace Utils
         {
             await UniTask.WaitForSeconds(delay);
             if (action != null)
-                action();
+                action?.Invoke();
+        }
+
+        public static CancellationToken RefreshToken(ref CancellationTokenSource tokenSource)
+        {
+            tokenSource?.Cancel();
+            tokenSource?.Dispose();
+            tokenSource = new CancellationTokenSource();
+            return tokenSource.Token;
         }
     }
 }

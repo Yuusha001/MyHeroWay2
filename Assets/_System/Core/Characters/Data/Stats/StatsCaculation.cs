@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace MyHeroWay.Stats
@@ -87,7 +85,12 @@ namespace MyHeroWay.Stats
             if (speed >= 29) return 3.05f;
             if (speed >= 26) return 2.95f;
             if (speed >= 24) return 2.85f;
-            return 2.75f;
+            if (speed >= 22) return 2.75f;
+            if (speed >= 20) return 2.65f;
+            if (speed >= 18) return 2.55f;
+            if (speed >= 14) return 2.45f;
+            if (speed >= 12) return 2.35f;
+            return 2.25f;
         }
     }
 }

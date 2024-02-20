@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a739b2ec8c4b9064ba75e533d60bf09d, type: 3}
+  m_Name: ElementWeaponDictionary
+  m_EditorClassIdentifier: 
+  data:
+  - element: 1
+    icon: {fileID: 1017755394, guid: ffa24daf98dea224d80c42a47013dcad, type: 3}
+  - element: 2
+    icon: {fileID: -179599823, guid: ffa24daf98dea224d80c42a47013dcad, type: 3}
+  - element: 3
+    icon: {fileID: 1662236353, guid: ffa24daf98dea224d80c42a47013dcad, type: 3}
+  - element: 4
+    icon: {fileID: -1319301013, guid: ffa24daf98dea224d80c42a47013dcad, type: 3}
+  - element: 5
+    icon: {fileID: 110594092, guid: ffa24daf98dea224d80c42a47013dcad, type: 3}
+  - element: 6
+    icon: {fileID: 1746176339, guid: ffa24daf98dea224d80c42a47013dcad, type: 3}
+  - element: 7
+    icon: {fileID: -237482690, guid: ffa24daf98dea224d80c42a47013dcad, type: 3}

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 namespace MyHeroWay
@@ -27,6 +28,7 @@ namespace MyHeroWay
         public AudioClip[] songs;
         public AudioClip[] sounds;
         public AudioClip[] ambiences;
+
         public async void PlayOneShot(AudioClip audioClip, float volume, float delay = 0, Transform target = null)
         {
             if (SoundSetting != 1) return;

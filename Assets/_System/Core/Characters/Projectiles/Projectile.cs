@@ -39,7 +39,6 @@ public abstract class Projectile : MonoBehaviour
         isPooled = false;
         lifeTimer = 0;
         currentTime = timeTarget;
-
     }
     public virtual void UpdateLogic()
     {
@@ -70,10 +69,10 @@ public abstract class Projectile : MonoBehaviour
     protected abstract void OnCollision(Collider2D other);
     private void OnTriggerEnter2D(Collider2D other)
     {
-        OnCollision(other);
         hitTransform = other.transform.position;
+        OnCollision(other);
     }
-    protected void Deactive(float time)
+    protected void Deactive(float time = 0)
     {
         lifeTimer = time;
         if (time <= 0)

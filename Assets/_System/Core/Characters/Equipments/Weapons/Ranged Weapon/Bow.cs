@@ -77,7 +77,7 @@ namespace MyHeroWay
 
                 Projectile p = FactoryObject.Spawn<Projectile>(StrManager.ProjectilePool, StrManager.ArrowGreenProjectile);
                 p.transform.position = posSpawn;
-                Debug.Log("spawn Arrow");
+                
                 numArrow--;
                 if (numArrow <= 0)
                 {

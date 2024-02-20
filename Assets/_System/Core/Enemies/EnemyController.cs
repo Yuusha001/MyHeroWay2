@@ -1,18 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using MyHeroWay.Stats;
+using NaughtyAttributes;
 
 namespace MyHeroWay
 {
     public abstract class EnemyController : Controller
     {
+        public EEnemyName Name;
+        public EEnemyType Type;
+        public int currentLevel;
+        [Foldout("Animator")]
         public EnemyAnimator enemyAnimator;
         public AIState currentState;
-
+        public SpriteBar hpBar;
+        public SpriteBar mpBar;
         public virtual void Initialize()
         {
             core.Initialize(this);
             enemyAnimator.Initialize(this);
+            CaculateStats();
         }
         public virtual void UpdateLogic()
         {
@@ -22,6 +27,14 @@ namespace MyHeroWay
                 currentState.UpdateLogic();
             }
             core.UpdateLogic();
+            if (hpBar != null)
+            {
+                hpBar.UpdateBar(GetCombat().NormalizeHealth());
+            }
+            if (mpBar != null)
+            {
+                mpBar.UpdateBar(GetCombat().NormalizeMana());
+            }
         }
         public virtual void UpdatePhysic()
         {
@@ -40,6 +53,14 @@ namespace MyHeroWay
             {
                 animatorHandle.DeactiveCharacter();
             }
+        }
+
+        [Button("Caculate Stats")]
+        private void CaculateStats()
+        {
+            var data = DataManager.Instance.enemyDictionary.GetEnemyData(Type).GetData(Name);
+            originalStats = StatsCaculation.GetFinalCharacterStats(currentLevel, data.characterStatsModifier);
+            runtimeStats = originalStats;
         }
     }
 }

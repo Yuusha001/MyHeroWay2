@@ -20,13 +20,51 @@ namespace MyHeroWay
         {
             this.controller = _controller;
             this.characterAnimator = _characterAnimator;
-            primaryWeapon.Initialize(controller);
-            primaryWeapon.OnEquip();
+            if (primaryWeapon != null)
+            {
+                primaryWeapon.Initialize(controller);
+            }
+            if (secondaryWeapon != null)
+            {
+                secondaryWeapon.Initialize(controller);
+                secondaryWeapon.gameObject.SetActive(false);
+            }
+        }
+
+        public void HandlePrimaryAttack()
+        {
+            if (primaryWeapon == null) return;
+            if (secondaryWeapon != null)
+            {
+                secondaryWeapon.OnUnEquip();
+                secondaryWeapon.gameObject.SetActive(false);
+            }
+            primaryWeapon.gameObject.SetActive(true);
+            if (!primaryWeapon.equipWeapon)
+                primaryWeapon.OnEquip();
+            primaryWeapon.TriggerWeapon();
+        }
+
+        public void HandleSecondaryAttack()
+        {
+            if (secondaryWeapon == null) return;
+            if (primaryWeapon != null)
+            {
+                primaryWeapon.OnUnEquip();
+                primaryWeapon.gameObject.SetActive(false);
+            }
+            secondaryWeapon.gameObject.SetActive(true);
+            if (!secondaryWeapon.equipWeapon)
+                secondaryWeapon.OnEquip();
+            secondaryWeapon.TriggerWeapon();
         }
 
         public void UpdateLogic()
         {
-            primaryWeapon.OnUpdate();
+            if (primaryWeapon != null)
+                primaryWeapon.OnUpdate();
+            if (secondaryWeapon != null)
+                secondaryWeapon.OnUpdate();
         }
     }
 }

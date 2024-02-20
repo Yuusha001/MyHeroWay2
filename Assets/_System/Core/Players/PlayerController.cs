@@ -8,6 +8,7 @@ namespace MyHeroWay
         public CharacterAnimator playerAnimator;
         public CharacterEquipment characterEquipment;
         public PlayerControls playerInput;
+
         public void Initialize(PlayerControlManager playerControlManager)
         {
             core.Initialize(this);
@@ -16,27 +17,37 @@ namespace MyHeroWay
             characterEquipment.Initialize(this, playerAnimator);
             playerInput = playerControlManager.playerInput;
             playerInput.Combat.PrimaryWeapon.started += _ => HandlePrimaryAttack();
+            playerInput.Combat.SecondaryWeapon.started += _ => HandleSecondaryAttack();
             playerInput.Movement.Dash.started += _ => HandleDash();
             playerInput.Movement.Move.performed += callback => SetLastDirection(callback.ReadValue<Vector2>());
+            playerInput.Skills.Keyboard.performed += callback => HandleSkills((int)callback.ReadValue<float>());
             playerAnimator.SetLastDirection(Vector2.down);
         }
 
         public void HandlePrimaryAttack()
         {
-            characterEquipment.primaryWeapon.TriggerWeapon();
+            characterEquipment.HandlePrimaryAttack();
         }
 
         public void HandleSecondaryAttack()
         {
-            characterEquipment.secondaryWeapon.TriggerWeapon();
+            characterEquipment.HandleSecondaryAttack();
         }
 
-        public void HandleDash()
+        public void HandleSkills(int number)
         {
+            Debug.Log(number);
+        }
+
+        public async void HandleDash()
+        {
+            if (isDashing) return;
+            isDashing = true;
             GetMovement().movementSpeed *= 4;
-            _ = Delay.DoAction(() =>
+            await Delay.DoAction(() =>
             {
                 GetMovement().movementSpeed /= 4;
+                isDashing = false;
             }, 0.3f);
         }
 
@@ -69,7 +80,5 @@ namespace MyHeroWay
             }
             
         }
-
-        
     }
 }
