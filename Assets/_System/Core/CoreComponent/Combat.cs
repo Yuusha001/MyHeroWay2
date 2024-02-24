@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using MyHeroWay.Damage;
 using UnityEngine;
 using Utils.String;
@@ -12,6 +13,7 @@ namespace MyHeroWay
         public bool isInvincible;
         private float stunTimer;
         private Collider2D selfCollider;
+        public Transform effectDisplayHolder;
         public EDamageSenderType damageSenderType;
         public Controller controller => core.controller;
         public CharacterStats originalStats => core.controller.originalStats;
@@ -22,8 +24,6 @@ namespace MyHeroWay
         {
             get { return selfCollider.GetInstanceID(); }
         }
-
-       
 
         public bool IsSelfCollider(Collider2D other)
         {
@@ -49,7 +49,6 @@ namespace MyHeroWay
 
         public void ReduceHP(int amount)
         {
-            Debug.Log("reduce " +  amount);
             if (amount <= 0) return;
             runtimeStats.health -= amount;
             if (runtimeStats.health <= 0)
@@ -68,8 +67,7 @@ namespace MyHeroWay
                 runtimeStats.health = originalStats.health;
             }
             OnStatsChange?.Invoke();
-            string content = "<color=green>+" + amount + "</color>";
-            //UltimateTextDamageManager.Instance.Add(content, effectDisplayHolder.position);
+           
            
 
         }
@@ -83,8 +81,7 @@ namespace MyHeroWay
                 runtimeStats.mana = 0;
             }
             OnStatsChange?.Invoke();
-            string content = "<color=blue>-" + amount + "</color>";
-            //UltimateTextDamageManager.Instance.Add(content, effectDisplayHolder.position);
+            
         }
 
         public void GainMP(int amount)
@@ -96,11 +93,11 @@ namespace MyHeroWay
                 runtimeStats.mana = originalStats.mana;
             }
             OnStatsChange?.Invoke();
-            string content = "<color=blue>+" + amount + "</color>";
-            //UltimateTextDamageManager.Instance.Add(content, effectDisplayHolder.position);
+            
         }
 
-        public void TakeDamage(DamageInfo damageInfo, System.Action callBack = null)
+        [System.Obsolete]
+        public async void TakeDamage(DamageInfo damageInfo, System.Action callBack = null)
         {
             if (damageInfo.damageSenderType == damageSenderType)
             {
@@ -110,42 +107,90 @@ namespace MyHeroWay
             {
                 return;
             }
-            controller.animatorHandle.SetBool(StrManager.getHit,true);
-            var damageResult = DamageCaculation.GetDamageResult(damageInfo, this.runtimeStats);
-            ReduceHP((int)damageResult.damage);
-            isStunning = damageResult.canKnockBack;
-            stunTimer = damageInfo.stunTime;
-            if (damageResult.canKnockBack)
+            controller.animatorHandle.SetBool(StrManager.getHitAnimation,true);
+            int totalEva = await UniTask.Run(()=>DamageCaculation.TotalEva(damageInfo));
+            bool isHit = damageInfo.sureHit ? true : DamageCaculation.IsHit(totalEva, damageInfo.owner.runtimeStats);
+            bool isCrit = DamageCaculation.IsCrittical(damageInfo.owner.runtimeStats);
+            bool isKnockBack = DamageCaculation.IsKnockBack(damageInfo, runtimeStats);
+
+            float random = DamageCaculation.RandomByWeaponType(damageInfo.weaponType);
+            var damageResult = await UniTask.Run(() => DamageCaculation.GetDamageResult(damageInfo, this.runtimeStats, isCrit, random));
+
+            Debug.Log("isHit " + isHit);
+            Debug.Log("isKnockBack " + isKnockBack);
+
+
+            if (!isHit)
             {
-                core.movement.SetVelocity(damageInfo.force);
+                damageResult.isMiss = true;
+                damageResult.damage = 0;
             }
+            else
+            {
+                if (isKnockBack)
+                {
+                    isStunning = isKnockBack;
+                    stunTimer = damageInfo.stunTime;
+                    Vector2 force = (this.transform.position - damageInfo.owner.transform.position).normalized * damageInfo.force;
+                    core.movement.AddForce(force);
+                
+                }
+            }
+            ReduceHP((int)damageResult.damage);
+            
             if (callBack != null)
             {
                 callBack?.Invoke();
             }
-            OnTakeDamage(damageInfo);
+            OnTakeDamage(damageResult);
+            if (controller is EnemyController)
+            {
+               if(controller.TryGetComponent(out EnemyController enemyController)){
+                    enemyController.target = damageInfo.owner.controller;
+                    enemyController.SwitchState(enemyController.chasingState);
+               }
+            }
         }
 
-        public void OnTakeDamage(DamageInfo damageInfo)
+        public void OnTakeDamage(DamageResult damageResult)
         {
-            /*string content = "";
-            switch (damageInfo.damageType)
+            if(damageResult.isMiss)
             {
-                case EDamageType.PHYSICAL:
-                    content = "<color=orange>-" + damageInfo.damage.ToString() + "</color>";
-                    break;
-                case EDamageType.MAGICAL:
-                    break;
-                case EDamageType.CRITICAL:
-                    content = "<color=#FF2600><size=1100>-" + damageInfo.damage.ToString() + "</size></color>";
-                    break;
-                case EDamageType.TRUEDAMAGE:
-                    content = "<color=white>-" + damageInfo.damage.ToString() + "</color>";
-                    break;
-                default:
-                    break;
-            }*/
-            //UltimateTextDamageManager.Instance.Add(content, effectDisplayHolder.position);
+                var content = StrManager.Missed[Random.Range(0, StrManager.Missed.Length)];   
+                var textDamage = DataManager.Instance.damageTextEff.Spawn(this.transform.position, content);
+                textDamage.enableLeftText = true;
+                textDamage.enableNumber = false;
+                textDamage.SetColor(Color.HSVToRGB(Random.value, 0.5f, 1f));
+                textDamage.SetFollowedTarget(this.transform);
+            }
+            else
+            {
+                var textDamage = DataManager.Instance.damageTextEff.Spawn(this.transform.position, (int)damageResult.damage);
+                textDamage.enableLeftText = false;
+                textDamage.enableNumber = true;
+                switch (damageResult.damageType)
+                {
+                    case EDamageType.PHYSICAL:
+                        textDamage.SetColor(Color.gray);
+                        break;
+                    case EDamageType.MAGICAL:
+                        textDamage.SetColor(Color.magenta);
+                        break;
+                    case EDamageType.CRITICAL:
+                        textDamage.SetColor(Color.yellow);
+                        break;
+                    case EDamageType.TRUEDAMAGE:
+                        textDamage.SetColor(Color.white);
+                        break;
+                    default:
+                        break;
+                }
+                textDamage.SetFollowedTarget(this.transform);
+            }
+            /* DamageNumberDisplay damageNumberDisplay = FactoryObject.Spawn<DamageNumberDisplay>(StrManager.VFXPool, StrManager.PixelTextEffect);
+             damageNumberDisplay.Apply(effectDisplayHolder, (int)damageResult.damage);*/
+           
+
         }
 
 
@@ -153,18 +198,19 @@ namespace MyHeroWay
         {
             if (stunTimer > 0)
             {
-                /*if (core.collisionSenses.IsTouchWallBehind())
+               /* if (core.collisionSenses.IsTouchWallBehind())
                 {
                     stunTimer -= Time.deltaTime * 3;
                 }
-                else
+                else*/
                 {
                     stunTimer -= Time.deltaTime;
-                }*/
+                }
             }
             else
             {
                 isStunning = false;
+                core.movement.SetVelocityZero();
             }
         }
 #if UNITY_EDITOR

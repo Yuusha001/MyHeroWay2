@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Torch
   - Lookable
+  - Enemy
   layers:
   - Default
   - TransparentFX

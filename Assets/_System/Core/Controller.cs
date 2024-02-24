@@ -52,6 +52,11 @@ namespace MyHeroWay
             return core.combat;
         }
 
+        public bool IsSelfCollider(Collider2D other)
+        {
+            return GetComponent<Collider2D>().Equals(other);
+        }
+
         public EDamageSenderType GetDamageSenderType()
         {
             return core.combat.damageSenderType;

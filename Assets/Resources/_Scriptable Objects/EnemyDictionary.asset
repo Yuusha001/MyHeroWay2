@@ -15,3 +15,5 @@ MonoBehaviour:
   data:
   - enemyType: 1
     enemyDataContainer: {fileID: 11400000, guid: 2a623099e69f3f64490d35bca86721ef, type: 2}
+  - enemyType: 2
+    enemyDataContainer: {fileID: 11400000, guid: 999b8c4ef06f5c04191e1788f8cbabdc, type: 2}

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f751f126a9b33746bc02fb1d358928f, type: 3}
+  m_Name: GoldBabySmile
+  m_EditorClassIdentifier: 
+  enemyName: 5
+  enemyIcon: {fileID: 61848824, guid: 1f8778fbce5f1a9458fe0caf7e827972, type: 3}
+  enemyDescription: 
+  spriteLibraryAsset: {fileID: 7108339969198208228, guid: 9a21fe010290c894798ca6d0080ef430, type: 3}
+  elementType: 66
+  characterStatsModifier: {fileID: 11400000, guid: e0c169ed9d8e13344868600491ca6b47, type: 2}

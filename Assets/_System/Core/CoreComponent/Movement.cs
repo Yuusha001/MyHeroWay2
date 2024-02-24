@@ -31,69 +31,54 @@ namespace MyHeroWay
         {
             HandleMovement();
         }
-
-        public void SetVelocityX(float velocityX)
-        {
-            workSpace.Set(velocityX, currentVelecity.y);
-            SetFinalVelocity();
-        }
-        public void SetVelocityY(float velocityY)
-        {
-            workSpace.Set(currentVelecity.x, velocityY);
-            SetFinalVelocity();
-        }
         public void SetVelocityZero()
         {
             workSpace = Vector2.zero;
             SetFinalVelocity();
-        }
-        public void SetVelocity(Vector2 direction, float velocity)
-        {
-            workSpace = direction * velocity;
-            SetFinalVelocity();
-        }
-        public void SetVelocity(Vector2 velocity)
-        {
-            workSpace = velocity;
-            SetFinalVelocity();
-        }
-        public void SetBodyType(RigidbodyType2D type)
-        {
-            rb.bodyType = type;
         }
         private void SetFinalVelocity()
         {
             rb.velocity = workSpace;
             currentVelecity = workSpace;
         }
+        public void AddForce(Vector2 force)
+        {
+            rb.AddForce(force, ForceMode2D.Impulse);
+        }
 
         public void SetDirection(Vector2 vector2)
         {
             direction = vector2;
-            if (direction != Vector2.zero)
+            if (Vector2.Dot(direction, Vector2.up) > 0.9f)
             {
-                if (vector2.x == 1)
-                {
-                    facingDirection = EFacingDirection.RIGHT;
-                }
-                if (vector2.x == -1)
-                {
-                    facingDirection = EFacingDirection.LEFT;
-                }
-                if (vector2.y == 1)
-                {
-                    facingDirection = EFacingDirection.UP;
-                }
-                if (vector2.y == -1)
-                {
-                    facingDirection = EFacingDirection.DOWN;
-                }
+                facingDirection = EFacingDirection.UP;
             }
+            else if (Vector2.Dot(direction, -Vector2.up) > 0.9f)
+            {
+                facingDirection = EFacingDirection.DOWN;
+            }
+            else if (Vector2.Dot(direction, Vector2.left) > 0.9f)
+            {
+                facingDirection = EFacingDirection.LEFT;
+            }
+            else if (Vector2.Dot(direction, Vector2.right) > 0.9f)
+            {
+                facingDirection = EFacingDirection.RIGHT;
+            }
+            HanderFlip();
+        }
+
+        private void HanderFlip()
+        {
+            if (core.controller is PlayerController) return;
+            if (direction.x == 0) return;
+            core.controller.animatorHandle.transform.localScale = new Vector3(-1*direction.x, 1, 1);
         }
 
         private void HandleMovement()
         {
-            if (core.controller.IsInteracting || !core.controller.IsActive) return;
+            if (core.controller is EnemyController) return;
+            if (core.controller.IsInteracting || !core.controller.IsActive || core.combat.isStunning) return;
             //transform.position += direction * movementSpeed * Time.deltaTime;
             rb.MovePosition(rb.position + direction * (movementSpeed * Time.fixedDeltaTime));
         }

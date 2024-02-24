@@ -14,3 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyDatas:
   - {fileID: 11400000, guid: 7f1a041977774444ba3ce8553b0877d5, type: 2}
+  - {fileID: 11400000, guid: 8af29471d67a21c499748c68d7cb1d39, type: 2}
+  - {fileID: 11400000, guid: c4284680b449ce74d8abc800603c0104, type: 2}
+  - {fileID: 11400000, guid: 24b5c19b3b03db24480415cafb00e248, type: 2}
+  - {fileID: 11400000, guid: 2431000589a55f2409de4cb9e9addca2, type: 2}
+  - {fileID: 11400000, guid: 0d0ca33119d39594fb3d82359017fee4, type: 2}
+  - {fileID: 11400000, guid: 1fb2de29775ac4c4594e681ccfd65edb, type: 2}
+  - {fileID: 11400000, guid: b4087a6fd978cda49bfa0c9d19191188, type: 2}
+  - {fileID: 11400000, guid: e624807d18802ff42b369b35c3662962, type: 2}
+  - {fileID: 11400000, guid: 54eb2560f20dcbf45b85fcb1d01f1c6a, type: 2}
+  - {fileID: 11400000, guid: 99c59f2137c2ef447872ae72a0cca529, type: 2}
+  - {fileID: 11400000, guid: 99c8ff7ee8ce23947be49d3652feae66, type: 2}
+  - {fileID: 11400000, guid: 5093f8f6f4595904f933c546be7e735a, type: 2}

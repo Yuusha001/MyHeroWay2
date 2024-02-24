@@ -14,4 +14,8 @@ public class DataManager : Singleton<DataManager>
     public ElementDictionary elementDictionary;
     [ReadOnly]
     public ElementDictionary elementWeaponDictionary;
+    [Foldout("Text Effect")]
+    public DamageNumbersPro.DamageNumber damageTextEff;
+    [Foldout("Text Effect")]
+    public DamageNumbersPro.DamageNumber healTextEff;
 }

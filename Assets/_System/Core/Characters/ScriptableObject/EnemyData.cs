@@ -8,10 +8,13 @@ using UnityEngine.U2D.Animation;
 public class EnemyData : ScriptableObject
 {
     public EEnemyName enemyName;
+    [ShowAssetPreview] 
     public Sprite enemyIcon;
     [ResizableTextArea]
     public string enemyDescription;
     public SpriteLibraryAsset spriteLibraryAsset;
+    [EnumFlags]
     public EElementType elementType;
+    [Expandable] 
     public CharacterStatsModifier characterStatsModifier;
 }

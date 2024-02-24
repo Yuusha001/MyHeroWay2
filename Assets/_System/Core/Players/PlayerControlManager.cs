@@ -10,6 +10,7 @@ namespace MyHeroWay
         public PlayerController playerController;
         public PlayerControls playerInput;
         private Collider2D selfCollider;
+        public static Combat playerCombat;
         [Header("Flags Status")]
         public bool isDead;
 
@@ -48,6 +49,7 @@ namespace MyHeroWay
         {
             selfCollider = GetComponent<Collider2D>();
             playerController.Initialize(this);
+            playerCombat = playerController.GetCombat();
         }
         public void PlayerDie()
         {

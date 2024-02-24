@@ -4,6 +4,6 @@ namespace MyHeroWay
     {
         None,
         MiniSmile,
-
+        Slime,
     }
 }

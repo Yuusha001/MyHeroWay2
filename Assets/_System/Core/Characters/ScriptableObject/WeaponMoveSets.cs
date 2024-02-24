@@ -14,7 +14,7 @@ namespace MyHeroWay
             public string animationName;
             public int layer;
             public float stunTime;
-            public Vector2 force;
+            public float force;
             public AudioClip activeSound;
             public AudioClip impactSound;
         }

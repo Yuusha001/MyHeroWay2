@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
-using System.Collections.Generic;
 using System.Threading;
 
 namespace Utils

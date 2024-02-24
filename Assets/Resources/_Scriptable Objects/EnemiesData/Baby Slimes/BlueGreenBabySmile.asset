@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f751f126a9b33746bc02fb1d358928f, type: 3}
+  m_Name: BlueGreenBabySmile
+  m_EditorClassIdentifier: 
+  enemyName: 3
+  enemyIcon: {fileID: -934607627, guid: aa0354a5eb06acd4195e72f1f43932c9, type: 3}
+  enemyDescription: 
+  spriteLibraryAsset: {fileID: 7108339969198208228, guid: 24cdb3f6a0c1a92448f64ef32ab2a174, type: 3}
+  elementType: 34
+  characterStatsModifier: {fileID: 11400000, guid: e0c169ed9d8e13344868600491ca6b47, type: 2}

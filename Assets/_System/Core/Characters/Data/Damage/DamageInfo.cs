@@ -8,10 +8,11 @@ namespace MyHeroWay
     {
         public int idSender { private set; get; }
         public Combat owner { private set; get; }
+        public bool sureHit { private set; get; }
         public bool fromPrimary { private set; get; }
         public bool canKnockBack { private set; get; }
         public float stunTime { private set; get; }
-        public Vector2 force { private set; get; }
+        public float force { private set; get; }
         public EFacingDirection hitDirection { private set; get; }
         public EDamageSenderType damageSenderType { private set; get; }
         public EWeaponType weaponType { private set; get; }
@@ -20,19 +21,20 @@ namespace MyHeroWay
         public SpellStats spellStats { private set; get; }
         public AudioClip impactSound { private set; get; }
 
-        public DamageInfo(Core owner)
+        public DamageInfo(Core owner, CollisionDamage collisionDamage = null)
         {
             this.idSender = owner.controller.GetInstanceID();
             this.owner = owner.combat;
             this.damageSenderType = owner.combat.damageSenderType;
             this.hitDirection = owner.movement.facingDirection;
+            this.sureHit = collisionDamage != null ? true : false;
         }
 
         public void SetupCombo(WeaponMoveSet moveSet)
         {
             this.stunTime = moveSet.stunTime;
             this.impactSound = moveSet.impactSound;
-            this.canKnockBack = moveSet.force != Vector2.zero;
+            this.canKnockBack = moveSet.force != 0;
             this.force = moveSet.force;
         }
 

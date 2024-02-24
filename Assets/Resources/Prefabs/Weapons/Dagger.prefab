@@ -141,7 +141,6 @@ MonoBehaviour:
     critRate: 0
     critDamage: 0
     evasion: 0
-    coolDown: 0
   equipmentType: 0
   data:
     idInventory: 0
@@ -150,15 +149,18 @@ MonoBehaviour:
     grade: 0
     gemChoice: 0
     isGemChosen: 0
+  equipWeapon: 0
+  isPrimaryWeapon: 0
   attackRange: 2
   isActiveCombo: 0
   weaponMoveSets: {fileID: 11400000, guid: ad8bfb243fba0f642868bd87e296bc15, type: 2}
   weaponStats: {fileID: 11400000, guid: 26ae0e3bb7376a74f849284f3ac13316, type: 2}
+  weaponType: 0
   controller: {fileID: 0}
   layerContact:
     serializedVersion: 2
     m_Bits: 8192
   canDoCombo: 1
   currentIndexMoveSet: 0
-  sizeCollider: {x: 1.5, y: 1.5}
-  offsetCollider: {x: 0, y: 0.75}
+  sizeCollider: {x: 1, y: 1}
+  offsetCollider: {x: 0, y: 0.5}

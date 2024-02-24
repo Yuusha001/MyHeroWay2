@@ -90,7 +90,8 @@ namespace MyHeroWay
         private void CaculateStats()
         {
             originalStats = StatsCaculation.GetFinalCharacterStats(currentLevel,playerStatsModifier);
-            runtimeStats = originalStats;
+            runtimeStats = new CharacterStats() + StatsCaculation.GetFinalCharacterStats(currentLevel, playerStatsModifier);
+            runtimeStats.level = currentLevel;
         }
     }
 }

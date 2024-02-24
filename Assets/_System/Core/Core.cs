@@ -7,6 +7,7 @@ namespace MyHeroWay
         public Movement movement;
         public CollisionSenses collisionSenses;
         public Combat combat;
+
         bool pause;
         public void Initialize(Controller controller)
         {

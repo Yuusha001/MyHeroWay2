@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f751f126a9b33746bc02fb1d358928f, type: 3}
+  m_Name: PaleBabySmile
+  m_EditorClassIdentifier: 
+  enemyName: 10
+  enemyIcon: {fileID: 535806835, guid: 68c587f6a825ef140a34728533bc211a, type: 3}
+  enemyDescription: 
+  spriteLibraryAsset: {fileID: 7108339969198208228, guid: 7f05db744a27a8e4bb5b067a722f7bf5, type: 3}
+  elementType: 2
+  characterStatsModifier: {fileID: 11400000, guid: e0c169ed9d8e13344868600491ca6b47, type: 2}
