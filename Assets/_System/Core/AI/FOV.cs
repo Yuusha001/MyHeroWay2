@@ -44,7 +44,7 @@ namespace MyHeroWay
                Mathf.Infinity).ToList();
             if (colliders.Count > 0)
             {
-                for (int i = 0; i < colliders.Count; i++)
+                for (int i = 1; i < colliders.Count; i++)
                 {
                     if (!colliders[i].transform.CompareTag(StrManager.EnemyTag))
                     {

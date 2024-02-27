@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f751f126a9b33746bc02fb1d358928f, type: 3}
+  m_Name: RedSmile
+  m_EditorClassIdentifier: 
+  enemyType: 2
+  enemyName: 26
+  enemyIcon: {fileID: 362136133, guid: 0d7742348c854104f922dcab7ed0e2c8, type: 3}
+  enemyDescription: 
+  spriteLibraryAsset: {fileID: 7108339969198208228, guid: ed157a51085a97440a76c81118924662, type: 3}
+  elementType: 2
+  characterStatsModifier: {fileID: 11400000, guid: a9fd871c144044d418e5a48f481f4c87, type: 2}
+  color: {r: 0.9490197, g: 0.3372549, b: 0.3372549, a: 1}

@@ -1,3 +1,6 @@
+using UnityEngine;
+using Utils.String;
+
 namespace MyHeroWay
 {
     public class BasicEnemyWeapon : Weapon
@@ -12,9 +15,18 @@ namespace MyHeroWay
             
         }
 
-        protected override void OnEvent(string eventName)
+        public override void OnUpdate()
         {
+
             
+        }
+
+        protected override void OnEvent(string obj)
+        {
+            if (obj.Equals(StrManager.TriggerDamageEvent))
+            {
+                
+            }
         }
     }
 }

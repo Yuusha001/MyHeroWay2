@@ -26,16 +26,19 @@ namespace MyHeroWay
             playerInput.Movement.Move.performed += callback => SetLastDirection(callback.ReadValue<Vector2>());
             playerInput.Skills.Keyboard.performed += callback => HandleSkills((int)callback.ReadValue<float>());
             playerAnimator.SetLastDirection(Vector2.down);
+            GetCombat().OnStatsChange += StatsChangeHandler;
             CaculateStats();
         }
 
         public void HandlePrimaryAttack()
         {
+            if (!isActive) return;
             characterEquipment.HandlePrimaryAttack();
         }
 
         public void HandleSecondaryAttack()
         {
+            if (!isActive) return;
             characterEquipment.HandleSecondaryAttack();
         }
 
@@ -46,6 +49,7 @@ namespace MyHeroWay
 
         public async void HandleDash()
         {
+            if (!isActive) return;
             if (isDashing) return;
             isDashing = true;
             GetMovement().movementSpeed *= 4;
@@ -58,6 +62,7 @@ namespace MyHeroWay
 
         public void UpdateScript()
         {
+            if (!isActive) return;
             SetMovementDirection(playerInput.Movement.Move.ReadValue<Vector2>());
             core.UpdateLogic();
             playerAnimator.UpdateLogic();
@@ -66,6 +71,7 @@ namespace MyHeroWay
 
         public void FixedUpdateScript()
         {
+            if (!isActive) return;
             core.UpdatePhysic();
             playerAnimator.UpdatePhysic();
         }
@@ -84,6 +90,16 @@ namespace MyHeroWay
                 playerAnimator.SetLastDirection(vector2);
             }
             
+        }
+
+        private void StatsChangeHandler()
+        {
+            if (runtimeStats.health == 0 && isActive)
+            {
+                animatorHandle.PlayAnimation("Die", 0.1f, 0);
+                GetMovement().SetVelocityZero();
+                Die(false);
+            }
         }
 
         [Button("Caculate Stats")]

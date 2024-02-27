@@ -29,9 +29,6 @@ public abstract class Projectile : MonoBehaviour
         if (display != null)
         {
             display.gameObject.SetActive(true);
-            direction = transform.position - damageInfo.owner.transform.position;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            display.eulerAngles = new Vector3(0, 0, angle-90);
         }
         if (impact != null)
             impact.gameObject.SetActive(false);

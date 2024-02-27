@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f751f126a9b33746bc02fb1d358928f, type: 3}
-  m_Name: OrangeBabySmile
+  m_Name: GoldSmile
   m_EditorClassIdentifier: 
-  enemyName: 9
-  enemyIcon: {fileID: -888576719, guid: d02faf1aec7947144bc634a9d3611c1e, type: 3}
+  enemyType: 2
+  enemyName: 0
+  enemyIcon: {fileID: -573887877, guid: b597aeadf004c6c4b9b83e24731218d4, type: 3}
   enemyDescription: 
-  spriteLibraryAsset: {fileID: 7108339969198208228, guid: 3b551ba50cb8a6e42989852c8ae2c5d7, type: 3}
+  spriteLibraryAsset: {fileID: 7108339969198208228, guid: 463d3686ed748ee40829e7275fc9e2ef, type: 3}
   elementType: 2
-  characterStatsModifier: {fileID: 11400000, guid: e0c169ed9d8e13344868600491ca6b47, type: 2}
+  characterStatsModifier: {fileID: 11400000, guid: a9fd871c144044d418e5a48f481f4c87, type: 2}
+  color: {r: 0.9725491, g: 0.7137255, b: 0.454902, a: 1}

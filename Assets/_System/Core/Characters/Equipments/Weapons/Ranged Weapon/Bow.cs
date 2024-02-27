@@ -54,7 +54,7 @@ namespace MyHeroWay
                 //AudioManager.Instance.PlayOneShot(shootSfx, 1f);
                 var hitDirection = controller.core.movement.facingDirection;
                 DamageInfo damageInfo = new DamageInfo(controller.core);
-                posSpawn = handleFacingPosition(hitDirection); ;
+                posSpawn = handleFacingPosition(hitDirection);
                 damageInfo.SetupCombo(weaponMoveSets.moveSets[0]);
                 if (controller is PlayerController)
                 {

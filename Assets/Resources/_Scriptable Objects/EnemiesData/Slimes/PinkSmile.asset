@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f751f126a9b33746bc02fb1d358928f, type: 3}
-  m_Name: LightBlueBabySmile
+  m_Name: PinkSmile
   m_EditorClassIdentifier: 
-  enemyName: 7
-  enemyIcon: {fileID: -1015476795, guid: 147b0fcc19f9e7d4fa18b89eb32d8017, type: 3}
+  enemyType: 2
+  enemyName: 25
+  enemyIcon: {fileID: 171924549, guid: b15dde8f4446a70459ac78074c240696, type: 3}
   enemyDescription: 
-  spriteLibraryAsset: {fileID: 7108339969198208228, guid: 003499c94271ed94ab49a57c9540e48c, type: 3}
+  spriteLibraryAsset: {fileID: 7108339969198208228, guid: b1625d2294c7a6346b211e785edb81ce, type: 3}
   elementType: 2
-  characterStatsModifier: {fileID: 11400000, guid: e0c169ed9d8e13344868600491ca6b47, type: 2}
+  characterStatsModifier: {fileID: 11400000, guid: a9fd871c144044d418e5a48f481f4c87, type: 2}
+  color: {r: 1, g: 0.6117647, b: 0.77647066, a: 1}

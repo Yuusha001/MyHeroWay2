@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,7 @@ using Utils.String;
 
 namespace MyHeroWay
 {
-    public class SmileController : EnemyController
+    public class SlimeController : EnemyController
     {
         public CollisionDamage collisionDamage;
         public override void Initialize()

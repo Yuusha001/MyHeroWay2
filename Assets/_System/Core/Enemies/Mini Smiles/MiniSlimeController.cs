@@ -12,7 +12,7 @@ namespace MyHeroWay
         public override void Initialize()
         {
             base.Initialize();
-            attackingState = new AIBasicAttacking(this, StrManager.AttackingState);
+            //attackingState = new AIBasicAttacking(this, StrManager.AttackingState);
             chasingState = new AIBasicChasing(this, StrManager.ChasingState);
             wanderingState = new AIBasicWandering(this, StrManager.WanderingState);
             collisionDamage.Initialize(this);
@@ -27,6 +27,8 @@ namespace MyHeroWay
         private void Update()
         {
             UpdateLogic();
+            collisionDamage.UpdateLogic();
+
         }
 
         private void FixedUpdate()

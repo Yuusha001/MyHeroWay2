@@ -19,6 +19,7 @@ namespace MyHeroWay
         public CharacterStats originalStats => core.controller.originalStats;
         public CharacterStats runtimeStats => core.controller.runtimeStats;
         public System.Action OnStatsChange;
+        public System.Action OnGetHit;
 
         public int GetColliderInstanceID
         {
@@ -67,9 +68,6 @@ namespace MyHeroWay
                 runtimeStats.health = originalStats.health;
             }
             OnStatsChange?.Invoke();
-           
-           
-
         }
 
         public void ReduceMP(int amount)
@@ -107,7 +105,7 @@ namespace MyHeroWay
             {
                 return;
             }
-            controller.animatorHandle.SetBool(StrManager.getHitAnimation,true);
+            
             int totalEva = await UniTask.Run(()=>DamageCaculation.TotalEva(damageInfo));
             bool isHit = damageInfo.sureHit ? true : DamageCaculation.IsHit(totalEva, damageInfo.owner.runtimeStats);
             bool isCrit = DamageCaculation.IsCrittical(damageInfo.owner.runtimeStats);
@@ -115,9 +113,6 @@ namespace MyHeroWay
 
             float random = DamageCaculation.RandomByWeaponType(damageInfo.weaponType);
             var damageResult = await UniTask.Run(() => DamageCaculation.GetDamageResult(damageInfo, this.runtimeStats, isCrit, random));
-
-            Debug.Log("isHit " + isHit);
-            Debug.Log("isKnockBack " + isKnockBack);
 
 
             if (!isHit)
@@ -127,6 +122,8 @@ namespace MyHeroWay
             }
             else
             {
+                OnGetHit?.Invoke();
+
                 if (isKnockBack)
                 {
                     isStunning = isKnockBack;

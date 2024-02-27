@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f751f126a9b33746bc02fb1d358928f, type: 3}
-  m_Name: AquamarineSmile
+  m_Name: AquamarineSlime
   m_EditorClassIdentifier: 
-  enemyName: 14
+  enemyType: 2
+  enemyName: 0
   enemyIcon: {fileID: -1257723134, guid: 7c196994dc7a18543bc8c01ce2c6791e, type: 3}
   enemyDescription: 
   spriteLibraryAsset: {fileID: 7108339969198208228, guid: 5431c89707e777b4d8bb25e769bdbebf, type: 3}
   elementType: 2
   characterStatsModifier: {fileID: 11400000, guid: a9fd871c144044d418e5a48f481f4c87, type: 2}
+  color: {r: 0.49803922, g: 1, b: 0.83137256, a: 1}

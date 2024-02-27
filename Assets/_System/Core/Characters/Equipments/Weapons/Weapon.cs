@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using UnityEngine;
 
 
@@ -9,7 +10,9 @@ namespace MyHeroWay
         public bool isPrimaryWeapon;
         public float attackRange;
         public bool isActiveCombo;
+        [Expandable]
         public WeaponMoveSets weaponMoveSets;
+        [Expandable]
         public WeaponStats weaponStats;
         public EWeaponType weaponType;
         [SerializeField]

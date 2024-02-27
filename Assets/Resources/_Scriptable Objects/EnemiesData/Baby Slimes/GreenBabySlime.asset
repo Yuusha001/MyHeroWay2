@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f751f126a9b33746bc02fb1d358928f, type: 3}
-  m_Name: PurpleBabySmile
+  m_Name: GreenBabySlime
   m_EditorClassIdentifier: 
-  enemyName: 12
-  enemyIcon: {fileID: -939019082, guid: 2d5b6122abdacab488e44e4e01686aa7, type: 3}
+  enemyType: 1
+  enemyName: 6
+  enemyIcon: {fileID: -1195933760, guid: 2c2e684360bd7ba4eb6511a3e838745a, type: 3}
   enemyDescription: 
-  spriteLibraryAsset: {fileID: 7108339969198208228, guid: a8d1da579102dad4f92a551f2ebaee77, type: 3}
+  spriteLibraryAsset: {fileID: 7108339969198208228, guid: b33167de0ac14a04ab6e4b6b2c691e57, type: 3}
   elementType: 2
   characterStatsModifier: {fileID: 11400000, guid: e0c169ed9d8e13344868600491ca6b47, type: 2}
+  color: {r: 0.0627451, g: 0.65882355, b: 0.2509804, a: 1}

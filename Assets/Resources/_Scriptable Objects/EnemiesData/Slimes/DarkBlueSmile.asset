@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f751f126a9b33746bc02fb1d358928f, type: 3}
+  m_Name: DarkBlueSmile
+  m_EditorClassIdentifier: 
+  enemyType: 2
+  enemyName: 17
+  enemyIcon: {fileID: -562112644, guid: 6873aea505f90d849bc9abc649010177, type: 3}
+  enemyDescription: 
+  spriteLibraryAsset: {fileID: 7108339969198208228, guid: f4cf1d961de0b2b4a9ce7911e1cc219d, type: 3}
+  elementType: 2
+  characterStatsModifier: {fileID: 11400000, guid: a9fd871c144044d418e5a48f481f4c87, type: 2}
+  color: {r: 0.16078432, g: 0.427451, b: 0.70980394, a: 1}

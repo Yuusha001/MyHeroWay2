@@ -10,6 +10,7 @@ namespace Utils.String
 
         #region Animations
         public static readonly string isWalking = "isWalking";
+        public static readonly string isDead = "isDead";
         public static readonly string isInteracting = "isInteracting";
         public static readonly string isShoot = "isShoot";
         public static readonly string attackAnimation = "Attack";

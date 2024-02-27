@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f751f126a9b33746bc02fb1d358928f, type: 3}
-  m_Name: MaroonBabySmile
+  m_Name: RedBabySlime
   m_EditorClassIdentifier: 
-  enemyName: 8
-  enemyIcon: {fileID: 1461870162, guid: 538c2ef42e3dad045a26d41f711d6720, type: 3}
+  enemyType: 1
+  enemyName: 13
+  enemyIcon: {fileID: -959433844, guid: f9490b8275adf174eafb2e2052242bee, type: 3}
   enemyDescription: 
-  spriteLibraryAsset: {fileID: 7108339969198208228, guid: 9a2aaec947b26bd4b95507b350cd52a3, type: 3}
+  spriteLibraryAsset: {fileID: 7108339969198208228, guid: 5e4d2f71bfcc7574f9807a13d86da639, type: 3}
   elementType: 2
   characterStatsModifier: {fileID: 11400000, guid: e0c169ed9d8e13344868600491ca6b47, type: 2}
+  color: {r: 0.9490197, g: 0.3372549, b: 0.3372549, a: 1}

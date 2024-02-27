@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f751f126a9b33746bc02fb1d358928f, type: 3}
+  m_Name: MaroonBabySlime
+  m_EditorClassIdentifier: 
+  enemyType: 1
+  enemyName: 8
+  enemyIcon: {fileID: 1461870162, guid: 538c2ef42e3dad045a26d41f711d6720, type: 3}
+  enemyDescription: 
+  spriteLibraryAsset: {fileID: 7108339969198208228, guid: 9a2aaec947b26bd4b95507b350cd52a3, type: 3}
+  elementType: 2
+  characterStatsModifier: {fileID: 11400000, guid: e0c169ed9d8e13344868600491ca6b47, type: 2}
+  color: {r: 0.7058824, g: 0.23529413, b: 0.34509805, a: 1}

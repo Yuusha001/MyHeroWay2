@@ -1,3 +1,5 @@
+using System.Drawing;
+using UnityEngine;
 using UnityEngine.AI;
 
 namespace MyHeroWay
@@ -14,10 +16,7 @@ namespace MyHeroWay
             this.enemyController = controller;
             this.navMeshAgent = enemyController.navMeshAgent;
             this.target = enemyController.target;
-            behavior = new AIBehavior();
-            behavior.enemyController = controller;
-            behavior.fov = enemyController.fieldOfView;
-            behavior.navMeshAgent = navMeshAgent;
+            behavior = new AIBehavior(enemyController, navMeshAgent, enemyController.fieldOfView);
             behavior.enemyTpye = controller.Type;
         }
 
@@ -36,6 +35,11 @@ namespace MyHeroWay
 
         public override void UpdateLogic()
         {
+            if (enemyController.target != null && !enemyController.target.IsActive)
+            {
+                enemyController.target = null;
+                enemyController.SwitchState(enemyController.wanderingState);
+            }
             switch (enemyController.AIBehavior)
             {
                 case EAIBehavior.Hunting:
@@ -46,6 +50,9 @@ namespace MyHeroWay
                     break;
                 case EAIBehavior.CallForReinforcements:
                     behavior.CallForReinforcements();
+                    break;
+                case EAIBehavior.Shooting:
+                    behavior.ComeNearby();
                     break;
             }
         }

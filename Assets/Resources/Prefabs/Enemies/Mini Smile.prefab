@@ -364,9 +364,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6972023967393718091}
-  - component: {fileID: 438643483824874264}
   - component: {fileID: 4652397690206229778}
-  m_Layer: 14
+  m_Layer: 0
   m_Name: Touch Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -388,41 +387,6 @@ Transform:
   m_Father: {fileID: 8565884907239958928}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &438643483824874264
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1927357358804669389}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!114 &4652397690206229778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -435,6 +399,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f7b9b081486dcc46b4253f5247d8675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detectionMask:
+    serializedVersion: 2
+    m_Bits: 8192
+  sensorRange: 0.45
 --- !u!1 &2620068898616740585
 GameObject:
   m_ObjectHideFlags: 0
@@ -967,6 +935,7 @@ Transform:
   - {fileID: 7099892904146295360}
   - {fileID: 4212781650106984234}
   - {fileID: 483814771518045940}
+  - {fileID: 6595174976815764052}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1035,10 +1004,11 @@ MonoBehaviour:
   weapon: {fileID: 2831507855384222990}
   navMeshAgent: {fileID: 1271269782932674521}
   warnderingRange: 5
-  reinforcementRange: 0
+  reinforcementRange: 5
   spriteLibrary: {fileID: 3788914251586626023}
   levelTxt: {fileID: 379653674569301064}
-  AIBehavior: 0
+  AIBehavior: 1
+  bloodEff: {fileID: 5929405356816246261}
   collisionDamage: {fileID: 4652397690206229778}
 --- !u!50 &779928728400811091
 Rigidbody2D:
@@ -1617,3 +1587,74 @@ MonoBehaviour:
   vertices: []
   triangles: 
   stepCount: 0
+--- !u!1001 &5545132900669793692
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7085043629006160392}
+    m_Modifications:
+    - target: {fileID: 1689553877149890504, guid: 6a77ac4e83f58f849a538fd394cfc4cd, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1689553877149890504, guid: 6a77ac4e83f58f849a538fd394cfc4cd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1689553877149890504, guid: 6a77ac4e83f58f849a538fd394cfc4cd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1689553877149890504, guid: 6a77ac4e83f58f849a538fd394cfc4cd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1689553877149890504, guid: 6a77ac4e83f58f849a538fd394cfc4cd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1689553877149890504, guid: 6a77ac4e83f58f849a538fd394cfc4cd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1689553877149890504, guid: 6a77ac4e83f58f849a538fd394cfc4cd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1689553877149890504, guid: 6a77ac4e83f58f849a538fd394cfc4cd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1689553877149890504, guid: 6a77ac4e83f58f849a538fd394cfc4cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1689553877149890504, guid: 6a77ac4e83f58f849a538fd394cfc4cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1689553877149890504, guid: 6a77ac4e83f58f849a538fd394cfc4cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484783871266489303, guid: 6a77ac4e83f58f849a538fd394cfc4cd, type: 3}
+      propertyPath: m_Name
+      value: BloodSplash
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6a77ac4e83f58f849a538fd394cfc4cd, type: 3}
+--- !u!198 &5929405356816246261 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2214995035774353513, guid: 6a77ac4e83f58f849a538fd394cfc4cd, type: 3}
+  m_PrefabInstance: {fileID: 5545132900669793692}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6595174976815764052 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1689553877149890504, guid: 6a77ac4e83f58f849a538fd394cfc4cd, type: 3}
+  m_PrefabInstance: {fileID: 5545132900669793692}
+  m_PrefabAsset: {fileID: 0}

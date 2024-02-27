@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3039c22a298b474e9ab852ba2f68d03, type: 3}
   m_Name: Simile
   m_EditorClassIdentifier: 
-  ATK: 25
+  ATK: 12
   WeaponType: 0
   ElementType: 0
   EffectStatus: 0
-  Evasion: 25
+  Evasion: 7
   KnockBackChance: 1000

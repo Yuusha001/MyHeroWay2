@@ -1,0 +1,286 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: Idle
+    m_Hash: 1008081451
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: minislime_aquamarine_front_0
+      m_Hash: 201078738
+      m_Sprite: {fileID: -1257723134, guid: 7c196994dc7a18543bc8c01ce2c6791e, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1368731550, guid: 850be0cd9ec61684db2126071e2eb717, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 1
+  - m_Name: IdleSide
+    m_Hash: 538587858
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: minislime_aquamarine_side_0
+      m_Hash: 653062749
+      m_Sprite: {fileID: 2058867158, guid: 1d27a43f82133cb46a97c8dbd851bf7a, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 517353755, guid: 78b83ac113e6ab94eb6550772f7fc020, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 1
+  - m_Name: Move
+    m_Hash: 252483654
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: minislime_aquamarine_front_0
+      m_Hash: 201078738
+      m_Sprite: {fileID: -1257723134, guid: 7c196994dc7a18543bc8c01ce2c6791e, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1368731550, guid: 850be0cd9ec61684db2126071e2eb717, type: 3}
+    - m_Name: minislime_aquamarine_front_1
+      m_Hash: 1023084356
+      m_Sprite: {fileID: -846819943, guid: 7c196994dc7a18543bc8c01ce2c6791e, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 2074213593, guid: 850be0cd9ec61684db2126071e2eb717, type: 3}
+    - m_Name: minislime_aquamarine_front_2
+      m_Hash: 636638974
+      m_Sprite: {fileID: -336584993, guid: 7c196994dc7a18543bc8c01ce2c6791e, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1229480606, guid: 850be0cd9ec61684db2126071e2eb717, type: 3}
+    - m_Name: minislime_aquamarine_front_3
+      m_Hash: 318072424
+      m_Sprite: {fileID: 557151262, guid: 7c196994dc7a18543bc8c01ce2c6791e, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1514043359, guid: 850be0cd9ec61684db2126071e2eb717, type: 3}
+    - m_Name: minislime_aquamarine_front_4
+      m_Hash: 210891723
+      m_Sprite: {fileID: -1039856908, guid: 7c196994dc7a18543bc8c01ce2c6791e, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -863030910, guid: 850be0cd9ec61684db2126071e2eb717, type: 3}
+    - m_Name: minislime_aquamarine_front_5
+      m_Hash: 999736157
+      m_Sprite: {fileID: -2005034707, guid: 7c196994dc7a18543bc8c01ce2c6791e, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -932877380, guid: 850be0cd9ec61684db2126071e2eb717, type: 3}
+    - m_Name: minislime_aquamarine_front_6
+      m_Hash: 580883175
+      m_Sprite: {fileID: -1369792914, guid: 7c196994dc7a18543bc8c01ce2c6791e, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 80391058, guid: 850be0cd9ec61684db2126071e2eb717, type: 3}
+    - m_Name: minislime_aquamarine_front_7
+      m_Hash: 362324593
+      m_Sprite: {fileID: 609385977, guid: 7c196994dc7a18543bc8c01ce2c6791e, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 2030212578, guid: 850be0cd9ec61684db2126071e2eb717, type: 3}
+    - m_Name: minislime_aquamarine_front_8
+      m_Hash: 86491104
+      m_Sprite: {fileID: -1251237067, guid: 7c196994dc7a18543bc8c01ce2c6791e, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -924175151, guid: 850be0cd9ec61684db2126071e2eb717, type: 3}
+    - m_Name: minislime_aquamarine_front_9
+      m_Hash: 840994678
+      m_Sprite: {fileID: 1135419097, guid: 7c196994dc7a18543bc8c01ce2c6791e, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -830311598, guid: 850be0cd9ec61684db2126071e2eb717, type: 3}
+    - m_Name: minislime_aquamarine_front_10
+      m_Hash: 97952175
+      m_Sprite: {fileID: -234504697, guid: 7c196994dc7a18543bc8c01ce2c6791e, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 16702166, guid: 850be0cd9ec61684db2126071e2eb717, type: 3}
+    - m_Name: minislime_aquamarine_front_11
+      m_Hash: 852595001
+      m_Sprite: {fileID: 910309551, guid: 7c196994dc7a18543bc8c01ce2c6791e, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -340459755, guid: 850be0cd9ec61684db2126071e2eb717, type: 3}
+    - m_Name: minislime_aquamarine_front_12
+      m_Hash: 735625347
+      m_Sprite: {fileID: -1478282569, guid: 7c196994dc7a18543bc8c01ce2c6791e, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 676137629, guid: 850be0cd9ec61684db2126071e2eb717, type: 3}
+    - m_Name: minislime_aquamarine_front_13
+      m_Hash: 484438037
+      m_Sprite: {fileID: -1091571444, guid: 7c196994dc7a18543bc8c01ce2c6791e, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -660103157, guid: 850be0cd9ec61684db2126071e2eb717, type: 3}
+    - m_Name: minislime_aquamarine_front_14
+      m_Hash: 45835702
+      m_Sprite: {fileID: -61425047, guid: 7c196994dc7a18543bc8c01ce2c6791e, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1868814022, guid: 850be0cd9ec61684db2126071e2eb717, type: 3}
+    - m_Name: minislime_aquamarine_front_15
+      m_Hash: 901535008
+      m_Sprite: {fileID: -581775203, guid: 7c196994dc7a18543bc8c01ce2c6791e, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 897873182, guid: 850be0cd9ec61684db2126071e2eb717, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 16
+  - m_Name: MoveSide
+    m_Hash: 68831535
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: minislime_aquamarine_side_0
+      m_Hash: 653062749
+      m_Sprite: {fileID: 2058867158, guid: 1d27a43f82133cb46a97c8dbd851bf7a, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 517353755, guid: 78b83ac113e6ab94eb6550772f7fc020, type: 3}
+    - m_Name: minislime_aquamarine_side_1
+      m_Hash: 300663499
+      m_Sprite: {fileID: 1974585458, guid: 1d27a43f82133cb46a97c8dbd851bf7a, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -124489067, guid: 78b83ac113e6ab94eb6550772f7fc020, type: 3}
+    - m_Name: minislime_aquamarine_side_2
+      m_Hash: 149066609
+      m_Sprite: {fileID: 1858987406, guid: 1d27a43f82133cb46a97c8dbd851bf7a, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -821355518, guid: 78b83ac113e6ab94eb6550772f7fc020, type: 3}
+    - m_Name: minislime_aquamarine_side_3
+      m_Hash: 1072014311
+      m_Sprite: {fileID: -2012926515, guid: 1d27a43f82133cb46a97c8dbd851bf7a, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1711741587, guid: 78b83ac113e6ab94eb6550772f7fc020, type: 3}
+    - m_Name: minislime_aquamarine_side_4
+      m_Hash: 562116164
+      m_Sprite: {fileID: -712830601, guid: 1d27a43f82133cb46a97c8dbd851bf7a, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -968800374, guid: 78b83ac113e6ab94eb6550772f7fc020, type: 3}
+    - m_Name: minislime_aquamarine_side_5
+      m_Hash: 377882322
+      m_Sprite: {fileID: -1630366758, guid: 1d27a43f82133cb46a97c8dbd851bf7a, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 457439081, guid: 78b83ac113e6ab94eb6550772f7fc020, type: 3}
+    - m_Name: minislime_aquamarine_side_6
+      m_Hash: 261052264
+      m_Sprite: {fileID: -40739425, guid: 1d27a43f82133cb46a97c8dbd851bf7a, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 982127363, guid: 78b83ac113e6ab94eb6550772f7fc020, type: 3}
+    - m_Name: minislime_aquamarine_side_7
+      m_Hash: 948463614
+      m_Sprite: {fileID: -1941207779, guid: 1d27a43f82133cb46a97c8dbd851bf7a, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1689143929, guid: 78b83ac113e6ab94eb6550772f7fc020, type: 3}
+    - m_Name: minislime_aquamarine_side_8
+      m_Hash: 674724463
+      m_Sprite: {fileID: -47769898, guid: 1d27a43f82133cb46a97c8dbd851bf7a, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1756238892, guid: 78b83ac113e6ab94eb6550772f7fc020, type: 3}
+    - m_Name: minislime_aquamarine_side_9
+      m_Hash: 523258617
+      m_Sprite: {fileID: 423027995, guid: 1d27a43f82133cb46a97c8dbd851bf7a, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -2117309207, guid: 78b83ac113e6ab94eb6550772f7fc020, type: 3}
+    - m_Name: minislime_aquamarine_side_10
+      m_Hash: 951857115
+      m_Sprite: {fileID: 33731217, guid: 1d27a43f82133cb46a97c8dbd851bf7a, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1629894789, guid: 78b83ac113e6ab94eb6550772f7fc020, type: 3}
+    - m_Name: minislime_aquamarine_side_11
+      m_Hash: 263921485
+      m_Sprite: {fileID: -1384539763, guid: 1d27a43f82133cb46a97c8dbd851bf7a, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -910366797, guid: 78b83ac113e6ab94eb6550772f7fc020, type: 3}
+    - m_Name: minislime_aquamarine_side_12
+      m_Hash: 380784375
+      m_Sprite: {fileID: -2055310538, guid: 1d27a43f82133cb46a97c8dbd851bf7a, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 2047627280, guid: 78b83ac113e6ab94eb6550772f7fc020, type: 3}
+    - m_Name: minislime_aquamarine_side_13
+      m_Hash: 565542497
+      m_Sprite: {fileID: -2082810145, guid: 1d27a43f82133cb46a97c8dbd851bf7a, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -286512052, guid: 78b83ac113e6ab94eb6550772f7fc020, type: 3}
+    - m_Name: minislime_aquamarine_side_14
+      m_Hash: 1070721986
+      m_Sprite: {fileID: 179189151, guid: 1d27a43f82133cb46a97c8dbd851bf7a, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -281267928, guid: 78b83ac113e6ab94eb6550772f7fc020, type: 3}
+    - m_Name: minislime_aquamarine_side_15
+      m_Hash: 148298580
+      m_Sprite: {fileID: 576927107, guid: 1d27a43f82133cb46a97c8dbd851bf7a, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1609589933, guid: 78b83ac113e6ab94eb6550772f7fc020, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 16
+  - m_Name: GetHit
+    m_Hash: 198110514
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: minislime_hurt
+      m_Hash: 257918659
+      m_Sprite: {fileID: 21300000, guid: 2b461c8af94d996488905991dccd2b45, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 21300000, guid: 2b461c8af94d996488905991dccd2b45, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 0
+  - m_Name: Attack
+    m_Hash: 7088141
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: slime_aquamarine_front_1
+      m_Hash: 527990427
+      m_Sprite: {fileID: -846819943, guid: 7c196994dc7a18543bc8c01ce2c6791e, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 2074213593, guid: 850be0cd9ec61684db2126071e2eb717, type: 3}
+    - m_Name: slime_aquamarine_front_2
+      m_Hash: 108080929
+      m_Sprite: {fileID: -336584993, guid: 7c196994dc7a18543bc8c01ce2c6791e, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1229480606, guid: 850be0cd9ec61684db2126071e2eb717, type: 3}
+    - m_Name: slime_aquamarine_front_3
+      m_Hash: 829824951
+      m_Sprite: {fileID: 557151262, guid: 7c196994dc7a18543bc8c01ce2c6791e, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1514043359, guid: 850be0cd9ec61684db2126071e2eb717, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 3
+  - m_Name: AttackSide
+    m_Hash: 940777013
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: slime_aquamarine_side_1
+      m_Hash: 352240854
+      m_Sprite: {fileID: 1974585458, guid: 1d27a43f82133cb46a97c8dbd851bf7a, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -124489067, guid: 78b83ac113e6ab94eb6550772f7fc020, type: 3}
+    - m_Name: slime_aquamarine_side_2
+      m_Hash: 234329452
+      m_Sprite: {fileID: 1858987406, guid: 1d27a43f82133cb46a97c8dbd851bf7a, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -821355518, guid: 78b83ac113e6ab94eb6550772f7fc020, type: 3}
+    - m_Name: slime_aquamarine_side_3
+      m_Hash: 988849658
+      m_Sprite: {fileID: -2012926515, guid: 1d27a43f82133cb46a97c8dbd851bf7a, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1711741587, guid: 78b83ac113e6ab94eb6550772f7fc020, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 3
+  - m_Name: Shoot
+    m_Hash: 830854074
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Slime Attack Sheet_0
+      m_Hash: 629546129
+      m_Sprite: {fileID: 1703643066, guid: ad84293bf2dfa7444b62126ae085718f, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -259346696, guid: ad84293bf2dfa7444b62126ae085718f, type: 3}
+    - m_Name: Slime Attack Sheet_1
+      m_Hash: 310455303
+      m_Sprite: {fileID: 2052387599, guid: ad84293bf2dfa7444b62126ae085718f, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 38781854, guid: ad84293bf2dfa7444b62126ae085718f, type: 3}
+    - m_Name: Slime Attack Sheet_2
+      m_Hash: 193494461
+      m_Sprite: {fileID: -139085789, guid: ad84293bf2dfa7444b62126ae085718f, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1278739011, guid: ad84293bf2dfa7444b62126ae085718f, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 3
+  m_PrimaryLibraryGUID: 5431c89707e777b4d8bb25e769bdbebf
+  m_ModificationHash: 638445598779365103
+  m_Version: 1

@@ -11,6 +11,9 @@ namespace MyHeroWay
         public override void Initialize(DamageInfo damageInfo)
         {
             base.Initialize(damageInfo);
+            direction = transform.position - damageInfo.owner.transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            display.eulerAngles = new Vector3(0, 0, angle - 90);
             GetComponent<TrailRenderer>().enabled = true;
         }
 

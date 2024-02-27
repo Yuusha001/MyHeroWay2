@@ -238,7 +238,7 @@ MonoBehaviour:
       m_FromMain: 0
       m_SpriteOverride: {fileID: 557151262, guid: 7c196994dc7a18543bc8c01ce2c6791e, type: 3}
     m_FromMain: 0
-    m_EntryOverrideCount: 3
+    m_EntryOverrideCount: 0
   - m_Name: AttackSide
     m_Hash: 940777013
     m_CategoryList: []
@@ -259,7 +259,28 @@ MonoBehaviour:
       m_FromMain: 0
       m_SpriteOverride: {fileID: -2012926515, guid: 1d27a43f82133cb46a97c8dbd851bf7a, type: 3}
     m_FromMain: 0
+    m_EntryOverrideCount: 0
+  - m_Name: Shoot
+    m_Hash: 830854074
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Slime Attack Sheet_0
+      m_Hash: 629546129
+      m_Sprite: {fileID: 1703643066, guid: ad84293bf2dfa7444b62126ae085718f, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1703643066, guid: ad84293bf2dfa7444b62126ae085718f, type: 3}
+    - m_Name: Slime Attack Sheet_1
+      m_Hash: 310455303
+      m_Sprite: {fileID: 2052387599, guid: ad84293bf2dfa7444b62126ae085718f, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 2052387599, guid: ad84293bf2dfa7444b62126ae085718f, type: 3}
+    - m_Name: Slime Attack Sheet_2
+      m_Hash: 193494461
+      m_Sprite: {fileID: -139085789, guid: ad84293bf2dfa7444b62126ae085718f, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -139085789, guid: ad84293bf2dfa7444b62126ae085718f, type: 3}
+    m_FromMain: 0
     m_EntryOverrideCount: 3
   m_PrimaryLibraryGUID: 488857f6f1006a94bbdd853f493dd048
-  m_ModificationHash: 638442245322913316
+  m_ModificationHash: 638445597078400170
   m_Version: 1

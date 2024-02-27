@@ -1,8 +1,10 @@
 ﻿using MyHeroWay.Stats;
 using NaughtyAttributes;
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.U2D.Animation;
+using Utils.String;
 
 namespace MyHeroWay
 {
@@ -29,6 +31,7 @@ namespace MyHeroWay
         public SpriteLibrary spriteLibrary;
         public TextMesh levelTxt;
         public EAIBehavior AIBehavior;
+        public ParticleSystem bloodEff;
         public virtual void Initialize()
         {
             core.Initialize(this);
@@ -37,19 +40,30 @@ namespace MyHeroWay
             isActive = true;
             CaculateStats();
             GetCombat().OnStatsChange += StatsChangeHandler;
+            GetCombat().OnGetHit += GetHitHandler;
             hpBar?.InitializeBar();
             mpBar?.InitializeBar();
             fieldOfView?.Initialize(this);
             weapon?.Initialize(this);
+            weapon?.OnEquip();
             NavMeshAgentSetup();
             VisualSetup();
         }
 
+        private void GetHitHandler()
+        {
+            animatorHandle.SetBool(StrManager.getHitAnimation, true);
+            bloodEff.Play();
+
+        }
 
         private void VisualSetup()
         {
             var enemyDictionary = DataManager.Instance.enemyDictionary;
-            spriteLibrary.spriteLibraryAsset = enemyDictionary.GetEnemyData(Type).GetData(Name).spriteLibraryAsset;
+            var enemy = enemyDictionary.GetEnemyData(Type).GetData(Name);
+            spriteLibrary.spriteLibraryAsset = enemy.spriteLibraryAsset;
+            var mainModule = bloodEff.main;
+            mainModule.startColor = enemy.color;
         }
 
         private void NavMeshAgentSetup()
@@ -77,6 +91,7 @@ namespace MyHeroWay
             core?.UpdateLogic();
             fieldOfView?.UpdateLogic();
             enemyAnimator?.UpdateLogic();
+            weapon?.OnUpdate();
             Debug.Log(currentState.stateName);
         }
         public virtual void UpdatePhysic()
@@ -97,11 +112,19 @@ namespace MyHeroWay
 
         public override void Die(bool deactiveCharacter)
         {
-            base.Die(deactiveCharacter);
-            hpBar?.Deactive();
-            mpBar?.Deactive();
-            this.gameObject.SetActive(false);
+            weapon.OnUnEquip();
+            animatorHandle.PlayAnimation("Die", .1f,0);
+            navMeshAgent.isStopped = true;
+            _ = Utils.Delay.DoAction(() =>
+            {
+                /*base.Die(deactiveCharacter);
+                hpBar?.Deactive();
+                mpBar?.Deactive();*/
+               gameObject.SetActive(false);
+            }, 1f);
+           
             GetCombat().OnStatsChange -= StatsChangeHandler;
+            GetCombat().OnGetHit -= GetHitHandler;
         }
 
         [Button("Caculate Stats")]

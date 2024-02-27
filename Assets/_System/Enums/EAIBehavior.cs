@@ -5,5 +5,6 @@
         Hunting, 
         RunToAlly,
         CallForReinforcements,
+        Shooting
     }
 }
