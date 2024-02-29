@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.U2D.Animation;
 using Utils.String;
+using Random = UnityEngine.Random;
 
 namespace MyHeroWay
 {
@@ -112,14 +113,22 @@ namespace MyHeroWay
 
         public override void Die(bool deactiveCharacter)
         {
+            PlayerControlManager.Instance.playerController.AddEXP(10);
             weapon.OnUnEquip();
             animatorHandle.PlayAnimation("Die", .1f,0);
             navMeshAgent.isStopped = true;
+            int drop = Random.Range(3, 5);
             _ = Utils.Delay.DoAction(() =>
             {
                 /*base.Die(deactiveCharacter);
                 hpBar?.Deactive();
                 mpBar?.Deactive();*/
+                for (int i = 0; i < drop; i++)
+                {
+                    var orb = FactoryObject.Spawn<ItemDrop>(StrManager.VFXPool, StrManager.ExpOrb);
+                    orb.transform.position = this.transform.position;
+                    orb.Initialize(10);
+                }
                gameObject.SetActive(false);
             }, 1f);
            

@@ -11,12 +11,28 @@ namespace MyHeroWay
         {
             base.Awake();
             Application.targetFrameRate = 60;
+
+        }
+
+        private void OnEnable()
+        {
+            DataManager.Instance.LoadData();
+            PlayerControlManager.Instance.Initialize();
+            UIManager.Instance.Initialize(this);
+            PopupManager.Instance.Initialize(this);
         }
 
         private void Start()
         {
-            UIManager.Instance.Initialize(this);
-            PopupManager.Instance.Initialize(this);
+           
+        }
+
+        private void Update()
+        {
+        }
+
+        private void FixedUpdate()
+        {
         }
     }
 }

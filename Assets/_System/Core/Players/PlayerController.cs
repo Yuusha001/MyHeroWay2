@@ -1,5 +1,6 @@
 using MyHeroWay.Stats;
 using NaughtyAttributes;
+using System;
 using UnityEngine;
 using Utils;
 
@@ -7,11 +8,12 @@ namespace MyHeroWay
 {
     public class PlayerController : Controller
     {
+        public PlayerControls playerInput;
         [Foldout("Animator")]
         public CharacterAnimator playerAnimator;
         public CharacterEquipment characterEquipment;
-        public PlayerControls playerInput;
-        public int currentLevel;
+        [ReadOnly]
+        public CharacterExp characterExp;
         public CharacterStatsModifier playerStatsModifier;
         public void Initialize(PlayerControlManager playerControlManager)
         {
@@ -84,12 +86,12 @@ namespace MyHeroWay
         public void SetLastDirection(Vector2 vector2)
         {
             if (vector2 == Vector2.zero) return;
-            if (vector2 == Vector2.up || vector2 == Vector2.down  
+            if (vector2 == Vector2.up || vector2 == Vector2.down
                 || vector2 == Vector2.left || vector2 == Vector2.right)
             {
                 playerAnimator.SetLastDirection(vector2);
             }
-            
+
         }
 
         private void StatsChangeHandler()
@@ -105,9 +107,20 @@ namespace MyHeroWay
         [Button("Caculate Stats")]
         private void CaculateStats()
         {
-            originalStats = StatsCaculation.GetFinalCharacterStats(currentLevel,playerStatsModifier);
+            var Data = DataManager.Instance.data;
+            characterExp = new CharacterExp(Data.userLevel, Data.userEXP);
+            int currentLevel = characterExp.CurrentLevel;
+            originalStats = StatsCaculation.GetFinalCharacterStats(currentLevel, playerStatsModifier);
             runtimeStats = new CharacterStats() + StatsCaculation.GetFinalCharacterStats(currentLevel, playerStatsModifier);
             runtimeStats.level = currentLevel;
+        }
+
+        public void AddEXP(int exp)
+        {
+            characterExp.AddEXP(exp,
+                () => DataManager.Instance.LevelUp()
+            );
+            DataManager.Instance.AddExp(characterExp);
         }
     }
 }

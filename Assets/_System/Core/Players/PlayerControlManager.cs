@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace MyHeroWay
 {
@@ -13,23 +14,6 @@ namespace MyHeroWay
         public static Combat playerCombat;
         [Header("Flags Status")]
         public bool isDead;
-
-        protected override void Awake()
-        {
-            base.Awake();
-            playerInput = new PlayerControls();
-        }
-
-        private void OnEnable()
-        {
-            playerInput.Enable();
-            Initialize();
-        }
-
-        private void OnDisable()
-        {
-            playerInput.Disable();
-        }
 
         private void Update()
         {
@@ -47,6 +31,8 @@ namespace MyHeroWay
         }
         public void Initialize()
         {
+            playerInput = new PlayerControls();
+            playerInput.Enable();
             selfCollider = GetComponent<Collider2D>();
             playerController.Initialize(this);
             playerCombat = playerController.GetCombat();

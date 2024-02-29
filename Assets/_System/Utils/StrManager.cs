@@ -6,6 +6,7 @@ namespace Utils.String
         public static readonly string ProjectilePool = "Projectile";
         public static readonly string VFXPool = "VFX";
         public static readonly string ArrowGreenProjectile = "arrow_green";
+        public static readonly string ExpOrb = "exp_orb";
         #endregion
 
         #region Animations
@@ -30,6 +31,7 @@ namespace Utils.String
         #region Tag
         public static readonly string LookAbleTag = "Lookable";
         public static readonly string EnemyTag = "Enemy";
+        public static readonly string PlayerTag = "Player";
         #endregion
 
         #region AI State

@@ -36,12 +36,8 @@ namespace MyHeroWay
         #endregion
 
         #region Level Bar
-        /*[BoxGroup("Level Bar")]
-        public Button settingBtn;
         [BoxGroup("Level Bar")]
-        public Button itemBtn;
-        [BoxGroup("Level Bar")]
-        public Button questBtn;*/
+        public ExpOrbBar levelBar;
         #endregion
 
         public SkillsControllerUI skillsControllerUI;
@@ -59,21 +55,23 @@ namespace MyHeroWay
             mpBar.InitializeBar(false);
             hpBar.ShowStatusText((int)playerCombat.runtimeStats.health, (int)playerCombat.originalStats.health);
             mpBar.ShowStatusText((int)playerCombat.runtimeStats.mana, (int)playerCombat.originalStats.mana);
+            levelBar.InitializeBar();
+            DataManager.OnLevelEXP += GainExpHandler;
+        }
+
+        private void GainExpHandler()
+        {
+            levelBar?.UpdateStatusText();
+            levelBar?.UpdateFillBar();
         }
 
         private void StatsChangeHandler()
         {
-            if (hpBar != null)
-            {
-                hpBar.UpdateFillBar(playerCombat.NormalizeHealth());
-                hpBar.ShowStatusText((int)playerCombat.runtimeStats.health, (int)playerCombat.originalStats.health);
-            }
-               
-            if (mpBar != null)
-            {
-                mpBar.UpdateFillBar(playerCombat.NormalizeMana());
-                mpBar.ShowStatusText((int)playerCombat.runtimeStats.mana, (int)playerCombat.originalStats.mana);
-            }
+            hpBar?.UpdateFillBar(playerCombat.NormalizeHealth());
+            hpBar?.ShowStatusText((int)playerCombat.runtimeStats.health, (int)playerCombat.originalStats.health);
+
+            mpBar?.UpdateFillBar(playerCombat.NormalizeMana());
+            mpBar?.ShowStatusText((int)playerCombat.runtimeStats.mana, (int)playerCombat.originalStats.mana);
 
         }
 
@@ -104,17 +102,17 @@ namespace MyHeroWay
 
         private void DashHandler()
         {
-            
+
         }
 
         private void SecondaryAttackHandler()
         {
-            
+
         }
 
         private void PrimaryAttackHandler()
         {
-            
+
         }
     }
 }

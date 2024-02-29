@@ -54,9 +54,9 @@ namespace MyHeroWay.Stats
             return characterStatsModifier.baseMDEF + (level * characterStatsModifier.modMDEF) / 128;
         }
 
-        public static float GetNextLevelExp(int level)
+        public static int GetNextLevelExp(int level)
         {
-            return 0.1f * Mathf.Pow(level, 4) + 4.2f * Mathf.Pow(level, 3) + 6.1f * Mathf.Pow(level, 2) + 1.4f * level - 11.4f;
+            return Mathf.RoundToInt(0.1f * Mathf.Pow(level, 4) + 4.2f * Mathf.Pow(level, 3) + 6.1f * Mathf.Pow(level, 2) + 1.4f * level - 11.4f);
         }
 
         public static CharacterStats GetFinalCharacterStats(int level, CharacterStatsModifier characterStatsModifier)
