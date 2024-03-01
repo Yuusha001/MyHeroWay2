@@ -6,10 +6,8 @@ using Utils.String;
 
 namespace MyHeroWay
 {
-    [RequireComponent(typeof(Rigidbody2D))]
     public class ItemDrop : MonoBehaviour
     {
-        private Rigidbody2D rb2d;
         private bool isActive;
         public EItemDrop type;
         private int value;
@@ -18,24 +16,48 @@ namespace MyHeroWay
         [SerializeField] float movementDuration = 3.0f;
         [SerializeField] float percentComplete = 0.0f;
         [SerializeField] AnimationCurve animationCurve;
+        [SerializeField] AnimationCurve dropCurve;
         public void Initialize(int value)
         {
             this.value = value;
             gameObject.SetActive(true);
-            rb2d = GetComponent<Rigidbody2D>();
             float time = Random.Range(0.5f, 1f);
             if (type == EItemDrop.Exp)
             {
-                rb2d.AddForce(new Vector2(Random.Range(-2f, 2f), Random.Range(-2f, 2f)), ForceMode2D.Impulse);
+                _ = Drop(time, Random.Range(-2f, 2f));
                 Invoke(nameof(ActiveExp), time);
             }
             else
             {
-                rb2d.AddForce(new Vector2(Random.Range(-3f, 3f), 3), ForceMode2D.Impulse);
+                _ = Drop(0.2f, Random.Range(-2f, 2f));
                 Invoke(nameof(Active), 0.2f);
             }
 
         }
+
+        private async UniTask Drop(float popDuration, float heightY)
+        {
+            Vector2 startPoint = transform.position;
+            float randomX = transform.position.x + Random.Range(-2f, 2f);
+            float randomY = transform.position.y + Random.Range(-1f, 1f);
+
+            Vector2 endPoint = new Vector2(randomX, randomY);
+
+            float timePassed = 0f;
+
+            while (timePassed < popDuration)
+            {
+                timePassed += Time.deltaTime;
+                float linearT = timePassed / popDuration;
+                float heightT = dropCurve.Evaluate(linearT);
+                float height = Mathf.Lerp(0f, heightY, heightT);
+
+                transform.position = Vector2.Lerp(startPoint, endPoint, linearT) + new Vector2(0f, height);
+                await UniTask.Yield();
+            }
+
+        }
+
         private async UniTask Move()
         {
             var startMoveTime = Time.time;
@@ -60,7 +82,6 @@ namespace MyHeroWay
         private void ActiveExp()
         {
             isActive = true;
-            rb2d.bodyType = RigidbodyType2D.Kinematic;
             _ = Move();
         }
         private void Active()

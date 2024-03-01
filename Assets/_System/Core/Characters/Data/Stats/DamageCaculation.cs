@@ -12,7 +12,7 @@ namespace MyHeroWay.Damage
             var damage = (spell.POW * random - reciver.magicalDefense) * (2 + attacker.magicPower * (attacker.level + attacker.magicPower) / 256);
             if (isCrittical)
             {
-                damage *= 1.4483610f;
+                damage *= 1.5f;
             }
             return new DamageResult(damage, isCrittical, false, EDamageType.MAGICAL);
         }
@@ -32,7 +32,7 @@ namespace MyHeroWay.Damage
             var damage = (weapon.ATK * random - reciver.vitality) * (1 + attacker.strength * (attacker.level + attacker.strength) / 256);
             if (isCrittical)
             {
-                damage *= 1.4483610f;
+                damage *= 1.5f;
             }
             return new DamageResult(damage, isCrittical, false, EDamageType.PHYSICAL);
         }
@@ -45,7 +45,7 @@ namespace MyHeroWay.Damage
             var damage = (weapon.ATK * random - reciver.vitality) * (1 + attacker.strength * (attacker.level + attacker.magicPower) / 256);
             if (isCrittical)
             {
-                damage *= 1.4483610f;
+                damage *= 1.5f;
             }
             return new DamageResult(damage, isCrittical, false, EDamageType.PHYSICAL);
         }
@@ -59,7 +59,7 @@ namespace MyHeroWay.Damage
             var damage = (weapon.ATK * random - reciver.vitality) * (1 + attacker.strength * (attacker.level + attacker.vitality) / 128);
             if (isCrittical)
             {
-                damage *= 1.4483610f;
+                damage *= 1.5f;
             }
             return new DamageResult(damage, isCrittical, false, EDamageType.PHYSICAL);
         }
@@ -72,7 +72,7 @@ namespace MyHeroWay.Damage
             var damage = (weapon.ATK * random - reciver.magicalDefense) * (1 + attacker.strength * (attacker.level + attacker.strength) / 256);
             if (isCrittical)
             {
-                damage *= 1.4483610f;
+                damage *= 1.5f;
             }
             return new DamageResult(damage, isCrittical, false, EDamageType.MAGICAL);
         }
@@ -85,7 +85,7 @@ namespace MyHeroWay.Damage
             var damage = (weapon.ATK * random - reciver.vitality) * (1 + attacker.strength * (attacker.level + attacker.speed) / 218);
             if (isCrittical)
             {   
-                damage *= 1.4483610f;
+                damage *= 1.5f;
             }
             return new DamageResult(damage, isCrittical, false, EDamageType.PHYSICAL);
         }
@@ -98,7 +98,7 @@ namespace MyHeroWay.Damage
             var damage = (weapon.ATK * random - reciver.vitality) * (1 + attacker.magicPower * (attacker.level + attacker.magicPower) / 256);
             if (isCrittical)
             {
-                damage *= 1.4483610f;
+                damage *= 1.5f;
             }
             return new DamageResult(damage, isCrittical, false, EDamageType.MAGICAL);
         }
@@ -119,6 +119,7 @@ namespace MyHeroWay.Damage
             if (isWeaponBlock) return true;
 
             bool isCharacterBlock = random >= 100 - characterEva.evasion;
+            UnityEngine.Debug.Log($"random: {random} / shield: {shieldBlockChance} / total eva: {totalEva} / weapon rate: {rate}");
             return isCharacterBlock;
         }
         #endregion
