@@ -4,6 +4,7 @@ using UnityEngine;
 using MyHeroWay;
 using NaughtyAttributes;
 using System;
+using MyHeroWay.SciptableObject;
 
 public class DataManager : Singleton<DataManager>
 {
@@ -19,6 +20,10 @@ public class DataManager : Singleton<DataManager>
     public ElementDictionary elementDictionary;
     [ReadOnly]
     public ElementDictionary elementWeaponDictionary;
+    [ReadOnly]
+    public SkillDictionary skillDictionary;
+    [ReadOnly]
+    public EquipmentContainer equipmentContainer;
     [Foldout("Text Effect")]
     public DamageNumbersPro.DamageNumber damageTextEff;
     [Foldout("Text Effect")]

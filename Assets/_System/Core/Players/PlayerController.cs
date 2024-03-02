@@ -1,6 +1,6 @@
+using MyHeroWay.Skills;
 using MyHeroWay.Stats;
 using NaughtyAttributes;
-using System;
 using UnityEngine;
 using Utils;
 
@@ -12,6 +12,7 @@ namespace MyHeroWay
         [Foldout("Animator")]
         public CharacterAnimator playerAnimator;
         public CharacterEquipment characterEquipment;
+        public SkillTree playerSkillTree;
         [ReadOnly]
         public CharacterExp characterExp;
         public CharacterStatsModifier playerStatsModifier;
@@ -30,6 +31,7 @@ namespace MyHeroWay
             playerAnimator.SetLastDirection(Vector2.down);
             GetCombat().OnStatsChange += StatsChangeHandler;
             CaculateStats();
+            playerSkillTree.Initialize(this);
         }
 
         public void HandlePrimaryAttack()
@@ -49,17 +51,16 @@ namespace MyHeroWay
             Debug.Log(number);
         }
 
-        public async void HandleDash()
+        public void HandleDash()
         {
             if (!isActive) return;
             if (isDashing) return;
-            isDashing = true;
-            GetMovement().movementSpeed *= 4;
-            await Delay.DoAction(() =>
+            Dash dash = playerSkillTree.GetSkill<Dash>();
+            if (dash.CanUseSkill())
             {
-                GetMovement().movementSpeed /= 4;
-                isDashing = false;
-            }, 0.3f);
+                isDashing = true;
+                dash.UseSkill(() => isDashing = false);
+            }
         }
 
         public void UpdateScript()
@@ -69,6 +70,7 @@ namespace MyHeroWay
             core.UpdateLogic();
             playerAnimator.UpdateLogic();
             characterEquipment.UpdateLogic();
+            playerSkillTree.UpdateLogic();
         }
 
         public void FixedUpdateScript()

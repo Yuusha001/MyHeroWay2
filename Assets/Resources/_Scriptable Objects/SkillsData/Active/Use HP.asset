@@ -9,14 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae499e78769c8ea44adc2fc2a099e5f7, type: 3}
-  m_Name: Bow
+  m_Script: {fileID: 11500000, guid: a52c7f08f43ac7f4f985c089e0e84504, type: 3}
+  m_Name: Use HP
   m_EditorClassIdentifier: 
-  ATK: 15
-  WeaponType: 4
-  ElementType: 0
-  EffectStatus: 0
-  Evasion: 0
-  KnockBackChance: 0
-  totalProjectile: 15
-  coolDown: 3
+  skillName: 1
+  skillTpye: 0
+  skillIcon: {fileID: 1415367845, guid: 9efc67ab781074e44be32acd6a887c76, type: 3}
+  skillDescription: 
+  skillCoolDown: 3

@@ -148,7 +148,7 @@ Transform:
   - {fileID: 4524063194455545208}
   - {fileID: 7563324312581581519}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7391994606568606127
 MonoBehaviour:
@@ -174,7 +174,6 @@ MonoBehaviour:
     critRate: 0
     critDamage: 0
     evasion: 0
-    coolDown: 0
   equipmentType: 0
   data:
     idInventory: 0
@@ -183,12 +182,14 @@ MonoBehaviour:
     grade: 0
     gemChoice: 0
     isGemChosen: 0
+  equipWeapon: 0
+  isPrimaryWeapon: 0
   attackRange: 0
   isActiveCombo: 0
   weaponMoveSets: {fileID: 11400000, guid: f3c1fc016883f0d4789d7682b18ccc3b, type: 2}
-  weaponStats: {fileID: 11400000, guid: 2d0ec37069e1e8d4a8bf415b762044d4, type: 2}
+  weaponStats: {fileID: 11400000, guid: bc59e10d13cdd9b4898da5e00ade9011, type: 2}
+  weaponType: 0
   controller: {fileID: 0}
-  numArrow: 15
   posSpawn: {x: 0, y: 0}
   sizeCollider: {x: 1, y: 1}
   offsetCollider: {x: 0, y: 0.7}

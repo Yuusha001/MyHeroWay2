@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEngine.GraphicsBuffer;
 
 namespace MyHeroWay
 {
@@ -24,7 +23,6 @@ namespace MyHeroWay
         public EEnemyType enemyTpye;
 
         private NavMeshHit hit;
-        private bool isRun;
 
         public AIBehavior(EnemyController enemyController, NavMeshAgent navMeshAgent, FOV fov)
         {
@@ -51,7 +49,7 @@ namespace MyHeroWay
 
             HandleFlip(target.transform);
             FocusFOVonPlayer();
-            GoToPosition(point);
+            enemyController.GoToPosition(point);
             if (Vector3.Distance(enemyController.transform.position, point) <= 0.1f)
             {
                 if (enemyController.attackingState != null)
@@ -140,7 +138,7 @@ namespace MyHeroWay
             {
                 HandleFlip(nearAlly.transform);
                 FocusFOVonTarget(nearAlly.transform);
-                GoToPosition(nearAlly.transform.position);
+                enemyController.GoToPosition(nearAlly.transform.position);
             }
         }
 
@@ -179,7 +177,7 @@ namespace MyHeroWay
             HandleFlip(target.transform);
             FocusFOVonPlayer();
 
-            GoToPosition(point);
+            enemyController.GoToPosition(point);
             if (Vector3.Distance(enemyController.transform.position, point) <= enemyController.weapon.attackRange)
             {
                 if (enemyController.attackingState != null)
@@ -187,14 +185,6 @@ namespace MyHeroWay
             }
         }
 
-        public void GoToPosition(Vector2 position)
-        {
-            navMeshAgent.SetDestination(position);
-        }
-
-        public void GoToPosition(Transform target)
-        {
-            navMeshAgent.SetDestination(target.position);
-        }
+        
     }
 }

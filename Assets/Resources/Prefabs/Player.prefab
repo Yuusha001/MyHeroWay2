@@ -1277,13 +1277,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4234882815104872301}
   - component: {fileID: 253859525694622185}
+  - component: {fileID: 3780441973295531083}
+  - component: {fileID: 6719145608977451582}
+  - component: {fileID: 1368567163768204423}
   - component: {fileID: 2285094799890311683}
   - component: {fileID: 8128502637136069122}
   - component: {fileID: 505759115182174767}
   - component: {fileID: 7499900420704618934}
-  - component: {fileID: 3780441973295531083}
-  - component: {fileID: 6719145608977451582}
-  - component: {fileID: 1368567163768204423}
+  - component: {fileID: 4462855420738643563}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1336,96 +1337,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &2285094799890311683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7033031989150631638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2152089390bb7c43acc9106efb7f5f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerController: {fileID: 8128502637136069122}
-  isDead: 0
---- !u!114 &8128502637136069122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7033031989150631638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb411387c08b6c3418d0f22d77af14e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  core: {fileID: 50775000011351045}
-  originalStats:
-    level: 1
-    health: 71
-    mana: 14.8
-    strength: 20.46875
-    magicPower: 14.46875
-    speed: 10.1171875
-    vitality: 5.234375
-    magicalDefense: 5.234375
-    critRate: 0
-    critDamage: 0
-    evasion: 0
-  runtimeStats:
-    level: 0
-    health: 72
-    mana: 15.2
-    strength: 20.46875
-    magicPower: 14.46875
-    speed: 10.1171875
-    vitality: 5.234375
-    magicalDefense: 5.234375
-    critRate: 0
-    critDamage: 0
-    evasion: 0
-  isInteracting: 0
-  isWalking: 0
-  isDashing: 0
-  isActive: 1
-  animatorHandle: {fileID: 0}
-  playerAnimator: {fileID: 505759115182174767}
-  characterEquipment: {fileID: 7499900420704618934}
-  characterExp:
-    CurrentLevel: 0
-    CurrentEXP: 0
-    NextLevelEXP: 0
-  playerStatsModifier: {fileID: 11400000, guid: 31de035269040ac40935361d6479d3f9, type: 2}
---- !u!114 &505759115182174767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7033031989150631638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5a53094fcf7f2a48959ab2eed606b84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7499900420704618934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7033031989150631638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36ac2a8a13ddfad4ea43810f25a0d12c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  primaryWeapon: {fileID: 4341144702933727525}
-  secondaryWeapon: {fileID: 2312130391441007359}
-  controller: {fileID: 0}
 --- !u!58 &3780441973295531083
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1494,6 +1405,110 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2285094799890311683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7033031989150631638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2152089390bb7c43acc9106efb7f5f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 8128502637136069122}
+  isDead: 0
+--- !u!114 &8128502637136069122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7033031989150631638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb411387c08b6c3418d0f22d77af14e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  core: {fileID: 50775000011351045}
+  originalStats:
+    level: 1
+    health: 71
+    mana: 14.8
+    strength: 20.46875
+    magicPower: 14.46875
+    speed: 10.1171875
+    vitality: 5.234375
+    magicalDefense: 5.234375
+    critRate: 0
+    critDamage: 0
+    evasion: 0
+  runtimeStats:
+    level: 0
+    health: 72
+    mana: 15.2
+    strength: 20.46875
+    magicPower: 14.46875
+    speed: 10.1171875
+    vitality: 5.234375
+    magicalDefense: 5.234375
+    critRate: 0
+    critDamage: 0
+    evasion: 0
+  isInteracting: 0
+  isWalking: 0
+  isDashing: 0
+  isActive: 1
+  animatorHandle: {fileID: 0}
+  playerAnimator: {fileID: 505759115182174767}
+  characterEquipment: {fileID: 7499900420704618934}
+  playerSkillTree: {fileID: 4462855420738643563}
+  characterExp:
+    CurrentLevel: 0
+    CurrentEXP: 0
+    NextLevelEXP: 0
+  playerStatsModifier: {fileID: 11400000, guid: 31de035269040ac40935361d6479d3f9, type: 2}
+--- !u!114 &505759115182174767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7033031989150631638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5a53094fcf7f2a48959ab2eed606b84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7499900420704618934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7033031989150631638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36ac2a8a13ddfad4ea43810f25a0d12c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  primaryWeapon: {fileID: 4341144702933727525}
+  secondaryWeapon: {fileID: 2312130391441007359}
+  controller: {fileID: 0}
+--- !u!114 &4462855420738643563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7033031989150631638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc2ee0a42a944f2468c98eee9a66d5d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillList: []
 --- !u!1 &7709602562596519669
 GameObject:
   m_ObjectHideFlags: 0

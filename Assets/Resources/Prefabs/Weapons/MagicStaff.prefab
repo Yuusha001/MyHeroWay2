@@ -291,7 +291,6 @@ MonoBehaviour:
     critRate: 0
     critDamage: 0
     evasion: 0
-    coolDown: 0
   equipmentType: 0
   data:
     idInventory: 0
@@ -300,12 +299,14 @@ MonoBehaviour:
     grade: 0
     gemChoice: 0
     isGemChosen: 0
+  equipWeapon: 0
+  isPrimaryWeapon: 0
   attackRange: 0
   isActiveCombo: 0
   weaponMoveSets: {fileID: 11400000, guid: 67d9ab754866b4b46a16dcf8310736a8, type: 2}
-  weaponStats: {fileID: 11400000, guid: ff4e1bd648f695c4789d749650d03e55, type: 2}
+  weaponStats: {fileID: 11400000, guid: 52d07c9d0a4772a4c959419ffe2be26c, type: 2}
+  weaponType: 0
   controller: {fileID: 0}
-  numSpellCast: 0
   canDoCombo: 0
   currentIndexMoveSet: 0
   posSpawn: {x: 0, y: 0}

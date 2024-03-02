@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21ffa8d044643145b98fb9bf63b6c03, type: 3}
+  m_Name: Mace
+  m_EditorClassIdentifier: 
+  id: 0
+  prefab: {fileID: 5481788746084036998, guid: 27b5c9273ed7ed6429ce8d9d9b8ae63f, type: 3}
+  icon: {fileID: 21300000, guid: 07397cbfc6defab48a01902a1193a76b, type: 3}
+  itemType: 0
+  itemName: 
+  description: 
+  equipmentType: 0
+  gradeSkillDesc: []
+  gradeSkillDescDefault: []

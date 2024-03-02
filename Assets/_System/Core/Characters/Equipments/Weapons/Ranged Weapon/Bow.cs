@@ -1,16 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Utils.String;
 
 namespace MyHeroWay
 {
-    public class Bow : Weapon
+    public class Bow : RangeWeapon
     {
-        public int numArrow;
-        private const int MaxArrow = 15;
-        private const float ReloadTime = 3;
-        private float reloadTimer;
         public Vector2 posSpawn;
         public Vector2 sizeCollider;
         public Vector2 offsetCollider;
@@ -19,8 +13,6 @@ namespace MyHeroWay
         {
             base.Initialize(controller);
             this.weaponType = EWeaponType.Bow;
-            numArrow = MaxArrow;
-            reloadTimer = 0;
         }
 
         public override void OnEquip()
@@ -31,16 +23,6 @@ namespace MyHeroWay
         public override void OnUnEquip()
         {
             base.OnUnEquip();
-        }
-
-        public float GetDurability()
-        {
-            return (float)numArrow / (float)MaxArrow;
-        }
-
-        public float GetReloadNormalizedTime()
-        {
-            return reloadTimer / ReloadTime;
         }
 
         protected override void OnEvent(string obj)
@@ -79,11 +61,11 @@ namespace MyHeroWay
                 Projectile p = FactoryObject.Spawn<Projectile>(StrManager.ProjectilePool, StrManager.ArrowGreenProjectile);
                 p.transform.position = posSpawn;
                 
-                numArrow--;
-                if (numArrow <= 0)
+                numProjectile--;
+                if (numProjectile <= 0)
                 {
-                    numArrow = 0;
-                    reloadTimer = ReloadTime;
+                    numProjectile = 0;
+                    reloadTimer = coolDown;
                 }
 
                 p.Initialize(damageInfo);
@@ -93,7 +75,7 @@ namespace MyHeroWay
 
         public override void TriggerWeapon()
         {
-            if (numArrow <= 0) return;
+            if (numProjectile <= 0) return;
             if (!controller.IsInteracting)
             {
                 isActiveCombo = true;
@@ -105,12 +87,11 @@ namespace MyHeroWay
         }
         public override void OnUpdate()
         {
-
-            if (numArrow > 0) return;
+            if (numProjectile > 0) return;
             reloadTimer -= Time.deltaTime;
             if (reloadTimer <= 0)
             {
-                numArrow = MaxArrow;
+                numProjectile = totalProjectile;
             }
         }
 

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae499e78769c8ea44adc2fc2a099e5f7, type: 3}
-  m_Name: Bow
+  m_Name: Pole
   m_EditorClassIdentifier: 
   ATK: 15
-  WeaponType: 4
+  WeaponType: 10
   ElementType: 0
   EffectStatus: 0
-  Evasion: 0
-  KnockBackChance: 0
-  totalProjectile: 15
+  Evasion: 8
+  KnockBackChance: 10
+  totalProjectile: 3
   coolDown: 3

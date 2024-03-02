@@ -146,6 +146,18 @@ namespace MyHeroWay
             runtimeStats.level = currentLevel;
         }
 
+        public void GoToPosition(Vector2 position)
+        {
+            navMeshAgent.isStopped = true;
+            navMeshAgent.SetDestination(position);
+        }
+
+        public void GoToPosition(Transform target)
+        {
+            navMeshAgent.isStopped = true;
+            navMeshAgent.SetDestination(target.position);
+        }
+
 
         private EEnemyName[] GetEnemyNames()
         {

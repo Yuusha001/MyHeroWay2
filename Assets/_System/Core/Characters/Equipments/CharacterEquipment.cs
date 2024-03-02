@@ -16,6 +16,8 @@ namespace MyHeroWay
         private Controller controller;
         private CharacterAnimator characterAnimator;
 
+        private SkillBtn primarySkill;
+        private SkillBtn secondarySkill;
         public void Initialize(Controller _controller, CharacterAnimator _characterAnimator)
         {
             this.controller = _controller;
@@ -64,9 +66,57 @@ namespace MyHeroWay
         public void UpdateLogic()
         {
             if (primaryWeapon != null)
+            {
                 primaryWeapon.OnUpdate();
+                UpdatePrimaryWeaponGUI();
+
+            }
             if (secondaryWeapon != null)
+            {
                 secondaryWeapon.OnUpdate();
+                UpdateSecondaryWeaponGUI();
+            }
+        }
+
+        public void SetupPrimaryWeaponGUI(SkillBtn skillBtn)
+        {
+            primarySkill = skillBtn;
+            var data = DataManager.Instance.equipmentContainer.GetEquipmentObject(primaryWeapon.data.itemID);
+            skillBtn.icon.sprite = data.icon;
+            bool isRanged = primaryWeapon is RangeWeapon;
+            primarySkill.value.gameObject.SetActive(!isRanged);
+
+        }
+
+        public void UpdatePrimaryWeaponGUI()
+        {
+            if (primaryWeapon == null) return;
+            if (primaryWeapon is RangeWeapon)
+            {
+                RangeWeapon rangeWeapon = primaryWeapon as RangeWeapon;
+                primarySkill.value.text = rangeWeapon.GetDurability();
+                primarySkill.fill.fillAmount = rangeWeapon.GetReloadNormalizedTime();
+            }
+        }
+
+        public void SetupSecondaryWeaponGUI(SkillBtn skillBtn)
+        {
+            secondarySkill = skillBtn;
+            var data = DataManager.Instance.equipmentContainer.GetEquipmentObject(secondaryWeapon.data.itemID);
+            skillBtn.icon.sprite = data.icon;
+            bool isRanged = secondaryWeapon is RangeWeapon;
+            secondarySkill.value.gameObject.SetActive(!isRanged);
+        }
+
+        public void UpdateSecondaryWeaponGUI()
+        {
+            if (secondaryWeapon == null) return;
+            if (secondaryWeapon is RangeWeapon)
+            {
+                RangeWeapon rangeWeapon = secondaryWeapon as RangeWeapon;
+                secondarySkill.value.text = rangeWeapon.GetDurability();
+                secondarySkill.fill.fillAmount = rangeWeapon.GetReloadNormalizedTime();
+            }
         }
     }
 }

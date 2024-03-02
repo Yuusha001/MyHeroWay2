@@ -1,18 +1,12 @@
 using MyHeroWay;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Utils.String;
 
-public class MagicStaffS : Weapon
+public class MagicStaffS : RangeWeapon
 {
-    public int numSpellCast;
-    private const int MaxSpell = 3;
     public bool canDoCombo;
-    private const float ReloadTime = 3; 
     [SerializeField]
     private int currentIndexMoveSet;
-    private float reloadTimer;
     public Vector2 posSpawn;
     public Vector2 sizeCollider;
     public Vector2 offsetCollider;
@@ -20,9 +14,7 @@ public class MagicStaffS : Weapon
     public override void Initialize(Controller controller)
     {
         base.Initialize(controller);
-        this.weaponType = EWeaponType.Staves;
-        numSpellCast = MaxSpell;
-        reloadTimer = 0;
+        this.weaponType = EWeaponType.Pole;
     }
 
     public override void OnEquip()
@@ -33,16 +25,6 @@ public class MagicStaffS : Weapon
     public override void OnUnEquip()
     {
         base.OnUnEquip();
-    }
-
-    public float GetDurability()
-    {
-        return (float)numSpellCast / (float)MaxSpell;
-    }
-
-    public float GetReloadNormalizedTime()
-    {
-        return reloadTimer / ReloadTime;
     }
 
     protected override void OnEvent(string obj)
@@ -80,11 +62,11 @@ public class MagicStaffS : Weapon
 
             Projectile p = FactoryObject.Spawn<Projectile>(StrManager.ProjectilePool, StrManager.ArrowGreenProjectile);
             p.transform.position = posSpawn;
-            numSpellCast--;
-            if (numSpellCast <= 0)
+            numProjectile--;
+            if (numProjectile <= 0)
             {
-                numSpellCast = 0;
-                reloadTimer = ReloadTime;
+                numProjectile = 0;
+                reloadTimer = coolDown;
             }
             p.Initialize(damageInfo);
             isActiveCombo = false;
@@ -106,7 +88,7 @@ public class MagicStaffS : Weapon
 
     public override void TriggerWeapon()
     {
-        if (numSpellCast <= 0) return;
+        if (numProjectile <= 0) return;
         if (canDoCombo)
         {
             currentIndexMoveSet++;
@@ -138,11 +120,11 @@ public class MagicStaffS : Weapon
     public override void OnUpdate()
     {
 
-        if (numSpellCast > 0) return;
+        if (numProjectile > 0) return;
         reloadTimer -= Time.deltaTime;
         if (reloadTimer <= 0)
         {
-            numSpellCast = MaxSpell;
+            numProjectile = totalProjectile;
         }
     }
 
