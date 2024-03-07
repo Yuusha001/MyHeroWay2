@@ -66,7 +66,7 @@ public class MagicStaffS : RangeWeapon
             if (numProjectile <= 0)
             {
                 numProjectile = 0;
-                reloadTimer = coolDown;
+                ReloadTimer = coolDown;
             }
             p.Initialize(damageInfo);
             isActiveCombo = false;
@@ -121,8 +121,8 @@ public class MagicStaffS : RangeWeapon
     {
 
         if (numProjectile > 0) return;
-        reloadTimer -= Time.deltaTime;
-        if (reloadTimer <= 0)
+        ReloadTimer -= Time.deltaTime;
+        if (ReloadTimer <= 0)
         {
             numProjectile = totalProjectile;
         }

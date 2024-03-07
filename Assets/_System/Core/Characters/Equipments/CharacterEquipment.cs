@@ -83,8 +83,7 @@ namespace MyHeroWay
             primarySkill = skillBtn;
             var data = DataManager.Instance.equipmentContainer.GetEquipmentObject(primaryWeapon.data.itemID);
             skillBtn.icon.sprite = data.icon;
-            bool isRanged = primaryWeapon is RangeWeapon;
-            primarySkill.value.gameObject.SetActive(!isRanged);
+            primarySkill.value.gameObject.SetActive(primaryWeapon is RangeWeapon);
 
         }
 
@@ -95,6 +94,8 @@ namespace MyHeroWay
             {
                 RangeWeapon rangeWeapon = primaryWeapon as RangeWeapon;
                 primarySkill.value.text = rangeWeapon.GetDurability();
+                primarySkill.OnCoolDown(rangeWeapon.numProjectile == 0);
+                primarySkill.coolDown.text = rangeWeapon.ReloadTimer.ToString("0.00");
                 primarySkill.fill.fillAmount = rangeWeapon.GetReloadNormalizedTime();
             }
         }
@@ -104,8 +105,7 @@ namespace MyHeroWay
             secondarySkill = skillBtn;
             var data = DataManager.Instance.equipmentContainer.GetEquipmentObject(secondaryWeapon.data.itemID);
             skillBtn.icon.sprite = data.icon;
-            bool isRanged = secondaryWeapon is RangeWeapon;
-            secondarySkill.value.gameObject.SetActive(!isRanged);
+            secondarySkill.value.gameObject.SetActive(secondaryWeapon is RangeWeapon);
         }
 
         public void UpdateSecondaryWeaponGUI()
@@ -115,6 +115,8 @@ namespace MyHeroWay
             {
                 RangeWeapon rangeWeapon = secondaryWeapon as RangeWeapon;
                 secondarySkill.value.text = rangeWeapon.GetDurability();
+                secondarySkill.OnCoolDown(rangeWeapon.numProjectile == 0);
+                secondarySkill.coolDown.text = rangeWeapon.ReloadTimer.ToString("0.00");
                 secondarySkill.fill.fillAmount = rangeWeapon.GetReloadNormalizedTime();
             }
         }

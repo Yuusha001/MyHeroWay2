@@ -5,8 +5,11 @@ namespace Utils.String
         #region Object Pooling
         public static readonly string ProjectilePool = "Projectile";
         public static readonly string VFXPool = "VFX";
+        public static readonly string UIPool = "UI";
         public static readonly string ArrowGreenProjectile = "arrow_green";
         public static readonly string ExpOrb = "exp_orb";
+        public static readonly string InventoryUI_Prefab = "InventorySlot";
+        public static readonly string InventoryStackUI_Prefab = "InventoryStackSlot";
         #endregion
 
         #region Animations

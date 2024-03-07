@@ -16,8 +16,8 @@ namespace MyHeroWay
         public EFacingDirection hitDirection { private set; get; }
         public EDamageSenderType damageSenderType { private set; get; }
         public EWeaponType weaponType { private set; get; }
-        public WeaponStats primaryWeaponStats { private set; get; }
-        public WeaponStats secondaryWeaponStats { private set; get; }
+        public WeaponStatsSO primaryWeaponStats { private set; get; }
+        public WeaponStatsSO secondaryWeaponStats { private set; get; }
         public SpellStats spellStats { private set; get; }
         public AudioClip impactSound { private set; get; }
 
@@ -38,7 +38,7 @@ namespace MyHeroWay
             this.force = moveSet.force;
         }
 
-        public void SetupWeaponData(EWeaponType weaponType, bool isPrimary ,WeaponStats primary, WeaponStats secondary = null)
+        public void SetupWeaponData(EWeaponType weaponType, bool isPrimary ,WeaponStatsSO primary, WeaponStatsSO secondary = null)
         {
             this.fromPrimary = isPrimary;
             this.weaponType = weaponType;

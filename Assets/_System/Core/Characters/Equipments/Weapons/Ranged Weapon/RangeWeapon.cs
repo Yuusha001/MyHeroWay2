@@ -4,18 +4,21 @@ namespace MyHeroWay
 {
     public class RangeWeapon : Weapon
     {
-        protected int numProjectile;
-        protected int totalProjectile;
+        public int numProjectile;
         protected float coolDown;
-        protected float reloadTimer;
+        protected int totalProjectile;
+        private float reloadTimer;
+
+        public float ReloadTimer { get => reloadTimer; protected set => reloadTimer = value; }
+
         public override void Initialize(Controller controller)
         {
             base.Initialize(controller);
-            RangeWeaponStats Stats = weaponStats as RangeWeaponStats;
+            RangeWeaponStatsSO Stats = weaponStats as RangeWeaponStatsSO;
             totalProjectile = Stats.totalProjectile;
             coolDown = Stats.coolDown;
             numProjectile = totalProjectile;
-            reloadTimer = 0;
+            ReloadTimer = 0;
         }
 
         public override void TriggerWeapon()
@@ -30,12 +33,12 @@ namespace MyHeroWay
 
         public string GetDurability()
         {
-            return $"{numProjectile} / {totalProjectile}";
+            return $"{numProjectile}/{totalProjectile}";
         }
 
         public float GetReloadNormalizedTime()
         {
-            return reloadTimer / coolDown;
+            return ReloadTimer / coolDown;
         }
     }
 }

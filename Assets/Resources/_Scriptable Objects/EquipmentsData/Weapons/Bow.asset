@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bow
   m_EditorClassIdentifier: 
   id: 1
-  prefab: {fileID: 4066351868622698981, guid: 036c99825aa399741b14bbcb8e7c509d, type: 3}
+  prefab: {fileID: 7391994606568606127, guid: 036c99825aa399741b14bbcb8e7c509d, type: 3}
   icon: {fileID: 21300000, guid: 06c4be605aeb2d948aefbd18bc83c8ac, type: 3}
   itemType: 0
   itemName: 

@@ -162,6 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aca6ddf2e63227469ad0968c0213571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  dataSO: {fileID: 11400000, guid: b95b635ef5bc424498d3cd8d17a0f581, type: 2}
   equipmentStats:
     level: 0
     health: 0
@@ -175,9 +177,10 @@ MonoBehaviour:
     critDamage: 0
     evasion: 0
   equipmentType: 0
-  data:
-    idInventory: 0
+  equipmentData:
+    inventoryID: 0
     itemID: 0
+    inventoryIndex: 0
     level: 0
     grade: 0
     gemChoice: 0
@@ -190,6 +193,7 @@ MonoBehaviour:
   weaponStats: {fileID: 11400000, guid: bc59e10d13cdd9b4898da5e00ade9011, type: 2}
   weaponType: 0
   controller: {fileID: 0}
+  numProjectile: 0
   posSpawn: {x: 0, y: 0}
   sizeCollider: {x: 1, y: 1}
   offsetCollider: {x: 0, y: 0.7}

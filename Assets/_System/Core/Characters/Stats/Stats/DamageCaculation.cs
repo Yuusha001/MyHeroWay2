@@ -26,7 +26,7 @@ namespace MyHeroWay.Damage
 
 
         #region Strength formula: swords, greatswords, spears, and crossbows.
-        static DamageResult GetDMG_TypeA(bool isCrittical, float random, WeaponStats weapon, CharacterStats attacker, CharacterStats reciver)
+        static DamageResult GetDMG_TypeA(bool isCrittical, float random, WeaponStatsSO weapon, CharacterStats attacker, CharacterStats reciver)
         {
             // DMG = [ATK x RANDOM(1~1.125) - DEF] x[1 + STR x(Lv + STR) / 256]
             var damage = (weapon.ATK * random - reciver.vitality) * (1 + attacker.strength * (attacker.level + attacker.strength) / 256);
@@ -39,7 +39,7 @@ namespace MyHeroWay.Damage
         #endregion
 
         #region Magick Power formula: katana and staves.
-        static DamageResult GetDMG_TypeB(bool isCrittical, float random, WeaponStats weapon, CharacterStats attacker, CharacterStats reciver)
+        static DamageResult GetDMG_TypeB(bool isCrittical, float random, WeaponStatsSO weapon, CharacterStats attacker, CharacterStats reciver)
         {
             //DMG = [ATK x RANDOM(1~1.125) - DEF] x [1 + STR x (Lv+MAG)/256]
             var damage = (weapon.ATK * random - reciver.vitality) * (1 + attacker.strength * (attacker.level + attacker.magicPower) / 256);
@@ -53,7 +53,7 @@ namespace MyHeroWay.Damage
         #endregion
 
         #region Vitality formula: axes, hammers
-        static DamageResult GetDMG_TypeC(bool isCrittical, float random, WeaponStats weapon, CharacterStats attacker, CharacterStats reciver)
+        static DamageResult GetDMG_TypeC(bool isCrittical, float random, WeaponStatsSO weapon, CharacterStats attacker, CharacterStats reciver)
         {
             //DMG = [ATK x RANDOM(0~1.111) - DEF] x [1 + STR x (Lv+VIT)/128]
             var damage = (weapon.ATK * random - reciver.vitality) * (1 + attacker.strength * (attacker.level + attacker.vitality) / 128);
@@ -66,7 +66,7 @@ namespace MyHeroWay.Damage
         #endregion
 
         #region Magic Defense formula: Poles 
-        static DamageResult GetDMG_TypeE(bool isCrittical, float random, WeaponStats weapon, CharacterStats attacker, CharacterStats reciver)
+        static DamageResult GetDMG_TypeE(bool isCrittical, float random, WeaponStatsSO weapon, CharacterStats attacker, CharacterStats reciver)
         {
             //DMG = [ATK x RANDOM(1~1.125) - MDEF] x [1 + STR x (Lv+STR)/256]
             var damage = (weapon.ATK * random - reciver.magicalDefense) * (1 + attacker.strength * (attacker.level + attacker.strength) / 256);
@@ -79,7 +79,7 @@ namespace MyHeroWay.Damage
         #endregion
 
         #region Speed formula: daggers, ninja swords, and bows
-        static DamageResult GetDMG_TypeD(bool isCrittical, float random, WeaponStats weapon, CharacterStats attacker, CharacterStats reciver)
+        static DamageResult GetDMG_TypeD(bool isCrittical, float random, WeaponStatsSO weapon, CharacterStats attacker, CharacterStats reciver)
         {
             //DMG = [ATK x RANDOM(1~1.125)]- DEF] x [1 + STR x (Lv+SPD)/218]
             var damage = (weapon.ATK * random - reciver.vitality) * (1 + attacker.strength * (attacker.level + attacker.speed) / 218);
@@ -92,7 +92,7 @@ namespace MyHeroWay.Damage
         #endregion
 
         #region Mace formula: mace
-        static DamageResult GetDMG_TypeF(bool isCrittical, float random, WeaponStats weapon, CharacterStats attacker, CharacterStats reciver)
+        static DamageResult GetDMG_TypeF(bool isCrittical, float random, WeaponStatsSO weapon, CharacterStats attacker, CharacterStats reciver)
         {
             //DMG = [ATK x RANDOM(1~1.125) - DEF] x [1 + MAG x (Lv+MAG)/256]    
             var damage = (weapon.ATK * random - reciver.vitality) * (1 + attacker.magicPower * (attacker.level + attacker.magicPower) / 256);
@@ -129,7 +129,7 @@ namespace MyHeroWay.Damage
         // Sword, Axe, Hammer, Spear, Pole, Staff = 10
         public static bool IsKnockBack(DamageInfo damageInfo, CharacterStats reciver)
         {
-            WeaponStats weaponStats = damageInfo.fromPrimary ? damageInfo.primaryWeaponStats : damageInfo.secondaryWeaponStats;
+            WeaponStatsSO weaponStats = damageInfo.fromPrimary ? damageInfo.primaryWeaponStats : damageInfo.secondaryWeaponStats;
             CharacterStats attacker = damageInfo.owner.runtimeStats;
             int rate = weaponStats.KnockBackChance + Random.Range(0, attacker.level) - Random.Range(0,reciver.level);
             return Random.Range(0,100) >= 100 - rate;
@@ -192,7 +192,7 @@ namespace MyHeroWay.Damage
 
         public static DamageResult GetDamageResult(DamageInfo damageInfo, CharacterStats reciver, bool isCrit, float random)
         {
-            WeaponStats weapon = damageInfo.fromPrimary ? damageInfo.primaryWeaponStats : damageInfo.secondaryWeaponStats;
+            WeaponStatsSO weapon = damageInfo.fromPrimary ? damageInfo.primaryWeaponStats : damageInfo.secondaryWeaponStats;
             CharacterStats attacker = damageInfo.owner.runtimeStats;
             
             switch (damageInfo.weaponType)

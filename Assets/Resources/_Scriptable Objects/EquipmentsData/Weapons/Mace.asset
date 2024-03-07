@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Mace
   m_EditorClassIdentifier: 
   id: 0
-  prefab: {fileID: 5481788746084036998, guid: 27b5c9273ed7ed6429ce8d9d9b8ae63f, type: 3}
+  prefab: {fileID: 6820224253081745435, guid: 27b5c9273ed7ed6429ce8d9d9b8ae63f, type: 3}
   icon: {fileID: 21300000, guid: 07397cbfc6defab48a01902a1193a76b, type: 3}
   itemType: 0
   itemName: 

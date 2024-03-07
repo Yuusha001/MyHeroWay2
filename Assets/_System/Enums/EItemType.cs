@@ -2,6 +2,6 @@ namespace MyHeroWay
 {
     public enum EItemType
     {
-        Equiment, Material, Useable
+        Equipment, Material, Useable
     }
 }

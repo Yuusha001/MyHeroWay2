@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 6360802855076838726}
   - component: {fileID: 2497487931380446284}
   m_Layer: 0
-  m_Name: MagicStaff
+  m_Name: Pole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -279,6 +279,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c23a592bb580144eb9d954a977beccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  dataSO: {fileID: 11400000, guid: cb4b7f2e1541e35438f7b0692625f045, type: 2}
   equipmentStats:
     level: 0
     health: 0
@@ -292,9 +294,10 @@ MonoBehaviour:
     critDamage: 0
     evasion: 0
   equipmentType: 0
-  data:
-    idInventory: 0
+  equipmentData:
+    inventoryID: 0
     itemID: 0
+    inventoryIndex: 0
     level: 0
     grade: 0
     gemChoice: 0
@@ -307,6 +310,7 @@ MonoBehaviour:
   weaponStats: {fileID: 11400000, guid: 52d07c9d0a4772a4c959419ffe2be26c, type: 2}
   weaponType: 0
   controller: {fileID: 0}
+  numProjectile: 0
   canDoCombo: 0
   currentIndexMoveSet: 0
   posSpawn: {x: 0, y: 0}

@@ -99,7 +99,7 @@ namespace MyHeroWay
 
         private void ItemBagHandler()
         {
-            throw new NotImplementedException();
+            PopupManager.Instance.ShowPopup<InventoryPopup>();
         }
 
         private void SettingHandler()

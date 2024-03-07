@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1837887742617716423
 MonoBehaviour:
@@ -129,6 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d5cb2f554e89fa4da6891671ab7b87c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
+  dataSO: {fileID: 11400000, guid: 5e65f21af4eea194aafafa0ad83eafc1, type: 2}
   equipmentStats:
     level: 0
     health: 0
@@ -141,19 +143,22 @@ MonoBehaviour:
     critRate: 0
     critDamage: 0
     evasion: 0
-    coolDown: 0
   equipmentType: 0
-  data:
-    idInventory: 0
+  equipmentData:
+    inventoryID: 0
     itemID: 0
+    inventoryIndex: 0
     level: 0
     grade: 0
     gemChoice: 0
     isGemChosen: 0
+  equipWeapon: 0
+  isPrimaryWeapon: 0
   attackRange: 1.5
   isActiveCombo: 0
   weaponMoveSets: {fileID: 11400000, guid: fe9640cf7c0c29540997391045933569, type: 2}
   weaponStats: {fileID: 11400000, guid: 24cfaa06dff70b1449860a8aa87ce13f, type: 2}
+  weaponType: 0
   controller: {fileID: 0}
   layerContact:
     serializedVersion: 2

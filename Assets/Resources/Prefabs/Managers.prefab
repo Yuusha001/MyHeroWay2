@@ -433,6 +433,7 @@ Transform:
   - {fileID: 7513677541932202133}
   - {fileID: 1910328245393491199}
   - {fileID: 4646923850737936552}
+  - {fileID: 5690131870137546951}
   m_Father: {fileID: 9013545242433399554}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -699,12 +700,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
+    inventoryData:
+      idItemDefine: 1
+      equipmentsOwned: []
+      materialOwned: []
     userLevel: 1
     userEXP: 0
   characterStatsBonus: {fileID: 11400000, guid: 76653539c2d29d24c8b94bf6916d1cac, type: 2}
   enemyDictionary: {fileID: 11400000, guid: 76fcb30f92535904aa22427343f20c35, type: 2}
   elementDictionary: {fileID: 11400000, guid: efdf032762ab3894abca21f3d3f00f87, type: 2}
   elementWeaponDictionary: {fileID: 11400000, guid: 64be180c2874d7143b6973bf5c7820e1, type: 2}
+  skillDictionary: {fileID: 11400000, guid: 696aa2c337de59b40b17b2ab9f887f5a, type: 2}
+  equipmentContainer: {fileID: 11400000, guid: 02e6b8a13ed27094eb5bd3ba05a95d1a, type: 2}
+  itemContainer: {fileID: 11400000, guid: d60b2400e5600ee4d9fb2a634201922a, type: 2}
   damageTextEff: {fileID: 2840826154658998479, guid: cb70a6cf0a4110d46b4c7f1379ed5395, type: 3}
   expTextEff: {fileID: 7726874037962207090, guid: 28ebe5ebce943384aa4d66a76cca021d, type: 3}
   healTextEff: {fileID: 0}
@@ -740,6 +748,86 @@ Transform:
   m_Father: {fileID: 9013545242433399554}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7038668478409823209
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5690131870137546951}
+  - component: {fileID: 6876413055773194530}
+  m_Layer: 0
+  m_Name: UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5690131870137546951
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7038668478409823209}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5582657336244438251}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6876413055773194530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7038668478409823209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59dfbc0f4f3a98b4ebf4ad40fc3f43aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolName: UI
+  matchPoolScale: 0
+  matchPoolLayer: 0
+  dontReparent: 0
+  _dontDestroyOnLoad: 0
+  logMessages: 0
+  _perPrefabPoolOptions:
+  - prefab: {fileID: 6579983744150913632, guid: 5ec95c690da76d24697093a0c4a25e2e, type: 3}
+    preloadAmount: 0
+    preloadTime: 0
+    preloadFrames: 0
+    preloadDelay: 0
+    limitInstances: 0
+    limitAmount: 0
+    limitFIFO: 0
+    cullDespawned: 0
+    cullAbove: 0
+    cullDelay: 0
+    cullMaxPerPass: 0
+    _logMessages: 0
+    spawnPool: {fileID: 6876413055773194530}
+  - prefab: {fileID: 6579983744150913632, guid: 0155806e6de4007479e9729bd12896e6, type: 3}
+    preloadAmount: 0
+    preloadTime: 0
+    preloadFrames: 0
+    preloadDelay: 0
+    limitInstances: 0
+    limitAmount: 0
+    limitFIFO: 0
+    cullDespawned: 0
+    cullAbove: 0
+    cullDelay: 0
+    cullMaxPerPass: 0
+    _logMessages: 0
+    spawnPool: {fileID: 6876413055773194530}
+  maxParticleDespawnTime: 300
 --- !u!1 &7193007463633969464
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,6 +1114,58 @@ MonoBehaviour:
     _logMessages: 0
     spawnPool: {fileID: 1977377156462575654}
   maxParticleDespawnTime: 300
+--- !u!1 &8809245559599311319
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2143151463768604164}
+  - component: {fileID: 4969175181154880178}
+  m_Layer: 0
+  m_Name: Inventory Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2143151463768604164
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8809245559599311319}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9013545242433399554}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4969175181154880178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8809245559599311319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa1a43bffeb44e4b8250f43a985223f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials: []
+  materialsDictionary:
+    m_Keys: []
+    m_Values: []
+  equipments: []
+  equipmentsDictionary:
+    m_Keys: []
+    m_Values: []
 --- !u!1 &9011079214865426130
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,6 +1201,7 @@ Transform:
   - {fileID: 5761383396506049980}
   - {fileID: 5822225231095208668}
   - {fileID: 8204751321433887772}
+  - {fileID: 2143151463768604164}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -17,8 +17,7 @@ namespace MyHeroWay
         }
         public virtual void Close()
         {
-            if (_onClosed != null)
-                _onClosed();
+            _onClosed?.Invoke();
             gameObject.SetActive(false);
         }
     }

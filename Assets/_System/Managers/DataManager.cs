@@ -24,6 +24,8 @@ public class DataManager : Singleton<DataManager>
     public SkillDictionary skillDictionary;
     [ReadOnly]
     public EquipmentContainer equipmentContainer;
+    [ReadOnly]
+    public ItemContainer itemContainer;
     [Foldout("Text Effect")]
     public DamageNumbersPro.DamageNumber damageTextEff;
     [Foldout("Text Effect")]
@@ -68,5 +70,22 @@ public class DataManager : Singleton<DataManager>
         data.userLevel = exp.CurrentLevel;
         SaveData();
         OnLevelEXP?.Invoke();
+    }
+
+    public void AddMaterial(MaterialData materialData)
+    {
+        var materials = data.inventoryData.materialOwned;
+        bool found = false;
+        foreach (var item in materials)
+        {
+            if (item.itemID == materialData.itemID)
+            {
+                item.stackSize++;
+                found = true;
+                break;
+            }
+        }
+        if (!found) materials.Add(materialData);
+        SaveData();
     }
 }

@@ -4,7 +4,7 @@ using NaughtyAttributes;
 
 namespace MyHeroWay
 {
-    [CreateAssetMenu(fileName = "EquipmentContainer", menuName = "Equipment/EquipmentContainer")]
+    [CreateAssetMenu(fileName = "EquipmentContainer", menuName = "Item/EquipmentContainer", order = 3)]
     public class EquipmentContainer : ScriptableObject
     {
         public EquipmentDataSO[] container;
@@ -19,6 +19,7 @@ namespace MyHeroWay
             for (int i = 0; i < container.Length; i++)
             {
                 container[i].id = i + 1;
+                container[i].prefab.data.itemID = i + 1;
             }
         }
     }

@@ -13,7 +13,7 @@ namespace MyHeroWay
         [Expandable]
         public WeaponMoveSets weaponMoveSets;
         [Expandable]
-        public WeaponStats weaponStats;
+        public WeaponStatsSO weaponStats;
         public EWeaponType weaponType;
         [SerializeField]
         protected Controller controller;

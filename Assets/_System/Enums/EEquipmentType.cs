@@ -2,7 +2,7 @@ namespace MyHeroWay
 {
     public enum EEquipmentType
     {
-        WEAPON, ARMOR, BOOTS, NECKLACE, RING, SKIN, ALL
+        WEAPON,HELMET, ARMOR,GAUNTLET, BOOTS, AMULET, RING, SKIN, ALL
     }
 
 }
