@@ -11,5 +11,7 @@ namespace MyHeroWay
         public string[] gradeSkillDesc;
         [ResizableTextArea]
         public string[] gradeSkillDescDefault;
+        [ShowAssetPreview]
+        public Sprite guiIcon;
     }
 }

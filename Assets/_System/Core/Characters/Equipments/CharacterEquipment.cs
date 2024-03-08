@@ -80,9 +80,10 @@ namespace MyHeroWay
 
         public void SetupPrimaryWeaponGUI(SkillBtn skillBtn)
         {
+            if (!primaryWeapon) return;
             primarySkill = skillBtn;
             var data = DataManager.Instance.equipmentContainer.GetEquipmentObject(primaryWeapon.data.itemID);
-            skillBtn.icon.sprite = data.icon;
+            skillBtn.icon.sprite = data.guiIcon;
             primarySkill.value.gameObject.SetActive(primaryWeapon is RangeWeapon);
 
         }
@@ -102,9 +103,10 @@ namespace MyHeroWay
 
         public void SetupSecondaryWeaponGUI(SkillBtn skillBtn)
         {
+            if (!secondaryWeapon) return;
             secondarySkill = skillBtn;
             var data = DataManager.Instance.equipmentContainer.GetEquipmentObject(secondaryWeapon.data.itemID);
-            skillBtn.icon.sprite = data.icon;
+            skillBtn.icon.sprite = data.guiIcon;
             secondarySkill.value.gameObject.SetActive(secondaryWeapon is RangeWeapon);
         }
 

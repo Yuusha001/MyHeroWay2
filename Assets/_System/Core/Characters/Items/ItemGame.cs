@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace MyHeroWay
@@ -6,6 +7,7 @@ namespace MyHeroWay
     {
         public EItemType itemType;
         public ItemData data;
+        [Expandable]
         public ItemDataSO dataSO;
     }
 }

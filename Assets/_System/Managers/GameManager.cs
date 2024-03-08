@@ -20,6 +20,7 @@ namespace MyHeroWay
             PlayerControlManager.Instance.Initialize();
             UIManager.Instance.Initialize(this);
             PopupManager.Instance.Initialize(this);
+            InventoryManager.Instance.Initialize(DataManager.Instance.data);
         }
 
         private void Start()
@@ -29,10 +30,12 @@ namespace MyHeroWay
 
         private void Update()
         {
+
         }
 
         private void FixedUpdate()
         {
+
         }
     }
 }

@@ -4,7 +4,6 @@ using UnityEngine;
 using MyHeroWay;
 using NaughtyAttributes;
 using System;
-using MyHeroWay.SciptableObject;
 
 public class DataManager : Singleton<DataManager>
 {
@@ -85,7 +84,20 @@ public class DataManager : Singleton<DataManager>
                 break;
             }
         }
-        if (!found) materials.Add(materialData);
+        if (!found)
+        {
+            materialData.inventoryIndex = materials.Count;
+            materials.Add(materialData);
+
+        }
+        SaveData();
+    }
+
+    public void AddEquipment(EquipmentData equipmentData)
+    {
+        var equipments = data.inventoryData.equipmentsOwned;
+        equipmentData.inventoryIndex = equipments.Count;
+        equipments.Add(equipmentData);
         SaveData();
     }
 }

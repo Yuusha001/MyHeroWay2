@@ -1,4 +1,3 @@
-using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,9 +23,6 @@ namespace MyHeroWay
         public void Initialize(ItemDataSO dataSO)
         {
             this.dataSO = dataSO;
-            this.data = new ItemData();
-            this.data.inventoryID = DataManager.Instance.data.inventoryData.idItemDefine;
-            this.data.itemID = dataSO.id;
             visual.sprite = dataSO.icon;
             shadow.sprite = dataSO.icon;
         }

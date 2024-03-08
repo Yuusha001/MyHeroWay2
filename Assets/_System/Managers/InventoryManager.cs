@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using PathologicalGames;
 using System;
 using System.Collections;
@@ -14,8 +15,9 @@ namespace MyHeroWay
         public List<InventoryStackSlot> materials;
         public SerializedDictionary<ItemDataSO, InventorySlot> materialsDictionary;
         public List<InventorySlot> equipments;
-        public SerializedDictionary<ItemDataSO, InventorySlot> equipmentsDictionary;
+        public SerializedDictionary<ItemDataSO, InventoryColection> equipmentsDictionary;
         public Action UpdateItemUI;
+        private UserData userData;
 
         protected override void Awake()
         {
@@ -23,18 +25,71 @@ namespace MyHeroWay
             materials = new List<InventoryStackSlot>();
             equipments = new List<InventorySlot>();
             materialsDictionary = new SerializedDictionary<ItemDataSO, InventorySlot>();
-            equipmentsDictionary = new SerializedDictionary<ItemDataSO, InventorySlot>();
+            equipmentsDictionary = new SerializedDictionary<ItemDataSO, InventoryColection>();
         }
+
+        public async void Initialize(UserData userData)
+        {
+            this.userData = userData;
+            List<UniTask> tasks = new List<UniTask>()
+            {
+                 Utils.Delay.DoAction(LoadMaterialsData, 0f),
+                 Utils.Delay.DoAction(LoadEquipmentsData, 0f)
+            };
+            await UniTask.WhenAll(tasks);
+            UpdateItemUI?.Invoke();
+        }
+
+        private void LoadMaterialsData()
+        {
+            var itemDataSO = DataManager.Instance.itemContainer;
+            foreach (var item in userData.inventoryData.materialOwned)
+            {
+                var key = itemDataSO.GetItemObject(item.itemID);
+                var value = new InventoryStackSlot(key);
+                value.ItemData = item;
+                value.stackSize = item.stackSize;
+                materialsDictionary.Add(key, value);
+                materials.Add(value);
+            }
+        }
+
+        private void LoadEquipmentsData()
+        {
+            var equipmentDataSO = DataManager.Instance.equipmentContainer;
+            foreach (var item in userData.inventoryData.equipmentsOwned)
+            {
+                var key = equipmentDataSO.GetEquipmentObject(item.itemID);
+                var data = new InventorySlot(key);
+                if (equipmentsDictionary.TryGetValue(key, out InventoryColection value))
+                {
+                    value.InventorySlots.Add(data);
+                }
+                else
+                {
+                    var collection = new InventoryColection();
+                    collection.InventorySlots.Add(data);
+                    equipmentsDictionary.Add(key, collection);
+                }
+                equipments.Add(data);
+            }
+        }
+
+
         public void AddItem(ItemGame item)
         {
             if (item.itemType is EItemType.Equipment)
             {
-
+                AddEquipment(item);
+                EquipmentData equipment = new EquipmentData(item.dataSO.id);
+                equipment.inventoryID = DataManager.Instance.data.inventoryData.idItemDefine;
+                DataManager.Instance.AddEquipment(equipment);
             }
             if (item.itemType is EItemType.Material)
             {
                 AddMaterial(item);
-                MaterialData material = item.data as MaterialData;
+                MaterialData material = new MaterialData(item.dataSO.id);
+                material.inventoryID = DataManager.Instance.data.inventoryData.idItemDefine;
                 DataManager.Instance.AddMaterial(material);
             }
             UpdateItem();
@@ -99,16 +154,17 @@ namespace MyHeroWay
 
         public void AddEquipment(ItemGame item)
         {
-            if (materialsDictionary.TryGetValue(item.dataSO, out InventorySlot equipment))
+            InventorySlot inventorySlot = new InventorySlot(item.dataSO);
+            equipments.Add(inventorySlot);
+            if (equipmentsDictionary.TryGetValue(item.dataSO, out InventoryColection listEquipments))
             {
-
+                listEquipments.InventorySlots.Add(inventorySlot);
             }
             else
             {
-                /*InventoryStackSlot newItem = new InventoryStackSlot();
-                materials.Add(newItem);
-                materialsDictionary.Add(item, newItem);*/
-
+                InventoryColection colection = new InventoryColection();
+                colection.InventorySlots.Add(inventorySlot);
+                equipmentsDictionary.Add(item.dataSO, colection);
             }
         }
 
@@ -148,7 +204,5 @@ namespace MyHeroWay
             owner.Remove(inventory);
             FactoryObject.Despawn(StrManager.UIPool, inventory.transform, PoolManager.Pools[StrManager.UIPool].transform);
         }
-
-       
     }
 }

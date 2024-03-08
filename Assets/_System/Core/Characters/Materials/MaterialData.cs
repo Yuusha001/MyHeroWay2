@@ -5,8 +5,6 @@ namespace MyHeroWay
     {
         public int stackSize;
         public int inventoryIndex;
-
-
         public MaterialData(int itemID)
         {
             this.itemID = itemID;
