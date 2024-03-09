@@ -16,6 +16,7 @@ namespace MyHeroWay
         {
             base.Initialize(popupManager, onClosed);
             bag.Initialize(this);
+            equipmentInfoUI.Initialize(this);
             
         }
         public override void Show()

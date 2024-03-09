@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   prefab: {fileID: 6820224253081745435, guid: 27b5c9273ed7ed6429ce8d9d9b8ae63f, type: 3}
-  icon: {fileID: 21300000, guid: 07397cbfc6defab48a01902a1193a76b, type: 3}
+  icon: {fileID: 1433836713, guid: 5441c1c6e4ae2ce4a9cd515d32badb7b, type: 3}
   itemType: 0
-  itemName: 
+  itemName: Mace
   description: 
   equipmentType: 0
   gradeSkillDesc: []
   gradeSkillDescDefault: []
+  guiIcon: {fileID: 21300000, guid: 07397cbfc6defab48a01902a1193a76b, type: 3}

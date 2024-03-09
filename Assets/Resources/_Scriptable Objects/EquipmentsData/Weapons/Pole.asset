@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f21ffa8d044643145b98fb9bf63b6c03, type: 3}
   m_Name: Pole
   m_EditorClassIdentifier: 
-  id: 0
+  id: 5
   prefab: {fileID: 2497487931380446284, guid: e5006f354358af14dbb9715f7497f8a4, type: 3}
-  icon: {fileID: 21300000, guid: 3d8fc75868167c84592b594d37eabfe5, type: 3}
+  icon: {fileID: -521305191, guid: 5441c1c6e4ae2ce4a9cd515d32badb7b, type: 3}
   itemType: 0
   itemName: 
   description: 
   equipmentType: 0
   gradeSkillDesc: []
   gradeSkillDescDefault: []
+  guiIcon: {fileID: 21300000, guid: 3d8fc75868167c84592b594d37eabfe5, type: 3}

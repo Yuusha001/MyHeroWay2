@@ -8,9 +8,9 @@ namespace MyHeroWay
         public Weapon primaryWeapon;
         public Weapon secondaryWeapon;
         [Header("Items")]
-        /*public Armor currentArmor;
+       /* public Armor currentArmor;
         public Boots currentBoots;
-        public Necklace currentNecklace;
+        public Amulet currentAmulet;
         public Ring currentRing;*/
         [SerializeField]
         private Controller controller;
