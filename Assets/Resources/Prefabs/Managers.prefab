@@ -471,7 +471,7 @@ Transform:
   - {fileID: 7361968086131531723}
   - {fileID: 8541507208026041219}
   - {fileID: 5390539675262767599}
-  m_Father: {fileID: 9013545242433399554}
+  m_Father: {fileID: 2231662507494170295}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3876058548870390469
@@ -704,6 +704,9 @@ MonoBehaviour:
       idItemDefine: 1
       equipmentsOwned: []
       materialOwned: []
+    mapData:
+      currentMap: 1
+      currentPos: {x: -6.5, y: -2}
     userLevel: 1
     userEXP: 0
   characterStatsBonus: {fileID: 11400000, guid: 76653539c2d29d24c8b94bf6916d1cac, type: 2}
@@ -739,13 +742,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5959429568042922590}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3194714152806174407}
-  m_Father: {fileID: 9013545242433399554}
+  m_Father: {fileID: 2231662507494170295}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7038668478409823209
@@ -1166,6 +1169,55 @@ MonoBehaviour:
   equipmentsDictionary:
     m_Keys: []
     m_Values: []
+--- !u!1 &8977272470131038783
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2231662507494170295}
+  - component: {fileID: 6347527263195367285}
+  m_Layer: 0
+  m_Name: Maps Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2231662507494170295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8977272470131038783}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5822225231095208668}
+  - {fileID: 8930887718788656894}
+  m_Father: {fileID: 9013545242433399554}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6347527263195367285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8977272470131038783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0241596ac10c934fa263790a93a4f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previusMap: 0
+  currentMap: 0
+  mapGames: []
 --- !u!1 &9011079214865426130
 GameObject:
   m_ObjectHideFlags: 0
@@ -1194,16 +1246,15 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8204751321433887772}
   - {fileID: 7097128065689837258}
   - {fileID: 5582657336244438251}
   - {fileID: 2341476688869331131}
-  - {fileID: 8930887718788656894}
   - {fileID: 5761383396506049980}
-  - {fileID: 5822225231095208668}
-  - {fileID: 8204751321433887772}
   - {fileID: 2143151463768604164}
+  - {fileID: 2231662507494170295}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &792252845177021960
 PrefabInstance:

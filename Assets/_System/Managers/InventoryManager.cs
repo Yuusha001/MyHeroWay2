@@ -7,6 +7,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering;
 using Utils.String;
+using Utils;
 
 namespace MyHeroWay
 {
@@ -33,45 +34,62 @@ namespace MyHeroWay
             this.userData = userData;
             List<UniTask> tasks = new List<UniTask>()
             {
-                 Utils.Delay.DoAction(LoadMaterialsData, 0f),
-                 Utils.Delay.DoAction(LoadEquipmentsData, 0f)
+                 LoadMaterialsData(),
+                 LoadEquipmentsData()
             };
             await UniTask.WhenAll(tasks);
             UpdateItemUI?.Invoke();
         }
 
-        private void LoadMaterialsData()
+        private async UniTask LoadMaterialsData()
         {
             var itemDataSO = DataManager.Instance.itemContainer;
-            foreach (var item in userData.inventoryData.materialOwned)
+            var materialOwned = userData.inventoryData.materialOwned;
+            if (materialOwned.Count == 0)
+                return;
+
+
+            foreach (var item in materialOwned)
             {
-                var key = itemDataSO.GetItemObject(item.itemID);
-                var value = new InventoryStackSlot(key);
-                value.ItemData = item;
-                value.stackSize = item.stackSize;
-                materialsDictionary.Add(key, value);
-                materials.Add(value);
+                var key = await Delay.DoAction(() => itemDataSO.GetItemObject(item.itemID));
+                if (key != null)
+                {
+                    var value = new InventoryStackSlot(key);
+                    value.ItemData = item;
+                    value.stackSize = item.stackSize;
+                    materialsDictionary.Add(key, value);
+                    materials.Add(value);
+                }
+
             }
         }
 
-        private void LoadEquipmentsData()
+        private async UniTask LoadEquipmentsData()
         {
             var equipmentDataSO = DataManager.Instance.equipmentContainer;
-            foreach (var item in userData.inventoryData.equipmentsOwned)
+            var equipmentsOwned = userData.inventoryData.equipmentsOwned;
+            if (equipmentsOwned.Count == 0)
+                return;
+
+            foreach (var item in equipmentsOwned)
             {
-                var key = equipmentDataSO.GetEquipmentObject(item.itemID);
-                var data = new InventorySlot(key);
-                if (equipmentsDictionary.TryGetValue(key, out InventoryColection value))
+                var key = await Delay.DoAction(() => equipmentDataSO.GetEquipmentObject(item.itemID));
+                if (key != null)
                 {
-                    value.InventorySlots.Add(data);
+                    var data = new InventorySlot(key);
+                    if (equipmentsDictionary.TryGetValue(key, out InventoryColection value))
+                    {
+                        value.InventorySlots.Add(data);
+                    }
+                    else
+                    {
+                        var collection = new InventoryColection();
+                        collection.InventorySlots.Add(data);
+                        equipmentsDictionary.Add(key, collection);
+                    }
+                    equipments.Add(data);
                 }
-                else
-                {
-                    var collection = new InventoryColection();
-                    collection.InventorySlots.Add(data);
-                    equipmentsDictionary.Add(key, collection);
-                }
-                equipments.Add(data);
+
             }
         }
 

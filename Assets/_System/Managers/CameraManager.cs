@@ -8,7 +8,7 @@ namespace MyHeroWay
     public class CameraManager : Singleton<CameraManager>
     {
         public CinemachineImpulseSource _impulseSource;
-
+        public CinemachineConfiner2D mapBorder;
         private void Start()
         {
             PlayerControlManager.Instance.playerController.GetCombat().OnGetHit += ShakeScreen;

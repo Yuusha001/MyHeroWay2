@@ -14,13 +14,18 @@ namespace MyHeroWay
         public static Combat playerCombat;
         [Header("Flags Status")]
         public bool isDead;
+        public bool initialized;
+        public Transform MiniMap;
 
         private void Update()
         {
+            if (!initialized) return;
             playerController.UpdateScript();
+            UpdateMiniMap();
         }
         private void FixedUpdate()
         {
+            if (!initialized) return;
             playerController.FixedUpdateScript();
         }
 
@@ -36,6 +41,7 @@ namespace MyHeroWay
             selfCollider = GetComponent<Collider2D>();
             playerController.Initialize(this);
             playerCombat = playerController.GetCombat();
+            initialized = true;
         }
         public void PlayerDie()
         {
@@ -60,6 +66,27 @@ namespace MyHeroWay
         public void OnResume()
         {
             playerController.Resume();
+        }
+
+        private void UpdateMiniMap()
+        {
+            switch (playerController.GetMovement().facingDirection)
+            {
+                case EFacingDirection.DOWN:
+                    MiniMap.transform.eulerAngles = new Vector3(0, 0, 180);
+                    break;
+                case EFacingDirection.LEFT:
+                    MiniMap.transform.eulerAngles = new Vector3(0, 0, 90);
+                    break;
+                case EFacingDirection.RIGHT:
+                    MiniMap.transform.eulerAngles = new Vector3(0, 0, -90);
+                    break;
+                case EFacingDirection.UP:
+                    MiniMap.transform.eulerAngles = Vector3.zero;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

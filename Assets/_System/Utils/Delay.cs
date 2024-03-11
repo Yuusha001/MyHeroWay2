@@ -15,15 +15,14 @@ namespace Utils
         private static IEnumerator CoAction(System.Action action, float delay)
         {
             yield return new WaitForSecondsRealtime(delay);
-            if (action != null)
-                action();
+            action?.Invoke();
+
         }
 
         public static async UniTask DoAction(System.Action action, float delay)
         {
             await UniTask.WaitForSeconds(delay);
-            if (action != null)
-                action?.Invoke();
+            action?.Invoke();
         }
 
         public static CancellationToken RefreshToken(ref CancellationTokenSource tokenSource)
@@ -32,6 +31,12 @@ namespace Utils
             tokenSource?.Dispose();
             tokenSource = new CancellationTokenSource();
             return tokenSource.Token;
+        }
+
+        public static async UniTask<T> DoAction<T>(System.Func<T> action, float delay = 0)
+        {
+            await UniTask.WaitForSeconds(delay);
+            return action();
         }
     }
 }

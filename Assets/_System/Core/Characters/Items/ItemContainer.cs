@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Linq;
 using NaughtyAttributes;
 
 namespace MyHeroWay
@@ -10,7 +9,12 @@ namespace MyHeroWay
         public ItemDataSO[] container;
         public ItemDataSO GetItemObject(int id)
         {
-            return container.FirstOrDefault(container => container.id == id);
+            foreach (var item in container)
+            {
+                if (item.id == id)
+                    return item;
+            }
+            return null;
         }
 
         [Button("GenerateID")]

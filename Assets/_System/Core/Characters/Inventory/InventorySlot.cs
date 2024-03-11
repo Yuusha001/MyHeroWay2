@@ -12,7 +12,7 @@ namespace MyHeroWay
         {
             this.ItemDataSO = data;
             this.ItemData = new ItemData();
-            this.ItemData.itemID = data.id;
+            this.ItemData.itemID = data.id; 
             this.ItemData.inventoryID = DataManager.Instance.data.inventoryData.idItemDefine;
         }
     }

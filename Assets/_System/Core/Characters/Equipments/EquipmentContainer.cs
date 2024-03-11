@@ -10,7 +10,14 @@ namespace MyHeroWay
         public EquipmentDataSO[] container;
         public EquipmentDataSO GetEquipmentObject(int id)
         {
-            return container.FirstOrDefault(container => container.id == id);
+            foreach (var item in container)
+            {
+                if (item.id == id)
+                {
+                    return item;
+                }
+            }
+            return null;
         }
 
         [Button("GenerateID")]
