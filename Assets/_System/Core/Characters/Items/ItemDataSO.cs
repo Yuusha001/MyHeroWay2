@@ -12,7 +12,7 @@ namespace MyHeroWay
         public Sprite icon;
         public EItemType itemType;
         public string itemName;
-        [ResizableTextArea]
+        [TextArea(0, 5), ResizableTextArea]
         public string description;
     }
 }

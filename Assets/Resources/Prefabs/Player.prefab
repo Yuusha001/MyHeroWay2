@@ -1580,6 +1580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36ac2a8a13ddfad4ea43810f25a0d12c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponHolder: {fileID: 0}
   primaryWeapon: {fileID: 9128689017559328964}
   secondaryWeapon: {fileID: 2140553884006142284}
   controller: {fileID: 0}

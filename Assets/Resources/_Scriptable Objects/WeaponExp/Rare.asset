@@ -1,0 +1,256 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3380ac5019b40e24c8d177cca10684e4, type: 3}
+  m_Name: Rare
+  m_EditorClassIdentifier: 
+  weaponRarity: 1
+  expEntries:
+  - level: 1
+    expToNext: 50
+    totalExp: 0
+  - level: 2
+    expToNext: 80
+    totalExp: 50
+  - level: 3
+    expToNext: 140
+    totalExp: 130
+  - level: 4
+    expToNext: 210
+    totalExp: 270
+  - level: 5
+    expToNext: 300
+    totalExp: 480
+  - level: 6
+    expToNext: 400
+    totalExp: 780
+  - level: 7
+    expToNext: 510
+    totalExp: 1180
+  - level: 8
+    expToNext: 640
+    totalExp: 1690
+  - level: 9
+    expToNext: 780
+    totalExp: 2330
+  - level: 10
+    expToNext: 930
+    totalExp: 3110
+  - level: 11
+    expToNext: 1090
+    totalExp: 4040
+  - level: 12
+    expToNext: 1260
+    totalExp: 5130
+  - level: 13
+    expToNext: 1460
+    totalExp: 6390
+  - level: 14
+    expToNext: 1650
+    totalExp: 7850
+  - level: 15
+    expToNext: 1860
+    totalExp: 9500
+  - level: 16
+    expToNext: 2080
+    totalExp: 11360
+  - level: 17
+    expToNext: 2300
+    totalExp: 13440
+  - level: 18
+    expToNext: 2540
+    totalExp: 15740
+  - level: 19
+    expToNext: 2790
+    totalExp: 18280
+  - level: 20
+    expToNext: 2900
+    totalExp: 21070
+  - level: 21
+    expToNext: 3010
+    totalExp: 23970
+  - level: 22
+    expToNext: 3130
+    totalExp: 26980
+  - level: 23
+    expToNext: 3240
+    totalExp: 30110
+  - level: 24
+    expToNext: 3360
+    totalExp: 33350
+  - level: 25
+    expToNext: 3490
+    totalExp: 36710
+  - level: 26
+    expToNext: 3610
+    totalExp: 40200
+  - level: 27
+    expToNext: 3740
+    totalExp: 43810
+  - level: 28
+    expToNext: 3860
+    totalExp: 47550
+  - level: 29
+    expToNext: 3990
+    totalExp: 51410
+  - level: 30
+    expToNext: 4130
+    totalExp: 55400
+  - level: 31
+    expToNext: 4260
+    totalExp: 59530
+  - level: 32
+    expToNext: 4400
+    totalExp: 63790
+  - level: 33
+    expToNext: 4540
+    totalExp: 68190
+  - level: 34
+    expToNext: 4680
+    totalExp: 72730
+  - level: 35
+    expToNext: 4820
+    totalExp: 77410
+  - level: 36
+    expToNext: 4970
+    totalExp: 82230
+  - level: 37
+    expToNext: 5110
+    totalExp: 87200
+  - level: 38
+    expToNext: 5260
+    totalExp: 92310
+  - level: 39
+    expToNext: 5410
+    totalExp: 97570
+  - level: 40
+    expToNext: 5560
+    totalExp: 102980
+  - level: 41
+    expToNext: 6100
+    totalExp: 108540
+  - level: 42
+    expToNext: 6450
+    totalExp: 114640
+  - level: 43
+    expToNext: 6810
+    totalExp: 121090
+  - level: 44
+    expToNext: 7180
+    totalExp: 127900
+  - level: 45
+    expToNext: 7550
+    totalExp: 135080
+  - level: 46
+    expToNext: 7930
+    totalExp: 142630
+  - level: 47
+    expToNext: 8310
+    totalExp: 150560
+  - level: 48
+    expToNext: 8710
+    totalExp: 158870
+  - level: 49
+    expToNext: 9110
+    totalExp: 167580
+  - level: 50
+    expToNext: 9520
+    totalExp: 176690
+  - level: 51
+    expToNext: 9940
+    totalExp: 186210
+  - level: 52
+    expToNext: 10350
+    totalExp: 196150
+  - level: 53
+    expToNext: 10780
+    totalExp: 206500
+  - level: 54
+    expToNext: 11220
+    totalExp: 217280
+  - level: 55
+    expToNext: 11660
+    totalExp: 228500
+  - level: 56
+    expToNext: 12110
+    totalExp: 240160
+  - level: 57
+    expToNext: 12570
+    totalExp: 252270
+  - level: 58
+    expToNext: 13030
+    totalExp: 264840
+  - level: 59
+    expToNext: 13500
+    totalExp: 277870
+  - level: 60
+    expToNext: 13980
+    totalExp: 291370
+  - level: 61
+    expToNext: 14630
+    totalExp: 305350
+  - level: 62
+    expToNext: 15420
+    totalExp: 319980
+  - level: 63
+    expToNext: 16210
+    totalExp: 335400
+  - level: 64
+    expToNext: 17010
+    totalExp: 351610
+  - level: 65
+    expToNext: 17830
+    totalExp: 368620
+  - level: 66
+    expToNext: 18660
+    totalExp: 386450
+  - level: 67
+    expToNext: 19500
+    totalExp: 405110
+  - level: 68
+    expToNext: 20350
+    totalExp: 424610
+  - level: 69
+    expToNext: 21220
+    totalExp: 444960
+  - level: 70
+    expToNext: 22100
+    totalExp: 466180
+  - level: 71
+    expToNext: 24650
+    totalExp: 488280
+  - level: 72
+    expToNext: 26970
+    totalExp: 512930
+  - level: 73
+    expToNext: 29330
+    totalExp: 539900
+  - level: 74
+    expToNext: 31720
+    totalExp: 569230
+  - level: 75
+    expToNext: 34140
+    totalExp: 600950
+  - level: 76
+    expToNext: 36600
+    totalExp: 635090
+  - level: 77
+    expToNext: 39100
+    totalExp: 671690
+  - level: 78
+    expToNext: 41620
+    totalExp: 710790
+  - level: 79
+    expToNext: 44180
+    totalExp: 752410
+  - level: 80
+    expToNext: 0
+    totalExp: 796590

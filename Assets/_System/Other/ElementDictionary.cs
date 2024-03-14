@@ -1,10 +1,12 @@
 using MyHeroWay;
+using NaughtyAttributes;
 using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ElementDictionary", menuName = "ElementDictionary", order = 3)]
 public class ElementDictionary : ScriptableObject
 {
+    [ReadOnly]
     public ElementType[] data;
 
     public Sprite GetSprite(EElementType type)

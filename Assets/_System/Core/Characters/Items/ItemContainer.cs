@@ -17,6 +17,18 @@ namespace MyHeroWay
             return null;
         }
 
+        public EnhancementItemSO GetEnhancementItemObejct(int id)
+        {
+            foreach (var item in container)
+            {
+                if (item.id == id)
+                {
+                    return item as EnhancementItemSO;
+                }
+            }
+            return null;
+        }
+
         [Button("GenerateID")]
         private void GenerateID()
         {

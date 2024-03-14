@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8beaccb67514d744d8386743e5f6dbc1, type: 3}
+  m_Name: Wanderer's Wisdom
+  m_EditorClassIdentifier: 
+  id: 0
+  prefab: {fileID: 3358393924727770356, guid: 36a93efae0a7b324da6de4eec9fe53d6, type: 3}
+  icon: {fileID: 1329754704, guid: 5441c1c6e4ae2ce4a9cd515d32badb7b, type: 3}
+  itemType: 2
+  itemName: Wanderer's Wisdom
+  description: The Wanderer's Wisdom is not merely a tangible measure of growth but
+    a reflection of the trials and triumphs that shape the soul of a hero. It embodies
+    the lessons learned, the battles won, and the sacrifices made in pursuit of greatness.
+    As it accumulates, it becomes a beacon of resilience, a testament to the indomitable
+    spirit of those who dare to journey into the unknown. Each point of Wanderer's
+    Wisdom is a chapter in the epic saga of an individual's evolution from novice
+    to legend, forever etched in the annals of time.
+  elementType: 0
+  enhancementItemType: 0
+  value: 500

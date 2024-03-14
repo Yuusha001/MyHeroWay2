@@ -17,13 +17,13 @@ MonoBehaviour:
     icon: {fileID: 1869764658, guid: b8aaaa2d5dbcfd947897574f7b325d8a, type: 3}
   - element: 2
     icon: {fileID: 1182774726, guid: b8aaaa2d5dbcfd947897574f7b325d8a, type: 3}
-  - element: 3
-    icon: {fileID: -161491854, guid: b8aaaa2d5dbcfd947897574f7b325d8a, type: 3}
   - element: 4
+    icon: {fileID: -161491854, guid: b8aaaa2d5dbcfd947897574f7b325d8a, type: 3}
+  - element: 8
     icon: {fileID: 1943768519, guid: b8aaaa2d5dbcfd947897574f7b325d8a, type: 3}
-  - element: 5
+  - element: 16
     icon: {fileID: 766712336, guid: b8aaaa2d5dbcfd947897574f7b325d8a, type: 3}
-  - element: 6
+  - element: 32
     icon: {fileID: 903950395, guid: b8aaaa2d5dbcfd947897574f7b325d8a, type: 3}
-  - element: 7
+  - element: 64
     icon: {fileID: -2130719118, guid: b8aaaa2d5dbcfd947897574f7b325d8a, type: 3}

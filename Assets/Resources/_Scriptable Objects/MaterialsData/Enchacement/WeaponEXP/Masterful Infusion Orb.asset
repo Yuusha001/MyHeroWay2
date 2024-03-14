@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8beaccb67514d744d8386743e5f6dbc1, type: 3}
+  m_Name: Masterful Infusion Orb
+  m_EditorClassIdentifier: 
+  id: 0
+  prefab: {fileID: 3358393924727770356, guid: 36a93efae0a7b324da6de4eec9fe53d6, type: 3}
+  icon: {fileID: 1996594504, guid: 84a1fbf57c7320346b570fc75b6a9ee3, type: 3}
+  itemType: 2
+  itemName: Masterful Infusion Orb
+  description: Behold the Masterful Infusion Orb, a radiant sphere ablaze with the
+    brilliance of a celestial dawn. Within its incandescent heart, the very fabric
+    of magic intertwines, awaiting release. When united with a weapon, it channels
+    the infinite energies of creation, forging legends with every empowered blow,
+    and marking the wielder as a master of their craft.
+  elementType: 0
+  enhancementItemType: 1
+  value: 7500

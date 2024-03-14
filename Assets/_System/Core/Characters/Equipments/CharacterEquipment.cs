@@ -4,7 +4,9 @@ namespace MyHeroWay
 {
     public class CharacterEquipment : MonoBehaviour
     {
+
         [Header("Weapon")]
+        public Transform weaponHolder;
         public Weapon primaryWeapon;
         public Weapon secondaryWeapon;
         [Header("Items")]

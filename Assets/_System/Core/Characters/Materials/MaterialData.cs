@@ -4,7 +4,6 @@ namespace MyHeroWay
     public class MaterialData : ItemData
     {
         public int stackSize;
-        public int inventoryIndex;
         public MaterialData(int itemID)
         {
             this.itemID = itemID;
@@ -16,6 +15,13 @@ namespace MyHeroWay
             this.itemID = materialData.itemID;
             this.inventoryID = materialData.inventoryID;
             this.stackSize = materialData.stackSize;
+        }
+        public void AddStack() => stackSize++;
+        public void RemoveStack() => stackSize--;
+
+        public void RemoveStack(int stack)
+        {
+            stackSize -= stack;
         }
     }
 }

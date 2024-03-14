@@ -220,6 +220,7 @@ MonoBehaviour:
   data:
     inventoryID: 0
     itemID: 0
+    inventoryIndex: 0
   dataSO: {fileID: 11400000, guid: a52aae2d4ddc9a14698333065342ecf0, type: 2}
   isDrop: 1
   visual: {fileID: 7414502574203116525}

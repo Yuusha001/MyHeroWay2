@@ -6,11 +6,11 @@ namespace MyHeroWay
     [CreateAssetMenu(fileName = "EquipmentData", menuName = "Item/EquipmentData", order = 1)]
     public class EquipmentDataSO : ItemDataSO
     {
+        public EEquipmentRarity equipmentRarity;
         public EEquipmentType equipmentType;
-        [ResizableTextArea]
+        public EElementType equipmentElementType;
+        [TextArea(0, 3), ResizableTextArea]
         public string[] gradeSkillDesc;
-        [ResizableTextArea]
-        public string[] gradeSkillDescDefault;
         [ShowAssetPreview]
         public Sprite guiIcon;
     }

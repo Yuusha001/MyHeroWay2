@@ -24,6 +24,8 @@ public class DataManager : Singleton<DataManager>
     [ReadOnly]
     public EquipmentContainer equipmentContainer;
     [ReadOnly]
+    public EquipmentExpDictionary equipmentExpContainer;
+    [ReadOnly]
     public ItemContainer itemContainer;
     [Foldout("Text Effect")]
     public DamageNumbersPro.DamageNumber damageTextEff;

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8beaccb67514d744d8386743e5f6dbc1, type: 3}
+  m_Name: Journeyman Arcane Core
+  m_EditorClassIdentifier: 
+  id: 0
+  prefab: {fileID: 3358393924727770356, guid: 36a93efae0a7b324da6de4eec9fe53d6, type: 3}
+  icon: {fileID: -952730302, guid: 84a1fbf57c7320346b570fc75b6a9ee3, type: 3}
+  itemType: 2
+  itemName: Journeyman Arcane Core
+  description: Enter the realm of the arcane with the Journeyman Arcane Core, a pulsating
+    orb teeming with raw magical energy. Within its ethereal embrace lies the essence
+    of arcane mastery, waiting to be unleashed. As it melds with a weapon, it awakens
+    the dormant potential within, guiding heroes along the perilous path to destiny
+    with each empowered strike.
+  elementType: 0
+  enhancementItemType: 1
+  value: 4500

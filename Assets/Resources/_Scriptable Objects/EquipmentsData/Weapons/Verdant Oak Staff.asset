@@ -10,15 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f21ffa8d044643145b98fb9bf63b6c03, type: 3}
-  m_Name: Pole
+  m_Name: Verdant Oak Staff
   m_EditorClassIdentifier: 
   id: 5
   prefab: {fileID: 2497487931380446284, guid: e5006f354358af14dbb9715f7497f8a4, type: 3}
   icon: {fileID: -521305191, guid: 5441c1c6e4ae2ce4a9cd515d32badb7b, type: 3}
   itemType: 0
-  itemName: 
-  description: 
+  itemName: Verdant Oak Staff
+  description: Fashioned from the heart of a sacred oak, the Verdant Oak Staff exudes
+    the essence of nature's resilience. Its smooth, unadorned surface belies its
+    strength and purpose. Atop its sturdy length, a subtle green hue emanates, hinting
+    at the latent power within. As a conduit for druidic energies, it stands ready
+    to channel the forces of growth and vitality, nurturing life and warding off
+    darkness.
+  equipmentRarity: 0
   equipmentType: 0
-  gradeSkillDesc: []
-  gradeSkillDescDefault: []
+  gradeSkillDesc:
+  - 
+  - 
+  - 
+  - 
+  - 
   guiIcon: {fileID: 21300000, guid: 3d8fc75868167c84592b594d37eabfe5, type: 3}

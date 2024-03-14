@@ -77,6 +77,7 @@ namespace MyHeroWay
                 if (key != null)
                 {
                     var data = new InventorySlot(key);
+                    data.ItemData = item;
                     if (equipmentsDictionary.TryGetValue(key, out InventoryColection value))
                     {
                         value.InventorySlots.Add(data);
@@ -142,7 +143,6 @@ namespace MyHeroWay
             {
                 var stack = material as InventoryStackSlot;
                 stack.AddStack();
-
             }
             else
             {

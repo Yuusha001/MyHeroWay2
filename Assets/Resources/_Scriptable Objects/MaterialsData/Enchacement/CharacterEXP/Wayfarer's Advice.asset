@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8beaccb67514d744d8386743e5f6dbc1, type: 3}
+  m_Name: Wayfarer's Advice
+  m_EditorClassIdentifier: 
+  id: 0
+  prefab: {fileID: 3358393924727770356, guid: 36a93efae0a7b324da6de4eec9fe53d6, type: 3}
+  icon: {fileID: -1638344675, guid: 5441c1c6e4ae2ce4a9cd515d32badb7b, type: 3}
+  itemType: 2
+  itemName: Wayfarer's Advice
+  description: Wayfarer's Advice embodies the accumulated wisdom and practical knowledge
+    gained through the wanderer's journey. It serves as a compass guiding adventurers
+    through the twists and turns of the world, offering insights gleaned from diverse
+    experiences. Each point of Wayfarer's Advice represents a nugget of wisdom, a
+    lesson learned, or a piece of invaluable advice, empowering the traveler to navigate
+    the complexities of their quest with confidence and foresight.
+  elementType: 0
+  enhancementItemType: 0
+  value: 100

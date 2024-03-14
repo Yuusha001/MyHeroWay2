@@ -5,5 +5,6 @@ namespace MyHeroWay
     {
         public int inventoryID;
         public int itemID;
+        public int inventoryIndex;
     }
 }

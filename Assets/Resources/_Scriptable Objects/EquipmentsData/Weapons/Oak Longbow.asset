@@ -10,15 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f21ffa8d044643145b98fb9bf63b6c03, type: 3}
-  m_Name: Bow
+  m_Name: Oak Longbow
   m_EditorClassIdentifier: 
   id: 1
   prefab: {fileID: 7391994606568606127, guid: 036c99825aa399741b14bbcb8e7c509d, type: 3}
   icon: {fileID: 792144232, guid: 5441c1c6e4ae2ce4a9cd515d32badb7b, type: 3}
   itemType: 0
-  itemName: Bow
-  description: 
+  itemName: Oak Longbow
+  description: Crafted from sturdy oak, this longbow boasts simplicity and deadly
+    accuracy. Its polished wood is adorned with nature-themed carvings, while its
+    resilient string whispers readiness with each draw. With a comfortable leather
+    grip, it promises lethal precision in the hands of a skilled archer.
+  equipmentRarity: 0
   equipmentType: 0
-  gradeSkillDesc: []
-  gradeSkillDescDefault: []
+  equipmentElementType: 0
+  gradeSkillDesc:
+  - ATK +15
+  - CRIT +5%
+  - x
+  - x
+  - x
   guiIcon: {fileID: 21300000, guid: 06c4be605aeb2d948aefbd18bc83c8ac, type: 3}

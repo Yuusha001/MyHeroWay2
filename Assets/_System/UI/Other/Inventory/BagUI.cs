@@ -119,7 +119,7 @@ namespace MyHeroWay
             {
                 if (equipmentSlots[i].Inventory != null)
                 {
-                    if (equipmentSlots[i].EquipmentData.equipmentType != equipmentType)
+                    if (equipmentSlots[i].EquipmentDataSO.equipmentType != equipmentType)
                     {
                         equipmentSlots[i].gameObject.SetActive(false);
                     }
@@ -151,7 +151,7 @@ namespace MyHeroWay
             }
         }
 
-        private void SetNavigation(int num)
+        public void SetNavigation(int num)
         {
             GearBtn.transform.GetChild(0).GetComponent<Image>().DOFade(num == 0 ? 1 : 0, 0.2f);
             ItemBtn.transform.GetChild(0).GetComponent<Image>().DOFade(num == 1 ? 1 : 0, 0.2f);

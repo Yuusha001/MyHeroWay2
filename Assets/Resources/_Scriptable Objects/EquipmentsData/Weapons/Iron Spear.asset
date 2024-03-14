@@ -10,15 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f21ffa8d044643145b98fb9bf63b6c03, type: 3}
-  m_Name: Spear
+  m_Name: Iron Spear
   m_EditorClassIdentifier: 
   id: 4
   prefab: {fileID: 2679661555674660746, guid: 8e08fe0e87ddc3343a3e6598cd83ef67, type: 3}
   icon: {fileID: -1763140067, guid: 5441c1c6e4ae2ce4a9cd515d32badb7b, type: 3}
   itemType: 0
-  itemName: 
-  description: 
+  itemName: Iron Spear
+  description: Crafted from durable iron, this spear embodies simplicity and versatility.
+    Its sleek design promises lethal precision in thrusting attacks, while the sturdy
+    shaft offers stability and control. With a sharpened steel tip, it is a reliable
+    weapon for piercing armor or fending off adversaries, favored by both soldiers
+    and hunters alike.
+  equipmentRarity: 0
   equipmentType: 0
-  gradeSkillDesc: []
-  gradeSkillDescDefault: []
+  gradeSkillDesc:
+  - 
+  - 
+  - 
+  - 
+  - 
   guiIcon: {fileID: 21300000, guid: 52064d80aaa441a41be2f952cd6cd3de, type: 3}
