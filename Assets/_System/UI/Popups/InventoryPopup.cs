@@ -25,6 +25,7 @@ namespace MyHeroWay
             _popupManager.ShowPopup<TopbarPopup>().title.text = "Inventory";
             _popupManager.ShowPopup<NavigationPopup>();
             equipmentInfoUI.Hide();
+            equipmentUpgradeUI.Hide();
 
         }
     }

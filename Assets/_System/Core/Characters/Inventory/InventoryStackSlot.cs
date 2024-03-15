@@ -13,6 +13,13 @@ namespace MyHeroWay
             this.ItemData = ItemDataSO.prefab.data;
         }
 
+        public InventoryStackSlot(ItemGame item) : base(item)
+        {
+            this.stackSize = 1;
+            this.ItemDataSO = item.dataSO;
+            this.ItemData = item.data;
+        }
+
         public void AddStack() => stackSize++;
         public void RemoveStack() => stackSize--;
     }

@@ -73,7 +73,7 @@ public class DataManager : Singleton<DataManager>
         OnLevelEXP?.Invoke();
     }
 
-    public void AddMaterial(MaterialData materialData)
+    public MaterialData AddMaterial(MaterialData materialData)
     {
         var materials = data.inventoryData.materialOwned;
         bool found = false;
@@ -94,6 +94,7 @@ public class DataManager : Singleton<DataManager>
 
         }
         SaveData();
+        return materialData;
     }
 
     public void RemoveMaterial(MaterialData materialData, int stack)

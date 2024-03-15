@@ -51,6 +51,8 @@ namespace MyHeroWay
                 nextExp = DataManager.Instance.equipmentExpContainer.GetWeaponExp(EquipmentDataSO.equipmentRarity).GetEXP(EquipmentData.level + 1);
                 if (EquipmentData.CanLimitBreak())
                 {
+                    DataManager.Instance.SaveData();
+                    callback?.Invoke();
                     EquipmentData.exp = 0;
                     break;
                 }

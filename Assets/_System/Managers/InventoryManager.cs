@@ -109,7 +109,7 @@ namespace MyHeroWay
             {
                 AddMaterial(item);
                 MaterialData material = new MaterialData(item.dataSO.id);
-                DataManager.Instance.AddMaterial(material);
+                item.data = DataManager.Instance.AddMaterial(material);
             }
             UpdateItem();
         }
@@ -146,7 +146,7 @@ namespace MyHeroWay
             }
             else
             {
-                InventoryStackSlot newItem = new InventoryStackSlot(item.dataSO);
+                InventoryStackSlot newItem = new InventoryStackSlot(item);
                 materials.Add(newItem);
                 materialsDictionary.Add(item.dataSO, newItem);
 

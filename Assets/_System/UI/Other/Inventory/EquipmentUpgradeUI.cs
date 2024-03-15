@@ -52,6 +52,11 @@ namespace MyHeroWay
         {
             this.gameObject.SetActive(false);
             this.transform.DOLocalMoveX(150, 0.3f);
+            enchanceItems.Clear();
+            foreach (var item in enchanceSlotUIs)
+            {
+                item.Remove();
+            }
         }
 
         private async void HandleEnhane()
@@ -113,7 +118,11 @@ namespace MyHeroWay
                     if (exp >= diffEXP)
                     {
                         DataManager.Instance.RemoveMaterial(enchanceItems[i].MaterialData, stack);
-                        InventoryManager.Instance.RemoveInventoryStackUI(enchanceItems[i], inventoryPopup.bag.materialSlots);
+                        if (enchanceItems[i].MaterialData.stackSize == 0)
+                        {
+                            InventoryManager.Instance.RemoveInventoryStackUI(enchanceItems[i], inventoryPopup.bag.materialSlots);
+                        }
+                        InventoryManager.Instance.UpdateItem();
                         UpdateEnchanceSlot();
                         return exp;
                     }
