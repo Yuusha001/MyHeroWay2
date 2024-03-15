@@ -2,6 +2,7 @@ using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Cinemachine.DocumentationSortingAttribute;
 
 namespace MyHeroWay
 {
@@ -29,6 +30,30 @@ namespace MyHeroWay
                 if (expEntries[i].level == level)
                 {
                     return expEntries[i].expToNext;
+                }
+            }
+            return -1;
+        }
+
+        public int GetTotalEXP(int level)
+        {
+            for (int i = 0; i < expEntries.Count; i++)
+            {
+                if (expEntries[i].level == level)
+                {
+                    return expEntries[i].totalExp;
+                }
+            }
+            return -1;
+        }
+
+        public int GetLimitBreakEXP(int grade)
+        {
+            for (int i = 0; i < expEntries.Count; i++)
+            {
+                if (expEntries[i].level == grade*20)
+                {
+                    return expEntries[i].totalExp;
                 }
             }
             return -1;

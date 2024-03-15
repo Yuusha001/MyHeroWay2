@@ -99,16 +99,16 @@ namespace MyHeroWay
         {
             if (item.itemType is EItemType.Equipment)
             {
-                AddEquipment(item);
                 EquipmentData equipment = new EquipmentData(item.dataSO.id);
-                equipment.inventoryID = DataManager.Instance.data.inventoryData.idItemDefine;
-                DataManager.Instance.AddEquipment(equipment);
+                item.data = DataManager.Instance.AddEquipment(equipment);
+                AddEquipment(item);
+
+
             }
             if (item.itemType is EItemType.Material)
             {
                 AddMaterial(item);
                 MaterialData material = new MaterialData(item.dataSO.id);
-                material.inventoryID = DataManager.Instance.data.inventoryData.idItemDefine;
                 DataManager.Instance.AddMaterial(material);
             }
             UpdateItem();
@@ -172,7 +172,7 @@ namespace MyHeroWay
 
         public void AddEquipment(ItemGame item)
         {
-            InventorySlot inventorySlot = new InventorySlot(item.dataSO);
+            InventorySlot inventorySlot = new InventorySlot(item);
             equipments.Add(inventorySlot);
             if (equipmentsDictionary.TryGetValue(item.dataSO, out InventoryColection listEquipments))
             {

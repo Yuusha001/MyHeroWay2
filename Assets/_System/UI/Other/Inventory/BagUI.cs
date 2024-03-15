@@ -70,7 +70,7 @@ namespace MyHeroWay
 
         public void Refresh()
         {
-            
+
             RefeshEquipments();
             RefreshMaterials();
             /*equippingUI.Refresh();
@@ -93,7 +93,7 @@ namespace MyHeroWay
             }
             for (int i = 0; i < materialSlots.Count; i++)
             {
-                materialSlots[i].Initialize(listItems[i]);
+                materialSlots[i].Initialize(inventoryPopup, listItems[i]);
             }
         }
 
@@ -106,10 +106,10 @@ namespace MyHeroWay
             }
             for (int i = 0; i < equipmentSlots.Count; i++)
             {
-                equipmentSlots[i].Initialize(listItems[i]);
+                equipmentSlots[i].Initialize(inventoryPopup, listItems[i]);
                 equipmentSlots[i].gameObject.SetActive(i < listItems.Count);
             }
-            
+
         }
 
         private void SelectTypeEquipment(EEquipmentType equipmentType)

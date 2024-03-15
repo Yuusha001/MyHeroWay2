@@ -18,6 +18,7 @@ namespace MyHeroWay
         private void OnValidate()
         {
             Initialize(dataSO);
+            this.name = dataSO.name;
         }
 
         public void Initialize(ItemDataSO dataSO)

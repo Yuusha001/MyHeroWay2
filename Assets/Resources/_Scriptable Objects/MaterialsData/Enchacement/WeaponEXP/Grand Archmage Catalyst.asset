@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 0
   prefab: {fileID: 3358393924727770356, guid: 36a93efae0a7b324da6de4eec9fe53d6, type: 3}
   icon: {fileID: 571475285, guid: 84a1fbf57c7320346b570fc75b6a9ee3, type: 3}
-  itemType: 2
+  itemType: 3
   itemName: Grand Archmage Catalyst
   description: Witness the Grand Archmage Catalyst, a crystalline marvel suffused
     with divine radiance. Its surface shimmers with iridescent light, bearing the

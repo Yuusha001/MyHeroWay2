@@ -10,9 +10,11 @@ namespace MyHeroWay
 {
     public class InventorySlotUI : MonoBehaviour, IPointerDownHandler
     {
+        private InventoryPopup inventoryPopup;
+
         public bool isEquipmentSlot;
         public Image icon;
-        public GameObject equip;    
+        public GameObject equip;
         private InventorySlot inventory;
 
         public InventorySlot Inventory { get => inventory; private set => inventory = value; }
@@ -24,8 +26,9 @@ namespace MyHeroWay
             ShowInfo();
         }
 
-        public void Initialize(InventorySlot inventorySlot)
+        public void Initialize(InventoryPopup inventoryPopup, InventorySlot inventorySlot)
         {
+            this.inventoryPopup = inventoryPopup;
             this.Inventory = inventorySlot;
             icon.sprite = Inventory.ItemDataSO.icon;
             equip.gameObject.SetActive(isEquipmentSlot);
@@ -35,17 +38,35 @@ namespace MyHeroWay
 
         private void ShowInfo()
         {
-            PopupManager.Instance.GetPopup<InventoryPopup>().equipmentInfoUI.ShowInfo(this);
+            inventoryPopup.equipmentInfoUI.ShowInfo(this);
+            inventoryPopup.equipmentUpgradeUI.SetInfo(this);
         }
 
         public async UniTask EnchanceAsync(int totalExp, System.Action callback)
         {
-            int nextExp = await Utils.Delay.DoAction(() =>
-                DataManager.Instance.equipmentExpContainer.GetWeaponExp(EquipmentDataSO.equipmentRarity).GetEXP(EquipmentData.level + 1)
-            );
+            int nextExp = DataManager.Instance.equipmentExpContainer.GetWeaponExp(EquipmentDataSO.equipmentRarity).GetEXP(EquipmentData.level + 1);
             EquipmentData.Enchance(totalExp, nextExp);
-            DataManager.Instance.SaveData();
-            callback?.Invoke();
+            while (true)
+            {
+                nextExp = DataManager.Instance.equipmentExpContainer.GetWeaponExp(EquipmentDataSO.equipmentRarity).GetEXP(EquipmentData.level + 1);
+                if (EquipmentData.CanLimitBreak())
+                {
+                    EquipmentData.exp = 0;
+                    break;
+                }
+                
+                if (EquipmentData.exp > nextExp)
+                {
+                    EquipmentData.Enchance(0, nextExp);
+                    DataManager.Instance.SaveData();
+                    callback?.Invoke();
+                }
+                else
+                {
+                    break;
+                }
+                await UniTask.WaitForSeconds(0.2f);
+            }
         }
     }
 }

@@ -17,13 +17,15 @@ namespace MyHeroWay
             base.Initialize(popupManager, onClosed);
             bag.Initialize(this);
             equipmentInfoUI.Initialize(this);
-            
+            equipmentUpgradeUI.Initialize(this);
         }
         public override void Show()
         {
             base.Show();
             _popupManager.ShowPopup<TopbarPopup>().title.text = "Inventory";
             _popupManager.ShowPopup<NavigationPopup>();
+            equipmentInfoUI.Hide();
+
         }
     }
 }

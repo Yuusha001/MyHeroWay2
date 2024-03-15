@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 0
   prefab: {fileID: 3358393924727770356, guid: 36a93efae0a7b324da6de4eec9fe53d6, type: 3}
   icon: {fileID: 657350212, guid: 5441c1c6e4ae2ce4a9cd515d32badb7b, type: 3}
-  itemType: 2
+  itemType: 3
   itemName: Hero's Chronicle
   description: "The Hero's Chronicle is more than just a collection of stories\u2014it's
     a compendium of valor, bravery, and legendary deeds. Within its pages lie the

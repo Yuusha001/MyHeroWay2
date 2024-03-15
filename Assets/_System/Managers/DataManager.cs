@@ -88,6 +88,7 @@ public class DataManager : Singleton<DataManager>
         }
         if (!found)
         {
+            materialData.inventoryID = data.inventoryData.idItemDefine;
             materialData.inventoryIndex = materials.Count;
             materials.Add(materialData);
 
@@ -95,11 +96,46 @@ public class DataManager : Singleton<DataManager>
         SaveData();
     }
 
-    public void AddEquipment(EquipmentData equipmentData)
+    public void RemoveMaterial(MaterialData materialData, int stack)
+    {
+        var materials = data.inventoryData.materialOwned;
+        foreach (var item in materials)
+        {
+            if (item.itemID == materialData.itemID)
+            {
+                item.RemoveStack(stack);
+                if (item.stackSize == 0)
+                    materials.Remove(item);
+                break;
+            }
+        }
+        SaveData();
+    }
+
+    public void RemoveMaterial(MaterialData materialData)
+    {
+        var materials = data.inventoryData.materialOwned;
+        foreach (var item in materials)
+        {
+            if (item.itemID == materialData.itemID)
+            {
+                item.RemoveStack();
+                if (item.stackSize == 0)
+                    materials.Remove(item);
+                break;
+            }
+        }
+        SaveData();
+    }
+
+
+    public EquipmentData AddEquipment(EquipmentData equipmentData)
     {
         var equipments = data.inventoryData.equipmentsOwned;
+        equipmentData.inventoryID = data.inventoryData.idItemDefine;
         equipmentData.inventoryIndex = equipments.Count;
         equipments.Add(equipmentData);
         SaveData();
+        return equipmentData;
     }
 }

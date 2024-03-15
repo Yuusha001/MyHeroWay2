@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 0
   prefab: {fileID: 3358393924727770356, guid: 36a93efae0a7b324da6de4eec9fe53d6, type: 3}
   icon: {fileID: 1329754704, guid: 5441c1c6e4ae2ce4a9cd515d32badb7b, type: 3}
-  itemType: 2
+  itemType: 3
   itemName: Wanderer's Wisdom
   description: The Wanderer's Wisdom is not merely a tangible measure of growth but
     a reflection of the trials and triumphs that shape the soul of a hero. It embodies

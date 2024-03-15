@@ -16,13 +16,6 @@ namespace MyHeroWay
         private EquipmentData equipmentData;
         private EquipmentDataSO equipmentDataSO;
 
-        [BoxGroup("Result"), ReadOnly]
-        public Transform equipmentResult;
-        [BoxGroup("Result"), ReadOnly]
-        public Button confirmBtn;
-        [BoxGroup("Result"), ReadOnly]
-        public Text resultTitleTxt;
-
         [BoxGroup("Info"), ReadOnly]
         public Button enhanceBtn;
         [BoxGroup("Info"), ReadOnly]
@@ -47,23 +40,17 @@ namespace MyHeroWay
         public Color lockedStats;
         [BoxGroup("Stats Info"), ReadOnly]
         public Text[] stats;
-        [BoxGroup("Enchance"), ReadOnly]
-        public Button[] enchanceItemBtns;
-
-        public Stack<MaterialData> enchanceItems;
-
         public void Initialize(InventoryPopup _inventoryPopup)
         {
             this.inventoryPopup = _inventoryPopup;
-            enhanceBtn.onClick.AddListener(() =>
-            {
-                equipmentResult.DOLocalMoveX(400, 0.3f);
-            });
-            confirmBtn.onClick.AddListener(HandleEnhane);
-            foreach (var item in enchanceItemBtns)
-            {
-                item.onClick.AddListener(() => inventoryPopup.bag.SetNavigation(1));
-            }
+            enhanceBtn.onClick.AddListener(() => inventoryPopup.equipmentUpgradeUI.Show());
+            this.gameObject.SetActive(false);
+
+        }
+
+        public void Hide()
+        {
+            this.gameObject.SetActive(false);
         }
 
         public void ShowInfo(InventorySlotUI inventorySlotUI)
@@ -100,7 +87,7 @@ namespace MyHeroWay
 
         }
 
-        private async void UpdateLevel()
+        public async void UpdateLevel()
         {
             levelTxt.text = $"Lv {equipmentData.level}/{equipmentData.grade * 20}";
             int nextExp = await Utils.Delay.DoAction(() =>
@@ -110,7 +97,7 @@ namespace MyHeroWay
         }
 
 
-        private void UpdateGrades()
+        public void UpdateGrades()
         {
             for (int i = 0; i < grades.Length; i++)
             {
@@ -118,60 +105,12 @@ namespace MyHeroWay
             }
         }
 
-        private void UpdateStats()
+        public void UpdateStats()
         {
             for (int i = 0; i < stats.Length; i++)
             {
                 stats[i].color = i < equipmentData.grade ? unlockStats : lockedStats;
             }
-        }
-
-        public void AddEnchanceMaterial()
-        {
-
-        }
-
-        private async void HandleEnhane()
-        {
-            if (!equipmentData.CanEnchance()) return;
-            int EXP = GetExpbyMaterials();
-            await inventorySlotUI.EnchanceAsync(EXP, () =>
-            {
-                if (equipmentData.CanLimitBreak())
-                {
-                    resultTitleTxt.text = "Limit Break";
-                }
-                else
-                {
-                    resultTitleTxt.text = "Enchance";
-                }
-            });
-            UpdateLevel();
-            UpdateGrades();
-            UpdateStats();
-        }
-
-        private int GetExpbyMaterials()
-        {
-            int nextExp = DataManager.Instance.equipmentExpContainer.GetWeaponExp(equipmentDataSO.equipmentRarity).GetEXP(equipmentData.level + 1);
-            int exp = 0;
-            int stack = 0;
-            foreach (var item in enchanceItems)
-            {
-                int itemEXP = DataManager.Instance.itemContainer.GetEnhancementItemObejct(item.itemID).value;
-                for (int i = 0; i < item.stackSize; i++)
-                {
-                    exp += itemEXP;
-                    stack++;
-                    if (exp > nextExp)
-                    {
-                        item.RemoveStack(stack);
-                        return exp;
-                    }
-                }
-                item.RemoveStack(stack);
-            }
-            return exp;
         }
     }
 }

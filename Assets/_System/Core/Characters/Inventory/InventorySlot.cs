@@ -15,6 +15,12 @@ namespace MyHeroWay
             this.ItemData.itemID = data.id; 
             this.ItemData.inventoryID = DataManager.Instance.data.inventoryData.idItemDefine;
         }
+
+        public InventorySlot(ItemGame item)
+        {
+            this.ItemDataSO = item.dataSO;
+            this.ItemData = item.data;
+        }
     }
 
     [System.Serializable]

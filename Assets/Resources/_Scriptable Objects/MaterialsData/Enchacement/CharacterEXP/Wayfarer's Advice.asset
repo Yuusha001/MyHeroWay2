@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 0
   prefab: {fileID: 3358393924727770356, guid: 36a93efae0a7b324da6de4eec9fe53d6, type: 3}
   icon: {fileID: -1638344675, guid: 5441c1c6e4ae2ce4a9cd515d32badb7b, type: 3}
-  itemType: 2
+  itemType: 3
   itemName: Wayfarer's Advice
   description: Wayfarer's Advice embodies the accumulated wisdom and practical knowledge
     gained through the wanderer's journey. It serves as a compass guiding adventurers

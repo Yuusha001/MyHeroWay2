@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 0
   prefab: {fileID: 3358393924727770356, guid: 36a93efae0a7b324da6de4eec9fe53d6, type: 3}
   icon: {fileID: -952730302, guid: 84a1fbf57c7320346b570fc75b6a9ee3, type: 3}
-  itemType: 2
+  itemType: 3
   itemName: Journeyman Arcane Core
   description: Enter the realm of the arcane with the Journeyman Arcane Core, a pulsating
     orb teeming with raw magical energy. Within its ethereal embrace lies the essence
