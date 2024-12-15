@@ -20,7 +20,7 @@ Central Story Theme: The new Hero reborn
 Design Pillar: Fantasy world with sword and magic
 Remarkability: 
 
-Anticipated Steam Early Access Launch date: End of 2024
+Anticipated Steam Early Access Launch date: End of 2024 (Failed)
 
 Feature Development Priorities:
 Real-time combat with tons of different enemies to smash  
